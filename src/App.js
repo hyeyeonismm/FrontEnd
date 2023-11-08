@@ -3,6 +3,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {createGlobalStyle} from "styled-components";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Main from "./pages/Main";
 
 const GlobalStyle = createGlobalStyle`
  body {
@@ -24,6 +25,7 @@ function App() {
       <GlobalStyle />
       <div className="layout">
         <Routes>
+          <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
