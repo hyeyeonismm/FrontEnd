@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // GitHub 저장소에서 소스 코드 체크아웃
-                git branch: 'deployTest', url: 'https://github.com/shinhanInternProject/FrontEnd.git
+                git branch: 'deployTest', url: 'https://github.com/shinhanInternProject/FrontEnd.git'
                 
             }
         }
