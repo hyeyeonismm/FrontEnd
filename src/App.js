@@ -4,7 +4,8 @@ import {createGlobalStyle} from "styled-components";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Main from "./pages/Main";
-import Consumption from "./pages/Consumption";
+import Card from "./pages/Card";
+import Stock from "./pages/Stock";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -31,7 +32,8 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/consumption" element={<Consumption />} />
+          <Route path="/card" element={<Card />} />
+          <Route path="/stock" element={<Stock />} />
         </Routes>
       </div>
     </BrowserRouter>
