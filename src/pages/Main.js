@@ -1,36 +1,16 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import OnbordingSlide from "../components/OnbordingSlide";
-import register from "../images/main_sol.png";
+import register from "../images/mainSol.png";
+import { useNavigate } from "react-router-dom";
 import {Grid, Button, TextField, styled} from "@mui/material";
 
 function Main(){
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const navigate = useNavigate();
 
-    const handleNextSlide = () => {
-        // Logic to go to the next slide
-        setCurrentSlide(currentSlide + 1);
+    const handleButtonClick = () => {
+        navigate("/login")
       };
-
-    const slides = [
-        {
-            image : register, 
-            title : 'register', 
-            description : 'first'
-        },
-        {
-            image : register, 
-            title : 'register', 
-            description : 'se'
-        },
-        {
-            image : register, 
-            title : 'register', 
-            description : 'th'
-        }
-    ]
-
-
 
 
     return(
@@ -44,17 +24,14 @@ function Main(){
 
             <Grid>
                 <Line />
-                {/* <img style={{display: "block", margin: "20%"}} src={register} alt="register" /> */}
                 <OnbordingSlide/>
             </Grid>
-            
 
             <Grid sx={{display: "flex", justifyContent: "center", padding: "40px 0px"}}>
-                <StartButton>시작하기</StartButton>
+                <StartButton onClick={handleButtonClick} >시작하기</StartButton>
             </Grid>
 
             
-           
         </div>
         </>
     )

@@ -4,8 +4,10 @@ import {createGlobalStyle} from "styled-components";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Main from "./pages/Main";
+import Consumption from "./pages/Consumption";
 
 const GlobalStyle = createGlobalStyle`
+
  body {
   letter-spacing: -0.1px;
   background-color: #000000;
@@ -17,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     max-height: 700px;
     background-color: white;
     margin: 0 auto;
+    
 }
 `;
 function App() {
@@ -28,6 +31,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/consumption" element={<Consumption />} />
         </Routes>
       </div>
     </BrowserRouter>
