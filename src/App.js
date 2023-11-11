@@ -14,9 +14,9 @@ const GlobalStyle = createGlobalStyle`
 
 .layout{
     max-width: 390px;
+    max-height: 700px;
     background-color: white;
     margin: 0 auto;
-    min-height:100vh;
 }
 `;
 function App() {
