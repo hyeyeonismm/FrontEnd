@@ -12,7 +12,7 @@ function Signup() {
   };
 
   const onClickStart = () => {
-    navigate('/');
+    navigate('/main');
   };
   return (
     <>
