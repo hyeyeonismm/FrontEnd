@@ -4,7 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
 import Start from './pages/Start.js';
-import Shareholder from './pages/Shareholder.js';
+import Shareholder from './pages/Stock.js';
 import Main from './pages/Main';
 import Card from './pages/Card';
 import Stock from './pages/Stock';
