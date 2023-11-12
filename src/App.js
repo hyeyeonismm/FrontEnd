@@ -1,11 +1,13 @@
-import React from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {createGlobalStyle} from "styled-components";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Main from "./pages/Main";
-import Card from "./pages/Card";
-import Stock from "./pages/Stock";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
+import Login from './pages/Login.js';
+import Signup from './pages/Signup.js';
+import Start from './pages/Start.js';
+import Shareholder from './pages/Shareholder.js';
+import Main from './pages/Main';
+import Card from './pages/Card';
+import Stock from './pages/Stock';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -29,9 +31,10 @@ function App() {
       <GlobalStyle />
       <div className="layout">
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Start />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/shareholder" element={<Shareholder />} />
           <Route path="/card" element={<Card />} />
           <Route path="/stock" element={<Stock />} />
         </Routes>
