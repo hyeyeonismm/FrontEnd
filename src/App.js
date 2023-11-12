@@ -3,11 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
-import Start from './pages/Start.js';
-import Shareholder from './pages/Stock.js';
-import Main from './pages/Main';
+import Main from './pages/Main.js';
 import Card from './pages/Card';
 import Stock from './pages/Stock';
+import Onboarding from './pages/Onboarding.js';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -31,10 +30,10 @@ function App() {
       <GlobalStyle />
       <div className="layout">
         <Routes>
-          <Route path="/" element={<Start />} />
+          <Route path="/" element={<Onboarding />} />
+          <Route path="/main" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/shareholder" element={<Shareholder />} />
           <Route path="/card" element={<Card />} />
           <Route path="/stock" element={<Stock />} />
         </Routes>
