@@ -102,6 +102,35 @@ const styles = {
     gap: 10,
     justifyContent: 'space-around',
   },
+  //소비 페이지
+  cardConsumption : {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "343px",
+    height: "100px",
+    borderRadius: "25px",
+    background: "#1D449B",
+    margin: "25px"
+  },
+  cardDescription :{
+    marginTop:"35px",
+    marginLeft: "35px",
+    fontSize: "18px",
+    fontWeight: 900,
+    lineHeight: "24px",
+    letterSpacing: "0.1px"
+  },
+  cardAmount :{
+    position: "absolute",
+    top: "280px",
+    left: "300px",
+    fontSize: "25px",
+    fontWeight: 900,
+    lineHeight: "24px",
+    letterSpacing: "0.1px",
+    color:"white"
+  }
+
 };
 
 export const StyledGrid = styled(Grid)(({ theme }) => ({

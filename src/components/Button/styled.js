@@ -54,6 +54,24 @@ const styles = {
       background: '#88BDE7',
     },
   },
+
+  // 소비 페이지
+  detailBtn: {
+    position: "absolute",
+    cursor: "pointer",
+    top: "275px",
+    left: "480px",
+    textAlign: "center",
+    background: "white",
+    color: "#88bde7",
+    borderRadius: "20px",
+    boxShadow: "0px 2px 4px 1px rgba(0, 0, 0, 0.25)",
+    width: "85px",
+    height: "40px",
+    fontSize: "16px",
+    fontWeight: 700,
+  },
+  
 };
 
 export const StyledButton = styled(MuiButton)(({ theme }) => ({
