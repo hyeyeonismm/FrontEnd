@@ -5,8 +5,12 @@ import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
 import Start from './pages/Start.js';
 import Shareholder from './pages/Shareholder.js';
+import Main from './pages/Main';
+import Card from './pages/Card';
+import Stock from './pages/Stock';
 
 const GlobalStyle = createGlobalStyle`
+
  body {
   letter-spacing: -0.1px;
   background-color: #000000;
@@ -15,9 +19,10 @@ const GlobalStyle = createGlobalStyle`
 
 .layout{
     max-width: 390px;
+    max-height: 700px;
     background-color: white;
     margin: 0 auto;
-    min-height:100vh;
+    
 }
 `;
 function App() {
@@ -30,6 +35,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/shareholder" element={<Shareholder />} />
+          <Route path="/card" element={<Card />} />
+          <Route path="/stock" element={<Stock />} />
         </Routes>
       </div>
     </BrowserRouter>
