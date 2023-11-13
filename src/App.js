@@ -1,11 +1,12 @@
 import React from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {createGlobalStyle} from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Main from "./pages/Main";
 import Card from "./pages/Card";
 import Stock from "./pages/Stock";
+import Onboarding from "./pages/Onboarding"; // Onboarding 컴포넌트 import 추가
 
 const GlobalStyle = createGlobalStyle`
 
@@ -16,7 +17,6 @@ const GlobalStyle = createGlobalStyle`
   height: 100vh;
   overflow-x: hidden; 
 }
- 
 
 .layout{
   max-width: 390px;
@@ -25,13 +25,14 @@ const GlobalStyle = createGlobalStyle`
   margin: 0 auto; 
 }
 `;
+
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
       <div className="layout">
         <Routes>
-          <Route path="/" element={<Onboarding />} />
+          <Route path="/" element={<Onboarding />} /> {/* Onboarding 컴포넌트 사용 */}
           <Route path="/main" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
