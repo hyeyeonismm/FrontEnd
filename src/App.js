@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
  body,html {
   letter-spacing: -0.1px;
-  background-color: #000000;
+ 
   margin: 0;
   padding: 0;
    display: flex;
