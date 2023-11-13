@@ -92,16 +92,54 @@ const styles = {
     borderRadius: '270px',
     background: '#EBF3FC',
   },
+  footerWrap: {
+    position: "relative",
+    minHeight: "100%",
+    paddingBottom: "114px",
+  },
   footer: {
-    width: '100%',
-    marginTop: '20px',
-    boxShadow: '0px 5px 18px rgba(0, 0, 0, 0.25)',
-    padding: '30px',
+    position: "absolute",
+    bottom: 0,
     display: 'flex',
     flexDirection: 'row',
-    gap: 10,
     justifyContent: 'space-around',
+    width: '100%',
+    height: '80px',
+    marginTop: '20px',
+    boxShadow: '0px 5px 18px rgba(0, 0, 0, 0.25)',
   },
+  
+  //소비 페이지
+  cardConsumption : {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "343px",
+    height: "100px",
+    borderRadius: "23px",
+    background: "#1D449B",
+    margin: "25px",
+    filter: "drop-shadow(0px 0px 18px rgba(0, 0, 0, 0.25))",
+  },
+  cardDescription :{
+    marginTop:"35px",
+    marginLeft: "35px",
+    fontSize: "20px",
+    fontWeight: "900",
+  },
+  cardDescriptionSmall :{
+    marginTop:"10px",
+    marginLeft: "35px",
+    fontSize: "15px",
+    fontWeight: "500",
+  },
+  cardAmount :{
+    marginTop: "30px",
+    marginRight: "90px",
+    fontSize: "25px",
+    fontWeight: "1000",
+    color:"white",
+  }
+
 };
 
 export const StyledGrid = styled(Grid)(({ theme }) => ({

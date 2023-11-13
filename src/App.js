@@ -1,38 +1,46 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Main from "./pages/Main";
-import Card from "./pages/Card";
-import Stock from "./pages/Stock";
-import Onboarding from "./pages/Onboarding"; // Onboarding 컴포넌트 import 추가
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
+import Login from './pages/Login.js';
+import Signup from './pages/Signup.js';
+import Main from './pages/Main.js';
+import Card from './pages/Card';
+import Stock from './pages/Stock';
+import Onboarding from './pages/Onboarding.js';
 
 const GlobalStyle = createGlobalStyle`
 
- body,html {
+ body {
   letter-spacing: -0.1px;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow-x: hidden; 
+  background-color: #000000;
 }
 
 .layout{
-  max-width: 390px;
-  height: auto;
-  background-color: white;
-  margin: 0 auto; 
+    max-width: 390px;
+    max-height: 844px;
+    background-color: white;
+    margin: 0 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
-`;
 
+.layout::-webkit-scrollbar {
+  width: 5px;
+}
+
+.layout::-webkit-scrollbar-thumb {
+  background-color: #ced4da;
+  border-radius: 50px; 
+}
+
+`;
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
       <div className="layout">
         <Routes>
-          <Route path="/" element={<Onboarding />} /> {/* Onboarding 컴포넌트 사용 */}
+          <Route path="/" element={<Onboarding />} />
           <Route path="/main" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

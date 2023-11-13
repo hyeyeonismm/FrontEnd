@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import OnboardingSlide from "../components/OnboardingSlide";
-import register from "../images/mainSol.png";
 import { useNavigate } from "react-router-dom";
 import {Grid, Button, TextField, styled} from "@mui/material";
 

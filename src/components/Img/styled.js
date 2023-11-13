@@ -23,6 +23,24 @@ const styles = {
     height: '120px',
     marginTop: '75px',
   },
+  //내 소비 페이지
+  arrowBefore:{
+    position: "absolute",
+    cursor: "pointer",
+    top: "40px",
+    left: "15px"
+  },
+  arrowAfter:{
+    position: "absolute",
+    cursor: "pointer",
+    top: "40px",
+    left: "40px"
+  },
+  cardShinhanDD:{
+    width: "280px",
+    marginTop: "10px",
+    marginLeft: "55px",
+  }
 };
 
 export const StyledImg = styled('img')(({ theme }) => ({
