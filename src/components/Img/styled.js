@@ -37,7 +37,7 @@ const styles = {
     left: "40px"
   },
   cardShinhanDD:{
-    width: "300px",
+    width: "280px",
     marginTop: "10px",
     marginLeft: "55px",
   }
