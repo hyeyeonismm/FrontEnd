@@ -3,6 +3,8 @@ import arrow from '../images/arrow.svg';
 import register from '../images/register.png';
 import { TextField } from '@mui/material';
 import { Grid, Button, Img } from '../components';
+import check from '../images/check.png';
+import CardConsentModal from '../components/CardConsentModal';
 
 function Signup() {
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ function Signup() {
   };
 
   const onClickStart = () => {
-    navigate('/main');
+    navigate('/login');
   };
   return (
     <>
@@ -20,10 +22,9 @@ function Signup() {
         <Button onClick={onClickArrow}>
           <Img theme="arrow" src={arrow} alt="arrow" />
         </Button>
-        <Grid theme="title">회원가입</Grid>
+        <Grid theme="headerTitle">회원가입</Grid>
       </Grid>
       <Grid>
-        <Grid theme="line" />
         <Img theme="register" src={register} alt="register" />
       </Grid>
 
@@ -31,7 +32,10 @@ function Signup() {
         <TextField id="name" label="이름" variant="outlined" size="small" />
         <TextField id="email" label="이메일" variant="outlined" size="small" />
         <TextField id="pw" label="패스워드" variant="outlined" size="small" />
-        <div style={{ color: '#757575' }}>카드내역 연동 동의서</div>
+      </Grid>
+      <Grid theme="cardGrid">
+        <div style={{ fontSize: '14px', color: '#757575' }}>카드내역 연동 동의서</div>
+        <CardConsentModal />
       </Grid>
 
       <Grid theme="startGrid">

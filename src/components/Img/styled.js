@@ -4,6 +4,7 @@ const styles = {
   arrow: {
     width: '13px',
     height: '26px',
+    marginTop: 7,
   },
   register: {
     width: '342px',

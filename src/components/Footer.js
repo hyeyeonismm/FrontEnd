@@ -14,6 +14,10 @@ function Footer() {
     navigate('/shareholder');
   };
 
+  const onClickWallet = () => {
+    navigate('/card');
+  };
+
   return (
     <>
       <Grid theme="footer">
@@ -21,7 +25,7 @@ function Footer() {
           <Img theme="icon" src={Home} alt="home" />
           Home
         </Button>
-        <Button theme="icon">
+        <Button theme="icon" onClick={onClickWallet}>
           <Img theme="icon" src={Wallet} alt="wallet" />
           Wallets
         </Button>

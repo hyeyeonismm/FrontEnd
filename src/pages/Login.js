@@ -11,17 +11,23 @@ function Login() {
     navigate('/signup');
   };
 
+  const onClickStart = () => {
+    navigate('/main');
+  };
+
+  const onClickArrow = () => {
+    navigate('/onboarding');
+  };
+
   return (
     <>
       <Grid theme="header">
-        <Button>
+        <Button onClick={onClickArrow}>
           <Img theme="arrow" src={arrow} alt="arrow" />
         </Button>
         <Grid theme="headerTitle">로그인</Grid>
       </Grid>
-
       <Grid>
-        <Grid theme="line" />
         <Img theme="register" src={register} alt="register" />
       </Grid>
 
@@ -29,13 +35,13 @@ function Login() {
         <TextField id="id" label="아이디" variant="outlined" size="small" />
         <TextField id="pw" label="패스워드" variant="outlined" size="small" />
         <Grid theme="loginOption">
-          <div style={{ color: '#757575' }}>계정이 없으신가요?</div>
+          <div style={{ marginTop: '2px', color: '#757575' }}>계정이 없으신가요?</div>
           <Button theme="signupBtn" children="회원가입" onClick={onClickSignup} />
         </Grid>
       </Grid>
 
       <Grid theme="startGrid">
-        <Button theme="startBtn" children="시작하기" />
+        <Button theme="startBtn" onClick={onClickStart} children="시작하기" />
       </Grid>
     </>
   );

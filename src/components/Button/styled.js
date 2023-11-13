@@ -8,6 +8,7 @@ const styles = {
     textDecorationLine: 'underline',
     background: '#fff',
     border: 'none',
+    paddingTop: 0,
   },
   startBtn: {
     display: 'flex',
@@ -53,6 +54,15 @@ const styles = {
     '&:hover': {
       background: '#88BDE7',
     },
+  },
+  cardBtn: {
+    width: '250px',
+    height: '40px',
+    border: '1px solid #c4c4c4',
+    color: '#757575',
+    justifyContent: 'flex-start',
+    paddingLeft: '10px',
+    gap: 5,
   },
 };
 

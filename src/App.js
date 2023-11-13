@@ -9,19 +9,21 @@ import Stock from './pages/Stock';
 import Onboarding from './pages/Onboarding.js';
 
 const GlobalStyle = createGlobalStyle`
-
- body {
+ body,html {
   letter-spacing: -0.1px;
-  background-color: #000000;
+  margin: 0;
+  background-color: black;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden; 
 }
-
+ 
 
 .layout{
-    max-width: 390px;
-    max-height: 700px;
-    background-color: white;
-    margin: 0 auto;
-    
+  max-width: 390px;
+  height: auto;
+  background-color: white;
+  margin: 0 auto; 
 }
 `;
 function App() {

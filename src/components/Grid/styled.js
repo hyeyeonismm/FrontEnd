@@ -5,21 +5,18 @@ const styles = {
   header: {
     display: 'flex',
     flexDirection: 'row',
-    padding: '28px 20px 20px 20px',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: '20px 30px 15px 0px',
+    borderBottom: '3px solid rgba(235, 243, 252, 0.80)',
+    boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.10)',
   },
   headerTitle: {
     color: '#88BDE7',
     textAlign: 'center',
-    fontSize: '28px',
+    fontSize: '26px',
     fontWeight: 700,
-    marginRight: '25px',
-  },
-  line: {
-    width: '390px',
-    height: '3px',
-    background: 'rgba(235, 243, 252, 0.80)',
-    boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.10)',
+    flex: 0.9,
+    marginTop: 6,
   },
   loginForm: {
     display: 'flex',
@@ -47,6 +44,60 @@ const styles = {
     justifyContent: 'center',
     padding: '0px 70px',
     gap: 15,
+  },
+
+  cardGrid: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '20px 70px',
+    gap: 6,
+  },
+
+  // 카드내역 연동 동의 모달
+  body: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '360px',
+    height: '500px',
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    backgroundColor: 'white',
+
+    boxShadow: '0 10px 50px rgb(70, 70, 70)',
+    padding: '0px 30px 10px 30px',
+  },
+  modal_header: {
+    padding: '20px 0px',
+    position: 'sticky',
+    top: 0,
+    background: '#fff',
+  },
+  modal_section: {
+    padding: '10px 0px 30px 0px',
+    borderBottom: '2px solid #ddd',
+  },
+  modal_title: {
+    paddingTop: '10px',
+    fontSize: 18,
+    fontWeight: 800,
+  },
+  modal_subtitle: {
+    fontSize: 16,
+    fontWeight: 700,
+    marginTop: '20px',
+    marginBottom: '5px',
+  },
+  modal_content: {
+    fontSize: '13px',
+    color: '#757575',
+  },
+  modal_btnSection: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '20px 0px',
   },
 
   //메인페이지
