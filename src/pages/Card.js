@@ -15,7 +15,7 @@ function Card() {
 
 
   // 예시 데이터
-  const userName = "하린";
+  const userName = "";
   const month = "11";
   const money= "111,111";
   const cardName = "신한카드 Deep Dream Platinum+"
