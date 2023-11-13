@@ -5,7 +5,7 @@ pipeline {
         // 환경 변수 설정
         DOCKERHUB_CREDENTIALS_ID = 'heebinDockerhub'
         DOCKERHUB_USERNAME = 'heebin00'
-        IMAGE_TAG = 'v1.1' // 또는 다른 태깅 전략을 사용할 수 있습니다.
+        IMAGE_TAG = 'v1.2' // !!!! 도커파일이랑 똑같이 버전 맞추기
     }
 
     stages {
