@@ -1,6 +1,14 @@
 import { styled, Grid } from '@mui/material';
 
 const styles = {
+  //헤더
+  line: {
+    width: "390px",
+    height: "3px",
+    background: "#FFFDF5;",
+    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+  },
+
   //로그인 페이지
   header: {
     display: 'flex',
@@ -138,6 +146,12 @@ const styles = {
     fontSize: "25px",
     fontWeight: "1000",
     color:"white",
+  },
+  smallLine :{
+    width: "350px",
+    height: "2px",
+    background: "rgba(198, 198, 198, 0.40)",
+    margin : "20px"
   }
 
 };
