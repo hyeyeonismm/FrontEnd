@@ -8,10 +8,13 @@ function Footer() {
   const navigate = useNavigate();
 
   const onClickHome = () => {
-    navigate('/');
+    navigate('/main');
+  };
+  const onClickWallet = () => {
+    navigate('/card');
   };
   const onClickCrown = () => {
-    navigate('/shareholder');
+    navigate('/stock');
   };
 
   return (
@@ -22,7 +25,7 @@ function Footer() {
             <Img theme="icon" src={Home} alt="home" />
             Home
           </Button>
-          <Button theme="icon">
+          <Button theme="icon" onClick={onClickWallet}>
             <Img theme="icon" src={Wallet} alt="wallet" />
             Wallets
           </Button>

@@ -6,9 +6,14 @@ import arrowBefore from '../assets/images/arrowBefore.svg';
 import arrowAfter from '../assets/images/arrowAfter.svg'
 import cardShinhanDD from '../assets/images/cardShinhanDD.png'
 import Footer from '../components/Footer';
+import DetailWaste from '../components/DetailWaste';
 
 function Card() {
   const navigate = useNavigate();
+  const [showWaste, setShowWaste] = useState(true);
+  const [showDetailWaste, setShowDetailWaste] = useState(false);
+
+
   // 예시 데이터
   const userName = "하린";
   const month = "11";
@@ -18,30 +23,41 @@ function Card() {
   const description = `${userName}님의 ${month}월 소비`;
   const amount = `${money}원`
   const card = `${cardName}`
+
+  const handleDetailBtnClick = () => {
+    setShowDetailWaste(true);
+    setShowWaste(false);
+  };
   
 
   return (
     <>
       {/* Header */}
       <TopNav/>
+      {showWaste && 
+        <>
+        {/* 달 별 소비 */}
+          <Grid theme="cardDescription">{description}</Grid>
+          <Grid theme="cardConsumption">
+              <Button>
+                  <Img theme="arrowBefore" src={arrowBefore} alt="arrowBefore" />
+              </Button>
+              <Grid theme="cardAmount">{amount}</Grid> 
+              <Button theme="detailBtn" onClick={handleDetailBtnClick} children="상세보기" />
+              <Button>
+                <Img theme="arrowAfter" src={arrowAfter} alt="arrowAfter" />
+              </Button>
+          </Grid>
+          <Grid theme="smallLine"/>
+          {/* 보유 카드 */}
+          <Grid theme="cardDescription">보유 카드</Grid>
+          <Grid theme="cardDescriptionSmall">{card}</Grid>
+          <Img theme="cardShinhanDD" src={cardShinhanDD} alt="cardShinhanDD" />
+        </>
+      }
 
-      {/* 달 별 소비 */}
-      <Grid theme="cardDescription">{description}</Grid>
-        <Grid theme="cardConsumption">
-          <Button>
-              <Img theme="arrowBefore" src={arrowBefore} alt="arrowBefore" />
-          </Button>
-          <Grid theme="cardAmount">{amount}</Grid> 
-          <Button theme="detailBtn" children="상세보기" />
-          <Button>
-            <Img theme="arrowAfter" src={arrowAfter} alt="arrowAfter" />
-          </Button>
-      </Grid>
+      {showDetailWaste && <DetailWaste />}
 
-      {/* 보유 카드 */}
-      <Grid theme="cardDescription">보유 카드</Grid>
-      <Grid theme="cardDescriptionSmall">{card}</Grid>
-      <Img theme="cardShinhanDD" src={cardShinhanDD} alt="cardShinhanDD" />
 
 
       {/* Footer */}

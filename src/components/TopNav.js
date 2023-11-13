@@ -27,15 +27,13 @@ function TopNav() {
                 <Toggle role="button" onClick={toggleSide} />
             </Grid>
 
-            <Grid>
+
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", marginLeft: "30px", marginRight: "30px" }}>
                     <NavButton onClick={() => handleButtonClick("/card")} selected={selectedButton === "/consumption"}>내 소비</NavButton>
                     <NavButton onClick={() => handleButtonClick("/stock")} selected={selectedButton === "/stock"}>주주되기</NavButton>
                 </div>
-                {/* <SelectLine selected={selectedButton === "/card"} />
-                <SelectLine selected={selectedButton === "/stock"} /> */}
                 <Line />
-            </Grid>
+
         </>
     );
 }
@@ -62,15 +60,6 @@ const NavButton = styled(Button)(() => ({
     fontWeight: 700,
   }));
 
-  const SelectLine = styled("div")(({ selected }) => ({
-    width: "150px", 
-    height: selected ? "3px" : "0px",
-    color: selected ? "black" : "gray",
-    flexShrink: 0,
-    strokeWidth: "3px",
-    stroke: "#000",
-    filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-    transition: "height 0.3s", 
-}));
+
 
 export default TopNav;
