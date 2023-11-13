@@ -1,27 +1,28 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
-import Login from './pages/Login.js';
-import Signup from './pages/Signup.js';
-import Main from './pages/Main.js';
-import Card from './pages/Card';
-import Stock from './pages/Stock';
-import Onboarding from './pages/Onboarding.js';
+import React from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {createGlobalStyle} from "styled-components";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Main from "./pages/Main";
+import Card from "./pages/Card";
+import Stock from "./pages/Stock";
 
 const GlobalStyle = createGlobalStyle`
 
- body {
+ body,html {
   letter-spacing: -0.1px;
-  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden; 
 }
-
+ 
 
 .layout{
-    max-width: 390px;
-    max-height: 700px;
-    background-color: white;
-    margin: 0 auto;
-    
+  max-width: 390px;
+  height: auto;
+  background-color: white;
+  margin: 0 auto; 
 }
 `;
 function App() {
