@@ -92,17 +92,23 @@ const styles = {
     borderRadius: '270px',
     background: '#EBF3FC',
   },
+  footerWrap: {
+    position: "relative",
+    minHeight: "100%",
+    paddingBottom: "114px",
+  },
   footer: {
-    position: "sticky",
-    width: '100%',
-    height: "100px",
-    marginTop: '10px',
-    boxShadow: '0px 5px 18px rgba(0, 0, 0, 0.25)',
-    padding: '15px',
+    position: "absolute",
+    bottom: 0,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
+    width: '100%',
+    height: '80px',
+    marginTop: '20px',
+    boxShadow: '0px 5px 18px rgba(0, 0, 0, 0.25)',
   },
+  
   //소비 페이지
   cardConsumption : {
     display: "flex",
@@ -112,7 +118,7 @@ const styles = {
     borderRadius: "23px",
     background: "#1D449B",
     margin: "25px",
-    filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35))"
+    filter: "drop-shadow(0px 0px 18px rgba(0, 0, 0, 0.25))",
   },
   cardDescription :{
     marginTop:"35px",

@@ -43,6 +43,16 @@ function Card() {
       <Grid theme="cardDescriptionSmall">{card}</Grid>
       <Img theme="cardShinhanDD" src={cardShinhanDD} alt="cardShinhanDD" />
 
+      <Grid theme="cardDescription">보유 카드</Grid>
+      <Grid theme="cardDescriptionSmall">{card}</Grid>
+      <Grid theme="cardDescription">보유 카드</Grid>
+      <Grid theme="cardDescriptionSmall">{card}</Grid>
+      <Grid theme="cardDescription">보유 카드</Grid>
+      <Grid theme="cardDescriptionSmall">{card}</Grid>
+      <Grid theme="cardDescription">보유 카드</Grid>
+      <Grid theme="cardDescriptionSmall">{card}</Grid>
+      
+
       {/* Footer */}
       <Footer/>
       
