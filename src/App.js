@@ -14,12 +14,17 @@ const GlobalStyle = createGlobalStyle`
   background-color: #000000;
   margin: 0;
   padding: 0;
+   display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    height: 100vh; /* 전체 높이 */
 }
  
 
 .layout{
+   width: 90vw; 
   max-width: 390px;
-  max-height: 700px;
+  height: auto;
   background-color: white;
   padding: 15px;
   margin: 0 auto; 
