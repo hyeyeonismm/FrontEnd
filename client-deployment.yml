@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: heebin00/client:v1
+          image: heebin00/client:v1.1
           ports:
           - containerPort: 80
       nodeSelector:
