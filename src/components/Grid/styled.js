@@ -93,13 +93,14 @@ const styles = {
     background: '#EBF3FC',
   },
   footer: {
+    position: "sticky",
     width: '100%',
-    marginTop: '20px',
+    height: "100px",
+    marginTop: '10px',
     boxShadow: '0px 5px 18px rgba(0, 0, 0, 0.25)',
-    padding: '30px',
+    padding: '15px',
     display: 'flex',
     flexDirection: 'row',
-    gap: 10,
     justifyContent: 'space-around',
   },
   //소비 페이지
@@ -108,27 +109,29 @@ const styles = {
     justifyContent: "space-between",
     width: "343px",
     height: "100px",
-    borderRadius: "25px",
+    borderRadius: "23px",
     background: "#1D449B",
-    margin: "25px"
+    margin: "25px",
+    filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35))"
   },
   cardDescription :{
     marginTop:"35px",
     marginLeft: "35px",
-    fontSize: "18px",
-    fontWeight: 900,
-    lineHeight: "24px",
-    letterSpacing: "0.1px"
+    fontSize: "20px",
+    fontWeight: "900",
+  },
+  cardDescriptionSmall :{
+    marginTop:"10px",
+    marginLeft: "35px",
+    fontSize: "15px",
+    fontWeight: "500",
   },
   cardAmount :{
-    position: "absolute",
-    top: "280px",
-    left: "300px",
+    marginTop: "30px",
+    marginRight: "90px",
     fontSize: "25px",
-    fontWeight: 900,
-    lineHeight: "24px",
-    letterSpacing: "0.1px",
-    color:"white"
+    fontWeight: "1000",
+    color:"white",
   }
 
 };

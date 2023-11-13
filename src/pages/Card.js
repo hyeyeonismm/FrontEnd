@@ -4,6 +4,8 @@ import { Grid, Button, Img } from '../components';
 import TopNav from '../components/TopNav';
 import arrowBefore from '../assets/images/arrowBefore.svg';
 import arrowAfter from '../assets/images/arrowAfter.svg'
+import cardShinhanDD from '../assets/images/cardShinhanDD.png'
+import Footer from '../components/Footer';
 
 function Card() {
   const navigate = useNavigate();
@@ -11,13 +13,19 @@ function Card() {
   const userName = "하린";
   const month = "11";
   const money= "111,111";
+  const cardName = "신한카드 Deep Dream Platinum+"
+
   const description = `${userName}님의 ${month}월 소비`;
   const amount = `${money}원`
+  const card = `${cardName}`
+  
 
   return (
     <>
+      {/* Header */}
       <TopNav/>
 
+      {/* 달 별 소비 */}
       <Grid theme="cardDescription">{description}</Grid>
       <Grid theme="cardConsumption">
         <Button>
@@ -30,7 +38,15 @@ function Card() {
         </Button>
       </Grid>
 
+      {/* 보유 카드 */}
       <Grid theme="cardDescription">보유 카드</Grid>
+      <Grid theme="cardDescriptionSmall">{card}</Grid>
+      <Img theme="cardShinhanDD" src={cardShinhanDD} alt="cardShinhanDD" />
+
+      {/* Footer */}
+      <Footer/>
+      
+      
     </>
   );
 }

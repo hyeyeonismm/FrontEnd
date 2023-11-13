@@ -15,14 +15,24 @@ const GlobalStyle = createGlobalStyle`
   background-color: #000000;
 }
 
-
 .layout{
     max-width: 390px;
     max-height: 700px;
     background-color: white;
     margin: 0 auto;
-    
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
+.layout::-webkit-scrollbar {
+  width: 5px;
+}
+
+.layout::-webkit-scrollbar-thumb {
+  background-color: #ced4da;
+  border-radius: 50px; 
+}
+
 `;
 function App() {
   return (

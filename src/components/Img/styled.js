@@ -35,6 +35,11 @@ const styles = {
     cursor: "pointer",
     top: "40px",
     left: "40px"
+  },
+  cardShinhanDD:{
+    width: "300px",
+    marginTop: "10px",
+    marginLeft: "55px",
   }
 };
 

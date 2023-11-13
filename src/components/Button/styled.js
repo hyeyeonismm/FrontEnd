@@ -58,18 +58,18 @@ const styles = {
   // 소비 페이지
   detailBtn: {
     position: "absolute",
-    cursor: "pointer",
-    top: "275px",
-    left: "480px",
-    textAlign: "center",
+    marginTop: "30px",
+    marginLeft: "220px",
+    width: "85px",
+    height: "40px",
     background: "white",
     color: "#88bde7",
     borderRadius: "20px",
     boxShadow: "0px 2px 4px 1px rgba(0, 0, 0, 0.25)",
-    width: "85px",
-    height: "40px",
+    textAlign: "center",
     fontSize: "16px",
     fontWeight: 700,
+    cursor: "pointer",
   },
   
 };
