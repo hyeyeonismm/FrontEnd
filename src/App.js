@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 .layout{
   max-width: 390px;
   height: auto;
-  background-color: black;
+  background-color: white;
   margin: 0 auto; 
 }
 `;
