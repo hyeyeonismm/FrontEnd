@@ -15,12 +15,14 @@ function Card() {
 
 
   // 예시 데이터
-  const userName = "";
+  const userName = "하린";
   const month = "11";
   const money= "111,111";
   const cardName = "신한카드 Deep Dream Platinum+"
 
-  const description = `${userName}님의 ${month}월 소비`;
+  const name = `${userName}님`;
+  const wasteMonth = `${month}월`
+
   const amount = `${money}원`
   const card = `${cardName}`
 
@@ -37,7 +39,7 @@ function Card() {
       {showWaste && 
         <>
         {/* 달 별 소비 */}
-          <Grid theme="cardDescription">{description}</Grid>
+          <Grid theme="cardDescription">{name}의 {wasteMonth} 소비</Grid>
           <Grid theme="cardConsumption">
               <Button>
                   <Img theme="arrowBefore" src={arrowBefore} alt="arrowBefore" />
@@ -56,7 +58,23 @@ function Card() {
         </>
       }
 
-      {showDetailWaste && <DetailWaste />}
+      {showDetailWaste &&
+      <>
+      <Grid theme="cardDetailWrap">
+        <Button>
+              <Img theme="arrowBeforeDetail" src={arrowBefore} alt="arrowBeforeDetail" />
+          </Button>
+            <Grid theme="cardDetailDescription">{wasteMonth} 소비</Grid>
+          <Button>
+            <Img theme="arrowAfterDetail" src={arrowAfter} alt="arrowAfterDetail" />
+          </Button>
+      </Grid>
+      <Grid theme="cardDetailDescriptionSmall">{amount}</Grid>
+      <DetailWaste/>
+        
+      </>
+              
+      }
 
 
 

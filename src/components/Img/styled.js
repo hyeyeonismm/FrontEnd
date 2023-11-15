@@ -40,7 +40,17 @@ const styles = {
     width: "280px",
     marginTop: "10px",
     marginLeft: "55px",
-  }
+  },
+
+  //내 소비 상세
+  arrowBeforeDetail:{
+    cursor: "pointer",
+    filter: "invert(1)",
+  },
+  arrowAfterDetail:{
+    cursor: "pointer",
+    filter: "invert(1)",
+  },
 };
 
 export const StyledImg = styled('img')(({ theme }) => ({

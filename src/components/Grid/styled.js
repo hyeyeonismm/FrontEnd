@@ -152,7 +152,24 @@ const styles = {
     height: "2px",
     background: "rgba(198, 198, 198, 0.40)",
     margin : "20px"
-  }
+  },
+
+  //소비상세 페이지
+  cardDetailWrap :{
+    marginTop: "40px",
+    display: "flex",
+    justifyContent: "left",
+  },
+  cardDetailDescription :{
+    fontSize: "18px",
+    fontWeight: "700",
+  },
+  cardDetailDescriptionSmall :{
+    marginTop: "10px",
+    marginLeft: "55px",
+    fontSize: "18px",
+    fontWeight: "500",
+  },
 
 };
 
