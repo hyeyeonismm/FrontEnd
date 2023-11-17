@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import { Grid, Button, Img, Input } from '../components';
-import { styled } from '@mui/material';
 import TopNav from '../components/TopNav';
 import arrowBefore from '../assets/images/arrowBefore.svg';
 import arrowAfter from '../assets/images/arrowAfter.svg'
@@ -10,7 +8,6 @@ import Footer from '../components/Footer';
 import WasteBar from '../components/WasteBar';
 
 function Card() {
-  const navigate = useNavigate();
   const [showWaste, setShowWaste] = useState(true);
   const [showDetailWaste, setShowDetailWaste] = useState(false);
   const [showCategoryWaste, setShowCategoryWaste] = useState(false);

@@ -1,38 +1,48 @@
 import React, { useState } from 'react';
 import arrow from "../images/arrow.svg";
-import Toggle from "../components/Toggle"
+import toggle from "../assets/images/toggle.svg"
+// import Toggle from "../Toggle"
 import { useNavigate } from "react-router-dom";
-import { Grid, Button, styled } from "@mui/material";
+import { styled, Modal } from "@mui/material";
+import { Grid, Button, Img, Input } from '../components';
+
 
 function TopNav() {
     const navigate = useNavigate();
-    const [isOpen, setIsOpen] = useState(false);
     const [selectedButton, setSelectedButton] = useState("/card"); 
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const toggleSide = () => {
-        setIsOpen(true);
-    };
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+    
+
 
     const handleButtonClick = (path) => {
         setSelectedButton(path);
         navigate(path);
     };
 
+
+
     return (
         <>
-            <Grid sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "44px 20px 15px 20px", alignItems: "center" }}>
+            <Grid theme="topNavContainer">
                 <button style={buttonStyle}>
                     <img style={{ width: "13px", height: "26px", marginTop: 7 }} src={arrow} alt="arrow" />
                 </button>
-                <Toggle role="button" onClick={toggleSide} />
+                {/* <Toggle role="button" onClick={toggleSide} /> */}
+                <button style={buttonStyle}  onClick={openModal}>
+                    <img style={{marginTop: 7 }} src={toggle} alt="toggle" />
+                </button>
+                <Modal style={modalStyle} open={openModal} onClose={closeModal}/>
             </Grid>
 
 
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", marginLeft: "30px", marginRight: "30px" }}>
-                    <NavButton onClick={() => handleButtonClick("/card")} selected={selectedButton === "/consumption"}>내 소비</NavButton>
-                    <NavButton onClick={() => handleButtonClick("/stock")} selected={selectedButton === "/stock"}>주주되기</NavButton>
+                    <Button theme="topNavBtn" onClick={() => handleButtonClick("/card")} selected={selectedButton === "/consumption"}>내 소비</Button>
+                    <Button theme="topNavBtn" onClick={() => handleButtonClick("/stock")} selected={selectedButton === "/stock"}>주주되기</Button>
                 </div>
-                <Line />
+                <Grid theme="topNavLine" />
 
         </>
     );
@@ -44,21 +54,16 @@ const buttonStyle = {
     cursor: "pointer",
 };
 
-const Line = styled("div")({
-    width: "390px",
-    height: "3px",
-    background: "#FFFDF5;",
-    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-});
+const modalStyle = {
+    position: "fixed",
+    top: 0,
+    right: 0,
+    height: "100%",
+    width: "300px",
+    background: "#fff",
+    zIndex: 9999
+}
 
-const NavButton = styled(Button)(() => ({
-    textAlign: "center",
-    color: "black",
-    width: "150px",
-    height: "45px",
-    fontSize: "18px",
-    fontWeight: 700,
-  }));
 
 
 

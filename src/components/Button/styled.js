@@ -2,6 +2,16 @@ import { styled } from '@mui/material';
 import MuiButton from '@mui/material/Button';
 
 const styles = {
+  // 헤더
+  topNavBtn: {
+    textAlign: "center",
+    color: "black",
+    width: "150px",
+    height: "45px",
+    fontSize: "18px",
+    fontWeight: 700,
+  },
+  // 회원가입
   signupBtn: {
     color: '#B87514',
     cursor: 'pointer',

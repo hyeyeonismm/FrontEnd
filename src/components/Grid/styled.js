@@ -1,6 +1,25 @@
 import { styled, Grid } from '@mui/material';
 
 const styles = {
+  //상단바
+  topNavContainer: {
+    display: "flex", 
+    flexDirection: "row", 
+    justifyContent: "space-between", 
+    padding: "44px 20px 15px 20px", 
+    alignItems: "center"
+  },
+  topNavLine: {
+    width: "390px",
+    height: "3px",
+    background: "#FFFDF5;",
+    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+  },
+  sideBar: {
+    width: "50%",
+    height: "500px",
+    background: "white",
+  },
   //헤더
   line: {
     width: "390px",
@@ -8,7 +27,6 @@ const styles = {
     background: "#FFFDF5;",
     boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
   },
-
   //로그인 페이지
   header: {
     display: 'flex',
