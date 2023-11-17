@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import arrow from '../images/arrow.svg';
-import register from '../images/register.png';
+import arrow from '../assets/images/arrow.svg';
+import register from '../assets/images/register.png';
 import { TextField } from '@mui/material';
 import { Grid, Button, Img } from '../components';
-import check from '../images/check.png';
 import CardConsentModal from '../components/CardConsentModal';
 
 function Signup() {

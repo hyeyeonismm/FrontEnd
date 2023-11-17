@@ -44,13 +44,14 @@ const styles = {
     textAlign: 'center',
     fontSize: '12px',
   },
+  // Stock 페이지
   checkBtn: {
     background: '#88BDE7',
     color: '#fff',
     borderRadius: '10px',
     width: '250px',
     padding: '10px',
-    margin: '20px 0px',
+    marginTop: '20px',
     '&:hover': {
       background: '#88BDE7',
     },
@@ -63,6 +64,32 @@ const styles = {
     justifyContent: 'flex-start',
     paddingLeft: '10px',
     gap: 5,
+  },
+  categoryBtn: {
+    gap: 10,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: '10px',
+    width: '94%',
+    height: '64px',
+    padding: '0px 30px',
+    color: '#757575',
+  },
+  shinhanLinkBtn: {
+    padding: '10px 15px',
+    fontWeight: 700,
+    color: '#fff',
+    background: '#88BDE7',
+    '&:hover': {
+      background: '#88BDE7',
+    },
+  },
+  newsBtn: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    height: '60px',
+    color: '#575757',
   },
 };
 

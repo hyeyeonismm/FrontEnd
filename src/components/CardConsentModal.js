@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { styled, Modal } from '@mui/material';
 import { Button, Img, Grid } from '../components';
 import Close from '@mui/icons-material/CloseRounded';
-import check from '../images/check.png';
+import check from '../assets/images/check.png';
 
 function CardConsentModal() {
   const [open, setOpen] = useState(false);

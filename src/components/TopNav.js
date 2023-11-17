@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import arrow from '../images/arrow.svg';
+import arrow from '../assets/images/arrow.svg';
 import Toggle from '../components/Toggle';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Button, styled } from '@mui/material';
@@ -27,28 +27,24 @@ function TopNav() {
         <Toggle role="button" onClick={toggleSide} />
       </Grid>
 
-      <Grid>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            marginLeft: '30px',
-            marginRight: '30px',
-          }}
-        >
-          <NavButton onClick={() => handleButtonClick('/card')} selected={selectedButton === '/consumption'}>
-            내 소비
-          </NavButton>
-          <NavButton onClick={() => handleButtonClick('/stock')} selected={selectedButton === '/stock'}>
-            주주되기
-          </NavButton>
-        </div>
-        {/* <SelectLine selected={selectedButton === "/card"} />
-                <SelectLine selected={selectedButton === "/stock"} /> */}
-        <Line />
-      </Grid>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          marginLeft: '30px',
+          marginRight: '30px',
+        }}
+      >
+        <NavButton onClick={() => handleButtonClick('/card')} selected={selectedButton === '/consumption'}>
+          내 소비
+        </NavButton>
+        <NavButton onClick={() => handleButtonClick('/stock')} selected={selectedButton === '/stock'}>
+          주주되기
+        </NavButton>
+      </div>
+      <Line />
     </>
   );
 }
@@ -73,17 +69,6 @@ const NavButton = styled(Button)(() => ({
   height: '45px',
   fontSize: '18px',
   fontWeight: 700,
-}));
-
-const SelectLine = styled('div')(({ selected }) => ({
-  width: '150px',
-  height: selected ? '3px' : '0px',
-  color: selected ? 'black' : 'gray',
-  flexShrink: 0,
-  strokeWidth: '3px',
-  stroke: '#000',
-  filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-  transition: 'height 0.3s',
 }));
 
 export default TopNav;
