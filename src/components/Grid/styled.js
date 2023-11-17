@@ -170,6 +170,15 @@ const styles = {
     fontSize: "18px",
     fontWeight: "500",
   },
+  cardWasteWrap: {
+    margin: "25px",
+    marginBottom: "0",
+    width: '342px',
+    borderRadius: '18px 18px 0px 0px',
+    border: '0.5px solid #000',
+    background: '#FFF',
+    boxShadow: '0px 4px 14px 0px rgba(0, 0, 0, 0.25)',
+  },
 
 };
 

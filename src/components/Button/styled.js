@@ -72,6 +72,11 @@ const styles = {
     cursor: "pointer",
   },
   
+  //소비 상세 페이지
+  cardWasteList: {
+    width: "100%",
+  }
+  
 };
 
 export const StyledButton = styled(MuiButton)(({ theme }) => ({

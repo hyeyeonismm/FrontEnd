@@ -18,7 +18,7 @@ export default class SimpleSlider extends Component {
         
         <Slider {...settings}>
           <div>
-            <h3>하하하하</h3>
+            <h3>Link Stock이 뭔가요?</h3>
             <img style={{display: "block", margin: "20%"}} src={register} alt="register" />
           </div>
           <div>

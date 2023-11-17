@@ -4,6 +4,7 @@ import { Grid, Button, Img } from '../components/index.js';
 import main from '../images/mainCharacter.png';
 import main_bg from '../images/main_bg.png';
 import Footer from '../components/Footer.js';
+import TopNav from '../components/TopNav.js';
 
 function Main() {
   return (

@@ -1,38 +1,40 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-class DetailWaste extends React.Component {
+class WasteBar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       series: [{
-        name: 'Marine Sprite',
+        name: '식비',
         data: [44]
       }, {
-        name: 'Striking Calf',
+        name: '전자기기',
         data: [53]
       }, {
-        name: 'Tank Picture',
+        name: '여행',
         data: [12]
       }, {
-        name: 'Bucket Slope',
+        name: '공부',
         data: [9]
       }, {
-        name: 'Reborn Kid',
+        name: '카페',
         data: [25]
       }],
       options: {
         chart: {
           type: 'bar',
-          height: 100,
           stacked: true,
-          stackType: '100%'
+          stackType: '100%',
+          toolbar: {
+            show: false,
+          },
         },
         plotOptions: {
           bar: {
             horizontal: true,
-            barHeight: 30,
+            barHeight: 40,
           },
         },
         stroke: {
@@ -40,7 +42,14 @@ class DetailWaste extends React.Component {
           colors: ['#fff']
         },
         xaxis: {
-          categories: [1],
+          labels: {
+            show: false,
+          },
+        },
+        yaxis: {
+          labels: {
+            show: false,
+          },
         },
         tooltip: {
           y: {
@@ -53,24 +62,27 @@ class DetailWaste extends React.Component {
           opacity: 1
         },
         legend: {
-          position: 'bottom',
-          horizontalAlign: 'left',
-          offsetX: 10
-        }
+          show: false,
+        },
       },
     };
   }
 
   render() {
     return (
-      <div id="chart">
-        <ReactApexChart 
-        options={this.state.options} series={this.state.series} type="bar" height={350} 
-        style={{
-        }}/>
+      <div id="chart" style={{ margin: '0 auto' }}>
+        <ReactApexChart
+          options={this.state.options}
+          series={this.state.series}
+          type="bar"
+          height={70}
+          style={{
+            marginRight: "20px",
+          }}
+        />
       </div>
     );
   }
 }
 
-export default DetailWaste;
+export default WasteBar;
