@@ -47,9 +47,7 @@ class WasteBar extends React.Component {
           },
         },
         yaxis: {
-          labels: {
-            show: false,
-          },
+          show: false,
         },
         tooltip: {
           y: {
@@ -59,7 +57,8 @@ class WasteBar extends React.Component {
           }
         },
         fill: {
-          opacity: 1
+          opacity: 0.8,
+          colors: ['#FFB82E', '#4E55FF', '#FF5757', '#B8B8B8', '#8D57FF'], 
         },
         legend: {
           show: false,
@@ -70,7 +69,7 @@ class WasteBar extends React.Component {
 
   render() {
     return (
-      <div id="chart" style={{ margin: '0 auto' }}>
+      <div id="chart" style={{ margin: '0 auto', borderRadius: '20px',}}>
         <ReactApexChart
           options={this.state.options}
           series={this.state.series}

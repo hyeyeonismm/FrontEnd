@@ -91,7 +91,7 @@ const modalWrap = {
 };
 
 const modalStyle = {
-    height: "708px",
+    height: "700px",
     padding: "33px",
     marginTop: "8px",
     marginLeft: "20%",

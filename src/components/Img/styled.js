@@ -12,6 +12,10 @@ const styles = {
     marginBottom: "80px",
     marginLeft: "-55px"
   },
+  //온보딩
+  onboardingImg:{
+    width: "300px"
+  },
   register: {
     width: '342px',
     height: '214px',

@@ -6,6 +6,15 @@ import arrowAfter from '../assets/images/arrowAfter.svg'
 import cardShinhanDD from '../assets/images/cardShinhanDD.png'
 import Footer from '../components/Footer';
 import WasteBar from '../components/WasteBar';
+import category1 from '../assets/images/category1.svg'
+import category2 from '../assets/images/category2.svg'
+import category3 from '../assets/images/category3.svg'
+import category4 from '../assets/images/category4.svg'
+import category5 from '../assets/images/category5.svg'
+import category6 from '../assets/images/category6.svg'
+import category7 from '../assets/images/category7.svg'
+import category8 from '../assets/images/category8.svg'
+import category9 from '../assets/images/category9.svg'
 
 function Card() {
   const [showWaste, setShowWaste] = useState(true);
@@ -28,6 +37,7 @@ function Card() {
   
   const percentages = [20, 30, 50];
   const category = ["식비", "패션/쇼핑", "의료/건강", "전기/전자", "금융", "생활", "문화/여가", "교통", "교육"];
+  const categoryImg = [category1, category2, category3, category4, category5, category6, category7, category8, category9];
   const categoryWaste = ["500", "800", "700", "600", "500", "500", "500", "500", "500"];
 
   const wasteShop = ["500", "800", "700", "600", "500", "500", "500", "500", "500"];
@@ -101,8 +111,6 @@ function Card() {
                 {wasteShop.map((cat, index) => (
                   <Button theme="cardWasteList" key={index}>
                     <div style={cardWaste}>
-                      {/* 카테고리별 사진 매핑 */}
-                      {/* <Img src={`${cat}.png`} alt={cat} />  */}
                       <div style={cardWasteCategory}> {cat} </div>
                       <div style={cardWasteAmount}> {wasteAmount[index]}원 </div>
                     </div>
@@ -118,8 +126,7 @@ function Card() {
               {category.map((cat, index) => (
                 <Button theme="cardWasteList" key={index} onClick={handleWasteBtnClick}>
                   <div style={cardWaste}>
-                    {/* 카테고리별 사진 매핑 */}
-                    {/* <Img src={`${cat}.png`} alt={cat} />  */}
+                    <Img src={categoryImg[index]} alt={cat} /> 
                     <div style={cardWasteCategory}> {cat} </div>
                     <div style={cardWasteAmount}> {categoryWaste[index]}원 </div>
                   </div>
@@ -143,8 +150,8 @@ const cardWaste = {
 }
 
 const cardWasteCategory = {
-  padding: '10px',
-  width: '200px',
+  padding: '15px',
+  width: '140px',
   textAlign: 'left',
   color: 'black'
 };
@@ -152,10 +159,10 @@ const cardWasteCategory = {
 const cardWasteAmount = {
   width: '70px',
   height: '25px',
-  margin: '10px',
+  margin: '15px',
   textAlign: 'center',
   color: 'grey',
-  backgroundColor: '#EBF3FC',
+  // backgroundColor: '#EBF3FC',
   borderRadius: '5px'
 };
 
