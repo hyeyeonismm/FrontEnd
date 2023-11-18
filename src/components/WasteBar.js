@@ -6,30 +6,23 @@ class WasteBar extends React.Component {
     super(props);
 
     this.state = {
-      series: [{
-        name: '식비',
-        data: [44]
-      }, {
-        name: '전자기기',
-        data: [53]
-      }, {
-        name: '여행',
-        data: [12]
-      }, {
-        name: '공부',
-        data: [9]
-      }, {
-        name: '카페',
-        data: [25]
-      }],
+      series: [
+        { name: '식비', data: [10] },
+        { name: '패션/쇼핑', data: [10] },
+        { name: '의료/건강', data: [10] },
+        { name: '전기/전자', data: [10] },
+        { name: '금융', data: [10] },
+        { name: '생활', data: [10] },
+        { name: '문화/여가', data: [10] },
+        { name: '교통', data: [10] },
+        { name: '교육', data: [20] },
+      ],
       options: {
         chart: {
           type: 'bar',
           stacked: true,
           stackType: '100%',
-          toolbar: {
-            show: false,
-          },
+          toolbar: { show: false },
         },
         plotOptions: {
           bar: {
@@ -39,46 +32,40 @@ class WasteBar extends React.Component {
         },
         stroke: {
           width: 1,
-          colors: ['#fff']
+          colors: ['#fff'],
         },
         xaxis: {
-          labels: {
-            show: false,
-          },
+          labels: { show: false },
         },
-        yaxis: {
-          labels: {
-            show: false,
-          },
-        },
+        yaxis: { show: false },
         tooltip: {
           y: {
             formatter: function (val) {
-              return val + "K"
-            }
-          }
+              return val + '%';
+            },
+          },
         },
         fill: {
-          opacity: 1
+          opacity: 0.8,
+          colors: [
+            '#FFE24A', '#AEB1FF', '#4EC68C', '#7392FF', '#FFB1B1',
+            '#B8B8B8', '#88BDE7', '#FF7979', '#FFA943',
+          ],
         },
-        legend: {
-          show: false,
-        },
+        legend: { show: false },
       },
     };
   }
 
   render() {
     return (
-      <div id="chart" style={{ margin: '0 auto' }}>
+      <div id="chart" style={{ margin: '0 auto', borderRadius: '20px' }}>
         <ReactApexChart
           options={this.state.options}
           series={this.state.series}
           type="bar"
           height={70}
-          style={{
-            marginRight: "20px",
-          }}
+          style={{ marginRight: '20px' }}
         />
       </div>
     );

@@ -7,12 +7,19 @@ import Main from './pages/Main.js';
 import Card from './pages/Card';
 import Stock from './pages/Stock';
 import Onboarding from './pages/Onboarding.js';
+import ONESHINHANLIGHT from './assets/font/ONESHINHANLIGHT.TTF';
 
 const GlobalStyle = createGlobalStyle`
+@font-face {
+  font-family: 'ONESHINHANLIGHT';
+  src: local('ONESHINHANLIGHT'), url(${ONESHINHANLIGHT}) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
  body {
-  letter-spacing: -0.1px;
   background-color: #000000;
+  font-family: 'ONESHINHANLIGHT';
 }
 
 .layout{
@@ -22,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     overflow-y: scroll;
     overflow-x: hidden;
+    font-family: 'ONESHINHANLIGHT';
 }
 
 .layout::-webkit-scrollbar {

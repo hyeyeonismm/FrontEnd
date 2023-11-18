@@ -85,13 +85,14 @@ const buttonStyle = {
     border: "none",
     cursor: "pointer",
 };
+
 const modalWrap = {
     margin: "0 auto",
     width: "390px",
 };
 
 const modalStyle = {
-    height: "708px",
+    height: "700px",
     padding: "33px",
     marginTop: "8px",
     marginLeft: "20%",

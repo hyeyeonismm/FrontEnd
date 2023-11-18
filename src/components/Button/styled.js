@@ -11,6 +11,7 @@ const styles = {
     fontSize: "18px",
     fontWeight: 700,
   },
+
   // 회원가입
   signupBtn: {
     color: '#B87514',
@@ -24,6 +25,7 @@ const styles = {
     textAlign: 'center',
     justifyContent: 'center',
     color: '#88bde7',
+    background: 'white',
     borderRadius: '12px',
     boxShadow: '0px 2px 4px 1px rgba(0, 0, 0, 0.25)',
     width: '200px',
