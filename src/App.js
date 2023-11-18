@@ -16,8 +16,8 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .layout{
-    max-width: 390px;
-    max-height: 844px;
+    width: 390px;
+    height: 844px;
     background-color: white;
     margin: 0 auto;
     overflow-y: scroll;

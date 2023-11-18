@@ -21,11 +21,14 @@ const styles = {
     background: "white",
   },
   sideBarBox: {
-    width: "226px",
-    height: "118px",
-    borderRadius: "4.444px",
-    border: "0.889px solid var(--Input-Box-Stroke-Thin, rgba(0, 0, 0, 0.15))",
-    boxShadow: "0px 1.77778px 1.77778px 0px rgba(0, 0, 0, 0.10)"
+    width: "250px",
+    height: "140px",
+    margin: "0 auto",
+    marginTop: "13px",
+    marginBottom: "15px",
+    borderRadius: "8px",
+    border: "2px solid var(--Input-Box-Stroke-Thin, rgba(0, 0, 0, 0.15))",
+    boxShadow: "0px 2px 2px 0px rgba(0, 0, 0, 0.10)"
   },
   //헤더
   line: {
@@ -125,21 +128,19 @@ const styles = {
     borderRadius: '270px',
     background: '#EBF3FC',
   },
+  // 하단바
   footerWrap: {
-    position: "relative",
-    minHeight: "100%",
-    paddingBottom: "114px",
+    position: "fixed",
+    bottom: 0,
+    width: "390px",
+    height: "160px",
   },
   footer: {
-    position: "absolute",
-    bottom: 0,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '100%',
-    height: '80px',
-    marginTop: '20px',
     boxShadow: '0px 5px 18px rgba(0, 0, 0, 0.25)',
+    background: 'white'
   },
   
   //소비 페이지

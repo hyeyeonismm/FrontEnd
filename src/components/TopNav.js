@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import arrow from "../assets/images/arrow.svg";
 import toggle from "../assets/images/toggle.svg";
-// import Toggle from "../Toggle"
+import mainCharacter from "../assets/images/mainCharacter.png"
 import { useNavigate } from "react-router-dom";
-import { styled, Modal, Box, Typography } from "@mui/material";
-import { Grid, Button } from '../components';  // Correct the import for Img
+import { styled, Modal, Box, Typography, TextField, FormControl, InputAdornment, InputLabel, Paper, IconButton, InputBase, Divider  } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
+import DirectionsIcon from '@mui/icons-material/Directions';
+import { Grid, Button, Input } from '../components';  
 
 function TopNav() {
     const navigate = useNavigate();
@@ -38,17 +40,26 @@ function TopNav() {
                 </button>
                
                {/* 모달 창 */}
-               <Modal
-                    open={isOpen}
-                    onClose={closeModal}
-                    sx={ModalWrap}
-                >
-                    <Box sx={ModalStyle}>
-                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a modal
+               <Modal open={isOpen} onClose={closeModal} sx={modalWrap} >
+                    <Box sx={modalStyle}>
+                        <Paper component="form" sx={searchStock} >
+                            <InputBase sx={{ ml: 2, flex: 1 }}
+                                placeholder="종목을 검색해보세요" />
+                            <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+                                <SearchIcon />
+                            </IconButton>
+                        </Paper>
+                        <Typography id="modal-modal-title" variant="h7" component="h4">
+                            기본 정보
+                            <Grid theme="sideBarBox"></Grid>
                         </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                        <Typography id="modal-modal-title" variant="h7" component="h4">
+                            소비 내역
+                            <Grid theme="sideBarBox"></Grid>
+                        </Typography>
+                        <Typography id="modal-modal-title" variant="h7" component="h4">
+                            관심있는 종목
+                            <Grid theme="sideBarBox"></Grid>
                         </Typography>
                     </Box>
                 </Modal>
@@ -69,16 +80,27 @@ const buttonStyle = {
     border: "none",
     cursor: "pointer",
 };
-const ModalWrap = {
+const modalWrap = {
     margin: "0 auto",
     width: "390px",
 };
 
-const ModalStyle = {
-    height: "695px",
+const modalStyle = {
+    height: "100%",
+    padding: "33px",
     marginTop: "8px",
-    marginLeft: "30%",
+    marginLeft: "20%",
     background: "white",
+};
+
+const searchStock = {
+    display: 'flex', 
+    margin: '0 auto',
+    marginBottom: "20px",
+    width: "240px", 
+    alignItems: 'center', 
+    borderRadius: "20px",
+    background: 'rgba(190, 190, 190, 0.51)'
 };
 
 export default TopNav;
