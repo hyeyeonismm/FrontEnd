@@ -198,7 +198,7 @@ const styles = {
   },
   cardWasteWrap: {
     margin: "25px",
-    marginBottom: "0",
+    marginBottom: "90px",
     width: '342px',
     borderRadius: '18px 18px 0px 0px',
     border: '0.5px solid #000',

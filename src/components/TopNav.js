@@ -3,10 +3,9 @@ import arrow from "../assets/images/arrow.svg";
 import toggle from "../assets/images/toggle.svg";
 import mainCharacter from "../assets/images/mainCharacter.png"
 import { useNavigate } from "react-router-dom";
-import { styled, Modal, Box, Typography, TextField, FormControl, InputAdornment, InputLabel, Paper, IconButton, InputBase, Divider  } from "@mui/material";
+import { styled, Modal, Box, Typography, Paper, IconButton, InputBase,  } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
-import DirectionsIcon from '@mui/icons-material/Directions';
-import { Grid, Button, Input } from '../components';  
+import { Grid, Button, Img } from '../components';  
 
 function TopNav() {
     const navigate = useNavigate();
@@ -67,8 +66,14 @@ function TopNav() {
             </Grid>
 
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", marginLeft: "30px", marginRight: "30px" }}>
-                <Button theme="topNavBtn" onClick={() => handleButtonClick("/card")} selected={selectedButton === "/consumption"}>내 소비</Button>
-                <Button theme="topNavBtn" onClick={() => handleButtonClick("/stock")} selected={selectedButton === "/stock"}>주주되기</Button>
+                <Button theme="topNavBtn" onClick={() => handleButtonClick("/card")} selected={selectedButton === "/card"}>
+                    <span style={{ color: selectedButton === "/card" ? '#88BDE7' : 'black' }}>내 소비</span>
+                    {selectedButton === "/card" && <Img theme="mainCharacter" src={mainCharacter} alt={mainCharacter} />}
+                </Button>
+                <Button theme="topNavBtn" onClick={() => handleButtonClick("/stock")} selected={selectedButton === "/stock"}>
+                    <span style={{ color: selectedButton === "/stock" ? '#88BDE7' : 'black' }}>주주되기</span>
+                    {selectedButton === "/stock" && <Img theme="mainCharacter" src={mainCharacter} alt={mainCharacter} />}
+                </Button>
             </div>
             <Grid theme="topNavLine" />
         </>
@@ -86,7 +91,7 @@ const modalWrap = {
 };
 
 const modalStyle = {
-    height: "100%",
+    height: "708px",
     padding: "33px",
     marginTop: "8px",
     marginLeft: "20%",
