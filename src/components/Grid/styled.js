@@ -1,6 +1,35 @@
 import { styled, Grid } from '@mui/material';
 
 const styles = {
+  //상단바
+  topNavContainer: {
+    display: "flex", 
+    flexDirection: "row", 
+    justifyContent: "space-between", 
+    padding: "44px 20px 15px 20px", 
+    alignItems: "center"
+  },
+  topNavLine: {
+    width: "390px",
+    height: "3px",
+    background: "#FFFDF5;",
+    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+  },
+  sideBar: {
+    width: "50%",
+    height: "500px",
+    background: "white",
+  },
+  sideBarBox: {
+    width: "250px",
+    height: "140px",
+    margin: "0 auto",
+    marginTop: "13px",
+    marginBottom: "15px",
+    borderRadius: "8px",
+    border: "2px solid var(--Input-Box-Stroke-Thin, rgba(0, 0, 0, 0.15))",
+    boxShadow: "0px 2px 2px 0px rgba(0, 0, 0, 0.10)"
+  },
   //헤더
   line: {
     width: "390px",
@@ -8,7 +37,6 @@ const styles = {
     background: "#FFFDF5;",
     boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
   },
-
   //로그인 페이지
   header: {
     display: 'flex',
@@ -100,21 +128,19 @@ const styles = {
     borderRadius: '270px',
     background: '#EBF3FC',
   },
+  // 하단바
   footerWrap: {
-    position: "relative",
-    minHeight: "100%",
-    paddingBottom: "114px",
+    position: "fixed",
+    bottom: 0,
+    width: "390px",
+    height: "160px",
   },
   footer: {
-    position: "absolute",
-    bottom: 0,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '100%',
-    height: '80px',
-    marginTop: '20px',
     boxShadow: '0px 5px 18px rgba(0, 0, 0, 0.25)',
+    background: 'white'
   },
   
   //소비 페이지
@@ -152,7 +178,33 @@ const styles = {
     height: "2px",
     background: "rgba(198, 198, 198, 0.40)",
     margin : "20px"
-  }
+  },
+
+  //소비상세 페이지
+  cardDetailWrap :{
+    marginTop: "40px",
+    display: "flex",
+    justifyContent: "left",
+  },
+  cardDetailDescription :{
+    fontSize: "18px",
+    fontWeight: "700",
+  },
+  cardDetailDescriptionSmall :{
+    marginTop: "10px",
+    marginLeft: "55px",
+    fontSize: "18px",
+    fontWeight: "500",
+  },
+  cardWasteWrap: {
+    margin: "25px",
+    marginBottom: "90px",
+    width: '342px',
+    borderRadius: '18px 18px 0px 0px',
+    border: '0.5px solid #000',
+    background: '#FFF',
+    boxShadow: '0px 4px 14px 0px rgba(0, 0, 0, 0.25)',
+  },
 
 };
 

@@ -16,8 +16,8 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .layout{
-    max-width: 390px;
-    max-height: 844px;
+    width: 390px;
+    height: 844px;
     background-color: white;
     margin: 0 auto;
     overflow-y: scroll;
@@ -25,12 +25,10 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .layout::-webkit-scrollbar {
-  width: 5px;
+  width: 0;
 }
 
 .layout::-webkit-scrollbar-thumb {
-  background-color: #ced4da;
-  border-radius: 50px; 
 }
 
 `;

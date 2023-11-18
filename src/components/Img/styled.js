@@ -1,9 +1,16 @@
 import { styled } from '@mui/material';
 
 const styles = {
+  //헤더
   arrow: {
     width: '13px',
     height: '26px',
+  },
+  mainCharacter: {
+    width: "50px",
+    height: "50px",
+    marginBottom: "80px",
+    marginLeft: "-55px"
   },
   register: {
     width: '342px',
@@ -40,7 +47,17 @@ const styles = {
     width: "280px",
     marginTop: "10px",
     marginLeft: "55px",
-  }
+  },
+
+  //내 소비 상세
+  arrowBeforeDetail:{
+    cursor: "pointer",
+    filter: "invert(1)",
+  },
+  arrowAfterDetail:{
+    cursor: "pointer",
+    filter: "invert(1)",
+  },
 };
 
 export const StyledImg = styled('img')(({ theme }) => ({

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import Home from '../images/home.svg';
-import Wallet from '../images/wallet.svg';
-import Crown from '../images/crown.svg';
+import Home from '../assets/images/home.svg';
+import Wallet from '../assets/images/wallet.svg';
+import Crown from '../assets/images/crown.svg';
 import { Grid, Img, Button } from '../components';
 
 function Footer() {
