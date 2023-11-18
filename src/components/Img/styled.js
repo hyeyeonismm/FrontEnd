@@ -14,7 +14,8 @@ const styles = {
   },
   //온보딩
   onboardingImg:{
-    width: "300px"
+    width: "200px",
+    margin: "0 auto"
   },
   register: {
     width: '342px',

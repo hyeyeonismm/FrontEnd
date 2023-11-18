@@ -85,6 +85,7 @@ const buttonStyle = {
     border: "none",
     cursor: "pointer",
 };
+
 const modalWrap = {
     margin: "0 auto",
     width: "390px",
