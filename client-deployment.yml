@@ -39,7 +39,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: example.com
+  - host: 180.210.80.208  # 로드 밸런서의 퍼블릭 IP 주소로 변경
     http:
       paths:
       - path: /
