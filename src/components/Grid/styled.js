@@ -20,6 +20,13 @@ const styles = {
     height: "500px",
     background: "white",
   },
+  sideBarBox: {
+    width: "226px",
+    height: "118px",
+    borderRadius: "4.444px",
+    border: "0.889px solid var(--Input-Box-Stroke-Thin, rgba(0, 0, 0, 0.15))",
+    boxShadow: "0px 1.77778px 1.77778px 0px rgba(0, 0, 0, 0.10)"
+  },
   //헤더
   line: {
     width: "390px",

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import arrow from "../images/arrow.svg";
+import arrow from "../assets/images/arrow.svg";
 import toggle from "../assets/images/toggle.svg";
 // import Toggle from "../Toggle"
 import { useNavigate } from "react-router-dom";

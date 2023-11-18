@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Character from '../images/character.png';
+import Character from '../assets/images/character.png';
 import { Grid, Img, Button } from '../components/index.js';
 import Footer from '../components/Footer.js';
 
