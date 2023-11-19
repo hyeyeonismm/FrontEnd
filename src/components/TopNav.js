@@ -20,6 +20,7 @@ function TopNav() {
 
   return (
     <>
+      {/* navbar */}
       <Grid sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '44px 20px 15px 20px', alignItems: 'center' }}>
         <button style={buttonStyle}>
           <img style={{ width: '13px', height: '26px', marginTop: 7 }} src={arrow} alt="arrow" />

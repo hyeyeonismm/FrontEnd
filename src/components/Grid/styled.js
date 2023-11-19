@@ -54,7 +54,7 @@ const styles = {
   },
 
   // 카드내역 연동 동의 모달
-  body: {
+  modal_body: {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -122,7 +122,7 @@ const styles = {
     marginTop: '10px',
     fontSize: '13px',
   },
-  background: {
+  main_background: {
     marginTop: '40px',
     display: 'flex',
     flexDirection: 'column',
@@ -131,24 +131,37 @@ const styles = {
     alignItems: 'center',
   },
 
-  // Stock 페이지
-  stock_body: {
+  // StockMain 페이지
+  stockMain_body: {
     margin: '55px 20px 30px 20px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
-  stockOne_body: {
+  stockMain_content: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 10,
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+  stockMain_circle: {
+    width: '270px',
+    height: '270px',
+    borderRadius: '270px',
+    background: '#EBF3FC',
+  },
+
+  //Category 페이지
+  category_body: {
     margin: '55px 20px 0px 20px',
     display: 'flex',
     flexDirection: 'column',
     gap: 10,
   },
-
-  //카테고리
-  category_body: {
+  category_form: {
     height: '380px',
-    marginTop: '20px',
+
     borderRadius: '18px',
     border: '0.5px solid #c0c0c0',
     boxShadow: '0px 4px 14px 0px rgba(0, 0, 0, 0.25)',
@@ -190,11 +203,12 @@ const styles = {
     height: '310px',
     overflowY: 'scroll',
   },
-
   category_img: {
     display: 'flex',
     flexDirection: 'row',
   },
+
+  //stockInformation 페이지
   stock_nav: {
     display: 'flex',
     flexDirection: 'row',
@@ -246,19 +260,8 @@ const styles = {
     fontSize: '18px',
     fontWeight: 700,
   },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 10,
-    textAlign: 'center',
-    alignItems: 'center',
-  },
-  circle: {
-    width: '270px',
-    height: '270px',
-    borderRadius: '270px',
-    background: '#EBF3FC',
-  },
+
+  // Footer
   footerWrap: {
     position: 'relative',
     minHeight: '100%',

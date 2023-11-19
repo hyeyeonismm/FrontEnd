@@ -22,6 +22,7 @@ const styles = {
     fontSize: '18px',
     fontWeight: 700,
   },
+
   mainStartBtn: {
     display: 'flex',
     width: '342px',

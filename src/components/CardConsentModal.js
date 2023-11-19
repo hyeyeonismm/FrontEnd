@@ -43,13 +43,10 @@ function CardConsentModal() {
   const cardBtn = {
     display: 'flex',
     flexDirection: 'row',
-    paddingTop: '10px',
-    width: '250px',
+    padding: '10px',
     height: '40px',
     border: '1px solid #c4c4c4',
-    paddingLeft: '10px',
     gap: 15,
-    lineHeight: 1.5,
     cursor: 'pointer',
     borderRadius: '5px',
     color: '#757575',
@@ -60,6 +57,7 @@ function CardConsentModal() {
   } else {
     cardBtn.background = 'transparent';
   }
+
   return (
     <>
       <button style={cardBtn} onClick={handleOpen}>
@@ -67,7 +65,7 @@ function CardConsentModal() {
         <Img src={check} alt="check" />
       </button>
       <Modal open={open} onClose={handleClose}>
-        <Grid theme="body">
+        <Grid theme="modal_body">
           <Grid theme="modal_header">
             <CloseButton onClick={handleClose} title="닫기" />
             <Grid theme="modal_title">카드 내역 연동 동의서</Grid>

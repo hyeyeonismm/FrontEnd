@@ -1,6 +1,7 @@
 import { styled } from '@mui/material';
 
 const styles = {
+  //로그인 & 회원가입 페이지
   arrow: {
     width: '13px',
     height: '26px',

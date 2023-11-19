@@ -13,7 +13,7 @@ function Main() {
         <Grid theme="title">SeedStock</Grid>
         <Grid theme="description">평범한 일상 속에서 개인화된 주식 투자 기회를 제안합니다.</Grid>
       </Grid>
-      <Grid theme="background">
+      <Grid theme="main_background">
         <Img theme="main" src={main} alt="main" />
         <Button theme="mainStartBtn" children="시작하기" />
       </Grid>

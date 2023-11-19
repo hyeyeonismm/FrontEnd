@@ -5,7 +5,7 @@ import Character from '../../assets/images/character.png';
 import Footer from '../Footer.js';
 import TopNav from '../TopNav.js';
 
-function Stock() {
+function StockMain() {
   const navigate = useNavigate();
   const onClickCheck = () => {
     navigate('/stock/category');
@@ -14,14 +14,14 @@ function Stock() {
   return (
     <>
       <TopNav />
-      <Grid theme="stock_body">
+      <Grid theme="stockMain_body">
         <Grid>소비자에서 주주가 되어봅시다.</Grid>
         <Grid>
           ㅇㅇㅇ님과 <strong>밀접한 종목</strong>을 알아볼까요?
         </Grid>
       </Grid>
-      <Grid theme="content">
-        <Grid theme="circle">
+      <Grid theme="stockMain_content">
+        <Grid theme="stockMain_circle">
           <Img theme="character" src={Character} alt="character"></Img>
         </Grid>
         <Button theme="checkBtn" onClick={onClickCheck} children="확인하기" />
@@ -30,4 +30,4 @@ function Stock() {
     </>
   );
 }
-export default Stock;
+export default StockMain;

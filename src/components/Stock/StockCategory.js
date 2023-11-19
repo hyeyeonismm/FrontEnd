@@ -14,7 +14,7 @@ import life from '../../assets/images/life.png';
 import doctor from '../../assets/images/doctor.png';
 import light from '../../assets/images/light.png';
 
-function Category() {
+function StockCategory() {
   const navigate = useNavigate();
   const [showCategory, setShowCategory] = useState(true);
   const [showStockList, setShowStockList] = useState(false);
@@ -52,7 +52,7 @@ function Category() {
     <>
       <TopNav />
 
-      <Grid theme="stockOne_body">
+      <Grid theme="category_body">
         {showCategory && (
           <>
             <Grid theme="modal_title">김혜연님의 밀접 카테고리</Grid>
@@ -62,7 +62,7 @@ function Category() {
               상위 5개의 카테고리를 추천했어요.
             </Grid>
 
-            <Grid theme="category_body">
+            <Grid theme="category_form">
               {categoryData.slice(0, 5).map((category, index) => (
                 <Grid key={index}>
                   <Button theme="categoryBtn" onClick={() => onClickCategory(category)}>
@@ -85,7 +85,7 @@ function Category() {
               <Grid>33개 회사 / 13개 ETF</Grid>
               <Grid theme="list_content">카테고리 설명입니다. 카테고리 설명입니다. 카테고리 설명입니다...</Grid>
             </Grid>
-            <Grid theme="category_body">
+            <Grid theme="category_form">
               <Grid theme="list_tab">
                 <Button onClick={() => setSelectedTab('수익률')}>수익률</Button>
                 <Button onClick={() => setSelectedTab('시가총액')}>시가총액</Button>
@@ -136,4 +136,4 @@ function Category() {
     </>
   );
 }
-export default Category;
+export default StockCategory;
