@@ -23,7 +23,7 @@ const styles = {
 	},
 	sideBarBox: {
 		width: '250px',
-		height: '140px',
+		height: '150px',
 		margin: '0 auto',
 		marginTop: '13px',
 		marginBottom: '15px',

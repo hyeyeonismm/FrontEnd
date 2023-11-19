@@ -14,6 +14,7 @@ import category6 from '../assets/images/category6.svg';
 import category7 from '../assets/images/category7.svg';
 import category8 from '../assets/images/category8.svg';
 import category9 from '../assets/images/category9.svg';
+import MonthWaste from '../components/MonthWaste';
 
 function Card() {
 	const [showWaste, setShowWaste] = useState(true);
@@ -63,7 +64,7 @@ function Card() {
 	return (
 		<>
 			{/* Header */}
-			<TopNav />
+			<TopNav/>
 
 			{/* 소비&카드 창 */}
 			{showWaste && (
@@ -93,16 +94,7 @@ function Card() {
 			{/* 상세보기 버튼 클릭 시에 카테고리 소비창 */}
 			{showDetailWaste && (
 				<>
-					<Grid theme='cardDetailWrap'>
-						<Button>
-							<Img theme='arrowBeforeDetail' src={arrowBefore} alt='arrowBeforeDetail' />
-						</Button>
-						<Grid theme='cardDetailDescription'>{wasteMonth} 소비</Grid>
-						<Button>
-							<Img theme='arrowAfterDetail' src={arrowAfter} alt='arrowAfterDetail' />
-						</Button>
-					</Grid>
-					<Grid theme='cardDetailDescriptionSmall'>{amount}</Grid>
+					<MonthWaste wasteMonth={wasteMonth}  amount={amount}/>
 
 					{/* 카테고리 클릭 시에 세부 내역 */}
 					{showCategoryWaste ? (

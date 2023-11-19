@@ -7,6 +7,7 @@ import { styled, Modal, Box, Typography, Paper, IconButton, InputBase } from '@m
 import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Button, Img } from '../components';
 import WasteBar from './WasteBar';
+import MonthWaste from './MonthWaste';
 
 function TopNav() {
 	const navigate = useNavigate();
@@ -55,6 +56,7 @@ function TopNav() {
 						<Typography id='modal-modal-title' variant='h7' component='h4'>
 							소비 내역
 							<Grid theme='sideBarBox'>
+                                <MonthWaste />
                                 <WasteBar/>
                             </Grid>
 						</Typography>
