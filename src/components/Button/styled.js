@@ -42,6 +42,7 @@ const styles = {
 		margin: '20px 0px',
 		justifyContent: 'center',
 		textAlign: 'center',
+		fontWeight: 'bold',
 		borderRadius: '8px',
 		background: '#A3C7F7',
 		color: '#fff',

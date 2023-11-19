@@ -297,6 +297,7 @@ const styles = {
 			borderRadius: '20px', // 스크롤바 모서리의 둥글기
 		},
 	},
+
 	category_img: {
 		display: 'flex',
 		flexDirection: 'row',
@@ -393,6 +394,7 @@ const styles = {
 		fontSize: '24px',
 		fontWeight: '700',
 		color: 'white',
+		zIndex: 10,
 	},
 	smallLine: {
 		width: '350px',

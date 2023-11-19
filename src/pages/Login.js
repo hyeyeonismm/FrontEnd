@@ -41,7 +41,7 @@ function Login() {
 			</Grid>
 
 			<Grid theme='startGrid'>
-				<Button theme='startBtn' onClick={onClickStart} children='시작하기' />
+				<Button theme='startBtn' onClick={onClickStart} children='로그인' />
 			</Grid>
 		</>
 	);
