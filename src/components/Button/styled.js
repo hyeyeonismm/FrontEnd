@@ -109,17 +109,20 @@ const styles = {
 	detailBtn: {
 		position: 'absolute',
 		marginTop: '30px',
-		marginLeft: '220px',
-		width: '85px',
+		marginLeft: '200px',
+		width: '105px',
 		height: '40px',
 		background: 'white',
-		color: '#88bde7',
+		color: '#000',
 		borderRadius: '20px',
 		boxShadow: '0px 2px 4px 1px rgba(0, 0, 0, 0.25)',
 		textAlign: 'center',
 		fontSize: '16px',
 		fontWeight: 700,
 		cursor: 'pointer',
+		'&:hover': {
+			background: '#fff',
+		},
 	},
 
 	//소비 상세 페이지
