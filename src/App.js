@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
  body, html {
+  font-family: 'ROBOTO';
   background-color: #000000;
   letter-spacing: -0.1px;
   margin: 0;
