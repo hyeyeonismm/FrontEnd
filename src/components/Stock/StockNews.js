@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import ApexChart from 'react-apexcharts';
-import { Grid, Img, Button } from './index';
+import { Grid, Img, Button } from '../index';
 
-function News() {
+function StockNews() {
 	return (
 		<>
 			<Grid theme='news_body'>
@@ -17,4 +17,4 @@ function News() {
 		</>
 	);
 }
-export default News;
+export default StockNews;

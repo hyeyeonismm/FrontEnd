@@ -5,14 +5,13 @@ import TopNav from '../TopNav';
 import Footer from '../Footer';
 import arrow from '../../assets/images/arrow.svg';
 import logo from '../../assets/images/finance.png';
-import Chart from '../Chart.js';
-import News from '../News.js';
+import Chart from './StockChart.js';
+import News from './StockNews.js';
 
 function StockInformation() {
 	const location = useLocation();
 	const stockName = location.state?.stockName;
 	const navigate = useNavigate();
-	const [isOpen, setIsOpen] = useState(false);
 	const [showChart, setShowChart] = useState(true);
 	const [showNews, setShowNews] = useState(false);
 
@@ -20,9 +19,7 @@ function StockInformation() {
 		setShowNews(!showNews);
 		setShowChart(!showChart);
 	};
-	const toggleSide = () => {
-		setIsOpen(true);
-	};
+
 	return (
 		<>
 			<Grid theme='stock_nav'>

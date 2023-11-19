@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import ApexChart from 'react-apexcharts';
-import { Grid, Img, Button } from './index';
+import { Grid, Img, Button } from '../index';
 
-function Chart() {
+function StockChart() {
 	const url = 'https://www.shinhansec.com/siw/main/front/view.do';
 	const onClickButton = () => {
 		window.open(url);
@@ -120,4 +120,4 @@ function Chart() {
 		</>
 	);
 }
-export default Chart;
+export default StockChart;
