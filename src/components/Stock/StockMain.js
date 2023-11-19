@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index.js';
 import Character from '../../assets/images/character.png';
-import Footer from '../Footer.js';
 import TopNav from '../TopNav.js';
 
 function StockMain() {
@@ -26,7 +25,6 @@ function StockMain() {
 				</Grid>
 				<Button theme='checkBtn' onClick={onClickCheck} children='확인하기' />
 			</Grid>
-			<Footer />
 		</>
 	);
 }

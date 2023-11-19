@@ -4,7 +4,6 @@ import TopNav from '../components/TopNav';
 import arrowBefore from '../assets/images/arrowBefore.svg';
 import arrowAfter from '../assets/images/arrowAfter.svg';
 import cardShinhanDD from '../assets/images/cardShinhanDD.png';
-import Footer from '../components/Footer';
 import WasteBar from '../components/WasteBar';
 import category1 from '../assets/images/category1.svg';
 import category2 from '../assets/images/category2.svg';
@@ -139,8 +138,6 @@ function Card() {
 					)}
 				</>
 			)}
-			{/* Footer */}
-			<Footer />
 		</>
 	);
 }
