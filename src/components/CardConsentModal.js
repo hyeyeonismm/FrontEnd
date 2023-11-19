@@ -46,10 +46,11 @@ function CardConsentModal() {
 		padding: '10px',
 		height: '40px',
 		border: '1px solid #c4c4c4',
-		gap: 15,
+		gap: 5,
 		cursor: 'pointer',
 		borderRadius: '5px',
 		color: '#757575',
+		fontSize: '14px',
 	};
 
 	if (selectedFirstBtn && selectedSecondBtn) {
@@ -62,7 +63,7 @@ function CardConsentModal() {
 		<>
 			<button style={cardBtn} onClick={handleOpen}>
 				<div>카드내역 연동 동의서 확인하기</div>
-				<Img src={check} alt='check' />
+				<Img theme='check' src={check} alt='check' />
 			</button>
 			<Modal open={open} onClose={handleClose}>
 				<Grid theme='modal_body'>

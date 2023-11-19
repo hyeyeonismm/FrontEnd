@@ -1,9 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { TextField } from '@mui/material';
 import { Grid, Button, Img } from '../components/index.js';
 import main from '../assets/images/mainCharacter.png';
-import main_bg from '../assets/images/main_bg.png';
-import TopNav from '../components/TopNav.js';
 
 function Main() {
 	const navigate = useNavigate();
