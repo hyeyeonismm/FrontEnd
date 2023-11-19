@@ -85,7 +85,7 @@ const styles = {
 	startGrid: {
 		display: 'flex',
 		justifyContent: 'center',
-		padding: '40px 0px',
+		padding: '40px 0px 10px 0px',
 	},
 
 	//회원가입 페이지

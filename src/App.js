@@ -28,11 +28,12 @@ const GlobalStyle = createGlobalStyle`
 
 .layout{
     max-width: 390px;
-    height: 720px;
+    height: auto;
     background-color: white;
-    margin: 0 auto;
+    margin: 0 auto ;
     overflow-y: scroll;
     overflow-x: hidden;
+    padding-bottom: 40px;
 }
 
 .layout::-webkit-scrollbar {
