@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 
  body, html {
   font-family: 'ROBOTO';
-  background-color: #000000;
+  background-color: white;
   letter-spacing: -0.1px;
   margin: 0;
   background-color: black;
