@@ -92,7 +92,7 @@ function Card() {
 					{showCategoryWaste ? (
 						<>
 							<Grid theme='category_body'>
-                <Grid theme='category_form'>
+                				<Grid theme='category_form'>
 								{wasteShop.map((cat, index) => (
 									<Button theme='cardWasteList' key={index}>
 										<div style={cardWaste}>
@@ -102,7 +102,7 @@ function Card() {
 									</Button>
 								))}
 							</Grid>
-              </Grid>
+              				</Grid>
 						</>
 					) : (
 						<>

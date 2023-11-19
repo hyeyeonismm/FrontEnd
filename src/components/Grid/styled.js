@@ -189,7 +189,7 @@ const styles = {
 	main: {
 		display: 'flex',
 		flexDirection: 'column',
-		paddingTop: '130px',
+		paddingTop: '80px',
 		margin: '0px 20px',
 	},
 	introTagLine: {
@@ -285,7 +285,19 @@ const styles = {
 	stock_list: {
 		height: '310px',
 		overflowY: 'scroll',
-	},
+		scrollbarWidth: 'thin', 
+		WebkitScrollbar: {
+		  width: '5px',
+		},
+		'&::-webkit-scrollbar': {
+		  width: '5px',
+		},
+		'&::-webkit-scrollbar-thumb': {
+		  backgroundColor: '#EDEDED', // 스크롤바 색상
+		  borderRadius: '20px', // 스크롤바 모서리의 둥글기
+		},
+	  },
+	  
 	category_img: {
 		display: 'flex',
 		flexDirection: 'row',
@@ -373,11 +385,13 @@ const styles = {
 		fontWeight: '500',
 	},
 	cardAmount: {
-		marginTop: '30px',
-		marginRight: '95px',
-		fontSize: '25px',
+		width: '150px',
+		marginTop: '32px',
+		marginLeft: '-80px',
+		fontSize: '20px',
 		fontWeight: '700',
 		color: 'white',
+		zIndex: 10,
 	},
 	smallLine: {
 		width: '350px',

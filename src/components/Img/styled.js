@@ -14,6 +14,10 @@ const styles = {
 		marginBottom: '80px',
 		marginLeft: '-55px',
 	},
+	//메인
+	main_bg:{
+		marginBottom: 0
+	},
 	//온보딩
 	onboardingImg: {
 		width: '200px',
@@ -25,8 +29,7 @@ const styles = {
 		margin: '60px 24px',
 	},
 	main: {
-		width: '162.814px',
-		height: '170px',
+		width: '250px',
 	},
 	icon: {
 		width: '38px',
