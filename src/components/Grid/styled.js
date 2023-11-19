@@ -189,7 +189,7 @@ const styles = {
 	main: {
 		display: 'flex',
 		flexDirection: 'column',
-		paddingTop: '130px',
+		paddingTop: '80px',
 		margin: '0px 20px',
 	},
 	introTagLine: {
@@ -373,11 +373,13 @@ const styles = {
 		fontWeight: '500',
 	},
 	cardAmount: {
-		marginTop: '30px',
-		marginRight: '95px',
-		fontSize: '25px',
+		width: '150px',
+		marginTop: '32px',
+		marginLeft: '-80px',
+		fontSize: '20px',
 		fontWeight: '700',
 		color: 'white',
+		zIndex: 10,
 	},
 	smallLine: {
 		width: '350px',

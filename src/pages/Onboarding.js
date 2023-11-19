@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Grid, Button, Img } from '../components/index.js';
 import main from '../assets/images/mainCharacter.png';
+import main_bg from '../assets/images/main_bg.svg';
 
 
 function Onboarding() {
@@ -12,6 +13,11 @@ function Onboarding() {
 
 	return (
 		<>
+			<Grid theme='header'>
+				<div style={{ marginLeft: '45px', justifyContent: 'center', flex: 1 }}>
+					<Grid theme='headerTitle'>Link Stock</Grid>
+				</div>
+			</Grid>
 			<Grid theme='main'>
 				<Grid theme='introTagLine'>소비 데이터 기반 주식 추천 서비스</Grid>
 				<Grid theme='title'>LinkStock</Grid>
@@ -21,6 +27,7 @@ function Onboarding() {
 				<Img theme='main' src={main} alt='main' />
 				<Button theme='mainStartBtn' children='시작하기' onClick={() => handleButtonClick('/login')} />
 			</Grid>
+			<Img theme='main_bg' src={main_bg}></Img>
 		</>
 	);
 }
