@@ -3,7 +3,7 @@ import home from '../assets/images/home.svg';
 import toggle from '../assets/images/toggle.svg';
 import mainCharacter from '../assets/images/mainCharacter.png';
 import { useNavigate } from 'react-router-dom';
-import { styled, Modal, Box, Typography, Paper, IconButton, InputBase } from '@mui/material';
+import { styled, Modal, Box, Typography, Paper, IconButton, InputBase, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Button, Img } from '../components';
 
@@ -41,12 +41,19 @@ function TopNav() {
 				{/* 모달 창 */}
 				<Modal open={isOpen} onClose={closeModal} sx={modalWrap}>
 					<Box sx={modalStyle}>
-						<Paper component='form' sx={searchStock}>
-							<InputBase sx={{ ml: 2, flex: 1 }} placeholder='종목을 검색해보세요' />
-							<IconButton type='button' sx={{ p: '10px' }} aria-label='search'>
-								<SearchIcon />
-							</IconButton>
-						</Paper>
+						<SearchField>
+							<input
+								type='text'
+								style={{
+									border: 'none',
+									background: '#f3f3f3',
+									outline: 'none',
+								}}
+								placeholder='종목을 검색해보세요'
+							/>
+							<SearchIcon />
+						</SearchField>
+
 						<Typography id='modal-modal-title' variant='h7' component='h4'>
 							기본 정보
 							<Grid theme='sideBarBox'></Grid>
@@ -85,6 +92,18 @@ function TopNav() {
 		</>
 	);
 }
+const SearchField = styled(Box)({
+	borderRadius: '20px',
+	background: '#f3f3f3',
+	height: '25px',
+	width: '200px',
+	display: 'flex',
+	padding: '10px 20px',
+	margin: '10px 0px 20px',
+	gap: 10,
+	color: '#757575',
+	fontSize: 14,
+});
 
 const buttonStyle = {
 	background: '#fff',
@@ -103,16 +122,6 @@ const modalStyle = {
 	marginTop: '8px',
 	marginLeft: '20%',
 	background: 'white',
-};
-
-const searchStock = {
-	display: 'flex',
-	margin: '0 auto',
-	marginBottom: '20px',
-	width: '240px',
-	alignItems: 'center',
-	borderRadius: '20px',
-	background: 'rgba(190, 190, 190, 0.51)',
 };
 
 export default TopNav;

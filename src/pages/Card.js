@@ -84,9 +84,11 @@ function Card() {
 					</Grid>
 					<Grid theme='smallLine' />
 					{/* 보유 카드 */}
-					<Grid theme='cardDescription'>보유 카드</Grid>
-					<Grid theme='cardDescriptionSmall'>{card}</Grid>
-					<Img theme='cardShinhanDD' src={cardShinhanDD} alt='cardShinhanDD' />
+					<Grid theme='cardSection'>
+						<Grid theme='cardDescription'>보유 카드</Grid>
+						<Grid theme='cardDescriptionSmall'>{card}</Grid>
+						<Img theme='cardShinhanDD' src={cardShinhanDD} alt='cardShinhanDD' />
+					</Grid>
 				</>
 			)}
 

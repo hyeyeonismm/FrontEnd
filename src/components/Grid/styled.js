@@ -322,11 +322,16 @@ const styles = {
 		margin: '25px',
 		filter: 'drop-shadow(0px 0px 18px rgba(0, 0, 0, 0.25))',
 	},
+	cardSection: {
+		display: 'flex',
+		flexDirection: 'column',
+		gap: 5,
+	},
 	cardDescription: {
 		marginTop: '35px',
 		marginLeft: '35px',
-		fontSize: '20px',
-		fontWeight: '900',
+		fontSize: '18px',
+		fontWeight: '700',
 	},
 	cardDescriptionSmall: {
 		marginTop: '10px',
@@ -336,16 +341,16 @@ const styles = {
 	},
 	cardAmount: {
 		marginTop: '30px',
-		marginRight: '90px',
+		marginRight: '95px',
 		fontSize: '25px',
-		fontWeight: '1000',
+		fontWeight: '700',
 		color: 'white',
 	},
 	smallLine: {
 		width: '350px',
 		height: '2px',
 		background: 'rgba(198, 198, 198, 0.40)',
-		margin: '20px',
+		margin: '20px 20px 0px 20px',
 	},
 
 	//소비상세 페이지
