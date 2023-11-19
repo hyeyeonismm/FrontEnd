@@ -285,7 +285,19 @@ const styles = {
 	stock_list: {
 		height: '310px',
 		overflowY: 'scroll',
-	},
+		scrollbarWidth: 'thin', 
+		WebkitScrollbar: {
+		  width: '5px',
+		},
+		'&::-webkit-scrollbar': {
+		  width: '5px',
+		},
+		'&::-webkit-scrollbar-thumb': {
+		  backgroundColor: '#EDEDED', // 스크롤바 색상
+		  borderRadius: '20px', // 스크롤바 모서리의 둥글기
+		},
+	  },
+	  
 	category_img: {
 		display: 'flex',
 		flexDirection: 'row',
