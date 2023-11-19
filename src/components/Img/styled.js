@@ -2,10 +2,22 @@ import { styled } from '@mui/material';
 
 const styles = {
   //로그인 & 회원가입 페이지
+  //헤더
   arrow: {
     width: '13px',
     height: '26px',
     marginTop: 7,
+  },
+  mainCharacter: {
+    width: "50px",
+    height: "50px",
+    marginBottom: "80px",
+    marginLeft: "-55px"
+  },
+  //온보딩
+  onboardingImg:{
+    width: "200px",
+    margin: "0 auto"
   },
   register: {
     width: '342px',
@@ -41,6 +53,34 @@ const styles = {
     marginTop: '5px',
     width: '40px',
     height: '40px',
+  },
+  //내 소비 페이지
+  arrowBefore:{
+    position: "absolute",
+    cursor: "pointer",
+    top: "40px",
+    left: "15px"
+  },
+  arrowAfter:{
+    position: "absolute",
+    cursor: "pointer",
+    top: "40px",
+    left: "40px"
+  },
+  cardShinhanDD:{
+    width: "280px",
+    marginTop: "10px",
+    marginLeft: "55px",
+  },
+
+  //내 소비 상세
+  arrowBeforeDetail:{
+    cursor: "pointer",
+    filter: "invert(1)",
+  },
+  arrowAfterDetail:{
+    cursor: "pointer",
+    filter: "invert(1)",
   },
 };
 

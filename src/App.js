@@ -6,25 +6,39 @@ import Signup from './pages/Signup.js';
 import Main from './pages/Main.js';
 import Card from './pages/Card';
 import Onboarding from './pages/Onboarding.js';
-import StockApp from './components/Stock/StockApp.js';
+import ONESHINHANLIGHT from './assets/font/ONESHINHANLIGHT.TTF';
 
 const GlobalStyle = createGlobalStyle`
- body,html {
-  letter-spacing: -0.1px;
-  margin: 0;
-  background-color: black;
-  padding: 0;
-  height: 100vh;
-  overflow-x: hidden; 
+@font-face {
+  font-family: 'ONESHINHANLIGHT';
+  src: local('ONESHINHANLIGHT'), url(${ONESHINHANLIGHT}) format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
- 
+
+ body {
+  background-color: #000000;
+  font-family: 'ONESHINHANLIGHT';
+  letter-spacing: -1px;
+}
 
 .layout{
-  max-width: 390px;
-  height: auto;
-  background-color: white;
-  margin: 0 auto; 
+    width: 390px;
+    height: 844px;
+    background-color: white;
+    margin: 0 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: 'ONESHINHANLIGHT';
 }
+
+.layout::-webkit-scrollbar {
+  width: 0;
+}
+
+.layout::-webkit-scrollbar-thumb {
+}
+
 `;
 function App() {
   return (
