@@ -129,6 +129,11 @@ const styles = {
 	cardWasteList: {
 		width: '100%',
 	},
+	sidebarBtn: {
+		margin: '0',
+		color: '#757575',
+		width: '10px',
+	},
 };
 
 export const StyledButton = styled(MuiButton)(({ theme }) => ({

@@ -3,7 +3,7 @@ import home from '../assets/images/home.svg';
 import toggle from '../assets/images/toggle.svg';
 import mainCharacter from '../assets/images/mainCharacter.png';
 import { useNavigate } from 'react-router-dom';
-import { styled, Modal, Box, Typography, Paper, IconButton, InputBase, TextField } from '@mui/material';
+import { styled, Modal, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Button, Img } from '../components';
 import WasteBar from './WasteBar';
@@ -65,7 +65,9 @@ function TopNav() {
 								}}
 								placeholder='종목을 검색해보세요'
 							/>
-							<SearchIcon />
+							<Button theme='sidebarBtn'>
+								<SearchIcon />
+							</Button>
 						</SearchField>
 
 						<Grid theme='navSection'>
@@ -121,9 +123,10 @@ const SearchField = styled(Box)({
 	display: 'flex',
 	padding: '10px 20px',
 	margin: '40px 0px',
-	gap: 10,
+	gap: 0,
 	color: '#757575',
 	fontSize: 14,
+	cursor: 'pointer',
 });
 
 const buttonStyle = {
