@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
  body {
   background-color: #000000;
   font-family: 'ONESHINHANLIGHT';
+  letter-spacing: -1px;
 }
 
 .layout{
