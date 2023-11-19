@@ -189,7 +189,7 @@ const styles = {
 	main: {
 		display: 'flex',
 		flexDirection: 'column',
-		paddingTop: '130px',
+		paddingTop: '80px',
 		margin: '0px 20px',
 	},
 	introTagLine: {
@@ -205,7 +205,7 @@ const styles = {
 	},
 	description: {
 		marginTop: '10px',
-		fontSize: '13px',
+		fontSize: '14px',
 	},
 	main_background: {
 		marginTop: '40px',
@@ -244,22 +244,22 @@ const styles = {
 		flexDirection: 'column',
 		gap: 10,
 	},
-	category_form: {
+
+	categoryForm: {
+		marginTop: '25px',
 		borderRadius: '18px',
 		border: '0.5px solid #c0c0c0',
 		boxShadow: '0px 4px 14px 0px rgba(0, 0, 0, 0.25)',
 	},
-	category_font: {
+	categoryFont: {
 		color: 'black',
-		fontWeight: 700,
-		fontSize: '16px',
 		width: '100px',
 		textAlign: 'left',
 	},
 	list_icon: {
+		margin: '20px 0px',
 		display: 'flex',
 		justifyContent: 'center',
-		marginBottom: '20px',
 	},
 	list_grid: {
 		display: 'flex',
@@ -272,8 +272,8 @@ const styles = {
 		fontWeight: 700,
 	},
 	list_content: {
+		marginTop: '5px',
 		fontSize: '14px',
-		color: '#757575',
 	},
 	list_tab: {
 		display: 'flex',
@@ -285,6 +285,17 @@ const styles = {
 	stock_list: {
 		height: '310px',
 		overflowY: 'scroll',
+		scrollbarWidth: 'thin',
+		WebkitScrollbar: {
+			width: '5px',
+		},
+		'&::-webkit-scrollbar': {
+			width: '5px',
+		},
+		'&::-webkit-scrollbar-thumb': {
+			backgroundColor: '#EDEDED', // 스크롤바 색상
+			borderRadius: '20px', // 스크롤바 모서리의 둥글기
+		},
 	},
 	category_img: {
 		display: 'flex',
@@ -296,13 +307,14 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		padding: '44px 20px 15px 0px',
+
+		padding: '20px 30px 15px 0px',
 	},
 	about_stock: {
-		padding: '20px',
+		padding: '5px 25px 20px 25px',
 		display: 'flex',
 		flexDirection: 'row',
-		gap: 10,
+		gap: 15,
 		borderBottom: '1px solid #fffdf5',
 		boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
 	},
@@ -325,6 +337,7 @@ const styles = {
 		marginTop: '2px',
 	},
 	chart: {
+		margin: '20px 0px',
 		padding: '20px',
 	},
 	shinhanLink: {
@@ -347,8 +360,8 @@ const styles = {
 	//소비 페이지
 	cardConsumption: {
 		display: 'flex',
+		flexDirection: 'row',
 		justifyContent: 'space-between',
-		width: '343px',
 		height: '100px',
 		borderRadius: '23px',
 		background: '#1D449B',
@@ -372,10 +385,12 @@ const styles = {
 		fontSize: '15px',
 		fontWeight: '500',
 	},
-	cardAmount: {
+	cardDetail: {
+		display: 'flex',
+		flexDirection: 'row',
+		gap: 25,
 		marginTop: '30px',
-		marginRight: '95px',
-		fontSize: '25px',
+		fontSize: '24px',
 		fontWeight: '700',
 		color: 'white',
 	},

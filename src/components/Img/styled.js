@@ -25,8 +25,7 @@ const styles = {
 		margin: '60px 24px',
 	},
 	main: {
-		width: '162.814px',
-		height: '170px',
+		width: '250px',
 	},
 	icon: {
 		width: '38px',
@@ -56,13 +55,11 @@ const styles = {
 	},
 	//내 소비 페이지
 	arrowBefore: {
-		position: 'absolute',
 		cursor: 'pointer',
 		top: '40px',
 		left: '15px',
 	},
 	arrowAfter: {
-		position: 'absolute',
 		cursor: 'pointer',
 		top: '40px',
 		left: '40px',

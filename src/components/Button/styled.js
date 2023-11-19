@@ -37,13 +37,13 @@ const styles = {
 
 	mainStartBtn: {
 		display: 'flex',
-		width: '342px',
+		width: '280px',
 		padding: '13px',
 		margin: '20px 0px',
 		justifyContent: 'center',
 		textAlign: 'center',
 		borderRadius: '8px',
-		background: '#88BDE7',
+		background: '#A3C7F7',
 		color: '#fff',
 		'&:hover': {
 			background: '#88BDE7',
@@ -78,6 +78,9 @@ const styles = {
 		paddingLeft: '10px',
 		gap: 5,
 	},
+	listTabBtn: {
+		color: '#000',
+	},
 	categoryBtn: {
 		gap: 10,
 		display: 'flex',
@@ -87,11 +90,19 @@ const styles = {
 		width: '94%',
 		height: '64px',
 		padding: '0px 30px',
-		color: '#757575',
+		color: '#000',
 	},
 	shinhanLinkBtn: {
 		padding: '10px 15px',
-		fontWeight: 700,
+		color: '#fff',
+		background: '#88BDE7',
+		'&:hover': {
+			background: '#88BDE7',
+		},
+	},
+	showBtn: {
+		height: '40px',
+		margin: '8px 0px 0px 30px',
 		color: '#fff',
 		background: '#88BDE7',
 		'&:hover': {
@@ -107,9 +118,6 @@ const styles = {
 
 	// 소비 페이지
 	detailBtn: {
-		position: 'absolute',
-		marginTop: '30px',
-		marginLeft: '200px',
 		width: '105px',
 		height: '40px',
 		background: 'white',
@@ -133,6 +141,10 @@ const styles = {
 		margin: '0',
 		color: '#757575',
 		width: '10px',
+	},
+	cardArrowBtn: {
+		display: 'flex',
+		minWidth: '40px',
 	},
 };
 

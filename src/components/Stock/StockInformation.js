@@ -23,10 +23,10 @@ function StockInformation() {
 		<>
 			<Grid theme='stock_nav'>
 				<Button>
-					<img style={{ width: '13px', height: '26px', marginTop: 7 }} src={arrow} alt='arrow' />
+					<img style={{ width: '13px', height: '26px' }} src={arrow} alt='arrow' />
 				</Button>
 			</Grid>
-			<div
+			{/* <div
 				style={{
 					display: 'flex',
 					flexDirection: 'row',
@@ -34,7 +34,7 @@ function StockInformation() {
 					alignItems: 'center',
 					marginLeft: '30px',
 					marginRight: '30px',
-				}}></div>
+				}}></div> */}
 			<Grid theme='about_stock'>
 				<Img theme='stock_logo' src={logo} alt='logo' />
 				<Grid>
@@ -45,7 +45,7 @@ function StockInformation() {
 						<Grid theme='stock_subinform'>(1.6%)</Grid>
 					</Grid>
 				</Grid>
-				<Button theme='shinhanLinkBtn' onClick={onClickButton}>
+				<Button theme='showBtn' onClick={onClickButton}>
 					{showNews ? '차트보기' : '뉴스보기'}
 				</Button>
 			</Grid>

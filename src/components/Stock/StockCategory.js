@@ -53,19 +53,19 @@ function StockCategory() {
 			<Grid theme='category_body'>
 				{showCategory && (
 					<>
-						<Grid theme='modal_title'>김혜연님의 밀접 카테고리</Grid>
+						<Grid theme='modal_title'>김하린님의 밀접 카테고리</Grid>
 						<Grid>
-							김혜연님의 소비 데이터를 기반으로
+							김하린님의 소비 데이터를 기반으로
 							<br />
 							상위 5개의 카테고리를 추천했어요.
 						</Grid>
 
-						<Grid theme='category_form'>
+						<Grid theme='categoryForm'>
 							{categoryData.slice(0, 5).map((category, index) => (
 								<Grid key={index}>
 									<Button theme='categoryBtn' onClick={() => onClickCategory(category)}>
 										<Img theme='category_icon' src={category.icon} alt={category.name} />
-										<Grid theme='category_font'>{category.name}</Grid>
+										<Grid theme='categoryFont'>{category.name}</Grid>
 										<Grid>{category.percentage}</Grid>
 									</Button>
 								</Grid>
@@ -83,10 +83,14 @@ function StockCategory() {
 							<Grid>33개 회사 / 13개 ETF</Grid>
 							<Grid theme='list_content'>카테고리 설명입니다. 카테고리 설명입니다. 카테고리 설명입니다...</Grid>
 						</Grid>
-						<Grid theme='category_form'>
+						<Grid theme='categoryForm'>
 							<Grid theme='list_tab'>
-								<Button onClick={() => setSelectedTab('수익률')}>수익률</Button>
-								<Button onClick={() => setSelectedTab('시가총액')}>시가총액</Button>
+								<Button theme='listTabBtn' onClick={() => setSelectedTab('수익률')}>
+									수익률
+								</Button>
+								<Button theme='listTabBtn' onClick={() => setSelectedTab('시가총액')}>
+									시가총액
+								</Button>
 							</Grid>
 
 							{selectedTab === '수익률' && (

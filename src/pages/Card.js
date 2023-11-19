@@ -22,7 +22,7 @@ function Card() {
 	const [showCategoryWaste, setShowCategoryWaste] = useState(false);
 
 	// 예시 데이터
-	const userName = '하린';
+	const userName = '김하린';
 	const month = '11';
 	const money = '111,111';
 	const cardName = '신한카드 Deep Dream Platinum+';
@@ -35,7 +35,15 @@ function Card() {
 	const percentages = [20, 30, 50];
 	const category = ['식비', '패션/쇼핑', '의료/건강', '전기/전자', '금융', '생활', '문화/여가', '교통', '교육'];
 	const categoryImg = [
-		category1, category2, category3, category4, category5, category6, category7, category8, category9,
+		category1,
+		category2,
+		category3,
+		category4,
+		category5,
+		category6,
+		category7,
+		category8,
+		category9,
 	];
 	const categoryWaste = ['500', '800', '700', '600', '500', '500', '500', '500', '500'];
 	const wasteShop = ['500', '800', '700', '600', '500', '500', '500', '500', '500'];
@@ -54,7 +62,7 @@ function Card() {
 	return (
 		<>
 			{/* Header */}
-			<TopNav/>
+			<TopNav />
 
 			{/* 소비&카드 창 */}
 			{showWaste && (
@@ -64,12 +72,14 @@ function Card() {
 						{name}의 {wasteMonth} 소비
 					</Grid>
 					<Grid theme='cardConsumption'>
-						<Button>
+						<Button theme='cardArrowBtn'>
 							<Img theme='arrowBefore' src={arrowBefore} alt='arrowBefore' />
 						</Button>
-						<Grid theme='cardAmount'>{amount}</Grid>
-						<Button theme='detailBtn' onClick={handleDetailBtnClick} children='상세보기' />
-						<Button>
+						<Grid theme='cardDetail'>
+							<Grid>{amount}</Grid>
+							<Button theme='detailBtn' onClick={handleDetailBtnClick} children='상세보기' />
+						</Grid>
+						<Button theme='cardArrowBtn'>
 							<Img theme='arrowAfter' src={arrowAfter} alt='arrowAfter' />
 						</Button>
 					</Grid>
@@ -86,40 +96,40 @@ function Card() {
 			{/* 상세보기 버튼 클릭 시에 카테고리 소비창 */}
 			{showDetailWaste && (
 				<>
-					<MonthWaste wasteMonth={wasteMonth}  amount={amount}/>
+					<MonthWaste wasteMonth={wasteMonth} amount={amount} />
 
 					{/* 카테고리 클릭 시에 세부 내역 */}
 					{showCategoryWaste ? (
 						<>
 							<Grid theme='category_body'>
-                <Grid theme='category_form'>
-								{wasteShop.map((cat, index) => (
-									<Button theme='cardWasteList' key={index}>
-										<div style={cardWaste}>
-											<div style={cardWasteCategory}> {cat} </div>
-											<div style={cardWasteAmount}> {wasteAmount[index]}원 </div>
-										</div>
-									</Button>
-								))}
+								<Grid theme='category_form'>
+									{wasteShop.map((cat, index) => (
+										<Button theme='cardWasteList' key={index}>
+											<div style={cardWaste}>
+												<div style={cardWasteCategory}> {cat} </div>
+												<div style={cardWasteAmount}> {wasteAmount[index]}원 </div>
+											</div>
+										</Button>
+									))}
+								</Grid>
 							</Grid>
-              </Grid>
 						</>
 					) : (
 						<>
 							<WasteBar />
-              <Grid theme='category_body'>
-                <Grid theme='category_form'>
-                  {category.map((cat, index) => (
-                    <Button theme='cardWasteList' key={index} onClick={handleWasteBtnClick}>
-                      <div style={cardWaste}>
-                        <Img src={categoryImg[index]} alt={cat} />
-                        <div style={cardWasteCategory}> {cat} </div>
-                        <div style={cardWasteAmount}> {categoryWaste[index]}원 </div>
-                      </div>
-                    </Button>
-                  ))}
-                </Grid>
-              </Grid>
+							<Grid theme='category_body'>
+								<Grid theme='category_form'>
+									{category.map((cat, index) => (
+										<Button theme='cardWasteList' key={index} onClick={handleWasteBtnClick}>
+											<div style={cardWaste}>
+												<Img src={categoryImg[index]} alt={cat} />
+												<div style={cardWasteCategory}> {cat} </div>
+												<div style={cardWasteAmount}> {categoryWaste[index]}원 </div>
+											</div>
+										</Button>
+									))}
+								</Grid>
+							</Grid>
 						</>
 					)}
 				</>
