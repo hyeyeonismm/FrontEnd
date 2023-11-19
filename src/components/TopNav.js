@@ -14,6 +14,19 @@ function TopNav() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedButton, setSelectedButton] = useState('/card');
 
+    const userName = '하린';
+	const month = '11';
+	const money = '111,111';
+	const cardName = '신한카드 Deep Dream Platinum+';
+    const userEmail = 'harin1212'
+
+
+	const name = `${userName}님`;
+	const wasteMonth = `${month}월`;
+	const amount = `${money}원`;
+	const card = `${cardName}`;
+    const email = `${userEmail}`;
+
 	const handleButtonClick = (path) => {
 		setSelectedButton(path);
 		navigate(path);
@@ -58,18 +71,19 @@ function TopNav() {
 
 						<Typography id='modal-modal-title' variant='h7' component='h4'>
 							기본 정보
-							<Grid theme='sideBarBox'></Grid>
+							<Grid theme='sideBarBox'>
+                                <Grid theme='maintxt'>Your Name</Grid>
+                                <Grid theme='subtxt'>{name}</Grid>
+                                <Grid theme='maintxt'>Email</Grid>
+                                <Grid theme='subtxt'>{email}</Grid>
+                            </Grid>
 						</Typography>
 						<Typography id='modal-modal-title' variant='h7' component='h4'>
 							소비 내역
 							<Grid theme='sideBarBox'>
-                                <MonthWaste />
+                            <MonthWaste wasteMonth={wasteMonth}  amount={amount}/>
                                 <WasteBar/>
                             </Grid>
-						</Typography>
-						<Typography id='modal-modal-title' variant='h7' component='h4'>
-							관심있는 종목
-							<Grid theme='sideBarBox'></Grid>
 						</Typography>
 					</Box>
 				</Modal>
@@ -121,9 +135,7 @@ const modalWrap = {
 };
 
 const modalStyle = {
-	height: '777px',
-	padding: '33px',
-	marginTop: '8px',
+	padding: '30px',
 	marginLeft: '20%',
 	background: 'white',
 };

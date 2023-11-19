@@ -9,10 +9,10 @@ const styles = {
 		padding: '44px 20px 15px 20px',
 		alignItems: 'center',
 	},
-
 	topNavLine: {
 		width: '390px',
 		height: '3px',
+    	marginBottom: '30px',
 		background: '#FFFDF5;',
 		boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
 	},
@@ -25,11 +25,19 @@ const styles = {
 		width: '250px',
 		height: '150px',
 		margin: '0 auto',
-		marginTop: '13px',
-		marginBottom: '15px',
+		marginTop: '30px',
+		marginBottom: '70px',
 		borderRadius: '8px',
 		border: '2px solid var(--Input-Box-Stroke-Thin, rgba(0, 0, 0, 0.15))',
 		boxShadow: '0px 2px 2px 0px rgba(0, 0, 0, 0.10)',
+	},
+	maintxt: {
+		margin: '10px',
+		color: 'grey'
+	},
+	subtxt: { 
+		margin: '11px',
+		fontSize: '13px'
 	},
 	//온보딩 페이지
 	onboardingSlide: {
@@ -205,7 +213,7 @@ const styles = {
 
 	//Category 페이지
 	category_body: {
-		margin: '55px 20px 0px 20px',
+		margin: '20px 20px 0px 20px',
 		display: 'flex',
 		flexDirection: 'column',
 		gap: 10,
@@ -354,19 +362,20 @@ const styles = {
 
 	//소비상세 페이지
 	cardDetailWrap: {
-		marginTop: '40px',
+    marginTop: '15px',
 		display: 'flex',
 		justifyContent: 'left',
 	},
 	cardDetailDescription: {
+    margin : '0 auto',
 		fontSize: '18px',
 		fontWeight: '700',
 	},
 	cardDetailDescriptionSmall: {
-		marginTop: '10px',
-		marginLeft: '55px',
-		fontSize: '18px',
+		marginTop: '8px',
+		fontSize: '15px',
 		fontWeight: '500',
+    textAlign: 'center'
 	},
 	cardWasteWrap: {
 		margin: '25px',

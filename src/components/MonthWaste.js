@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import arrowBefore from '../assets/images/arrowBefore.svg';
 import arrowAfter from '../assets/images/arrowAfter.svg';
-import { useNavigate } from 'react-router-dom';
-import { styled, Modal, Box, Typography, Paper, IconButton, InputBase } from '@mui/material';
 import { Grid, Button, Img } from '../components';
 
 const MonthWaste = ({ wasteMonth, amount }) => {

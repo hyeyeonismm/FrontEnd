@@ -29,25 +29,15 @@ function Card() {
 
 	const name = `${userName}님`;
 	const wasteMonth = `${month}월`;
-
 	const amount = `${money}원`;
 	const card = `${cardName}`;
 
 	const percentages = [20, 30, 50];
 	const category = ['식비', '패션/쇼핑', '의료/건강', '전기/전자', '금융', '생활', '문화/여가', '교통', '교육'];
 	const categoryImg = [
-		category1,
-		category2,
-		category3,
-		category4,
-		category5,
-		category6,
-		category7,
-		category8,
-		category9,
+		category1, category2, category3, category4, category5, category6, category7, category8, category9,
 	];
 	const categoryWaste = ['500', '800', '700', '600', '500', '500', '500', '500', '500'];
-
 	const wasteShop = ['500', '800', '700', '600', '500', '500', '500', '500', '500'];
 	const wasteAmount = ['500', '800', '700', '600', '500', '500', '500', '500', '500'];
 
@@ -130,7 +120,6 @@ function Card() {
                   ))}
                 </Grid>
               </Grid>
-              
 						</>
 					)}
 				</>
