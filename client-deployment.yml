@@ -9,7 +9,8 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: LoadBalancer
+      nodePort: 30080
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -26,26 +27,9 @@ spec:
         app: client
     spec:
       containers:
-        - name: client
-          image: heebin00/client:v1.3 # !!!! 버전 바꿔주기
-          ports:
-          - containerPort: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: react-app-ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-spec:
-  rules:
-  - host: 180.210.80.208  # 로드 밸런서의 퍼블릭 IP 주소로 변경
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: client-service
-            port:
-              number: 80
+      - name: client
+        image: heebin00/client:v1.3
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        app: client  # 올바른 들여쓰기 적용
