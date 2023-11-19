@@ -107,8 +107,8 @@ function Card() {
 					{/* 카테고리 클릭 시에 세부 내역 */}
 					{showCategoryWaste ? (
 						<>
-							<Grid theme='cardWasteWrap'>
-								{/* Display the list for each category */}
+							<Grid theme='category_body'>
+                <Grid theme='category_form'>
 								{wasteShop.map((cat, index) => (
 									<Button theme='cardWasteList' key={index}>
 										<div style={cardWaste}>
@@ -118,22 +118,25 @@ function Card() {
 									</Button>
 								))}
 							</Grid>
+              </Grid>
 						</>
 					) : (
 						<>
 							<WasteBar />
-							<Grid theme='cardWasteWrap'>
-								{/* Display the list for each category */}
-								{category.map((cat, index) => (
-									<Button theme='cardWasteList' key={index} onClick={handleWasteBtnClick}>
-										<div style={cardWaste}>
-											<Img src={categoryImg[index]} alt={cat} />
-											<div style={cardWasteCategory}> {cat} </div>
-											<div style={cardWasteAmount}> {categoryWaste[index]}원 </div>
-										</div>
-									</Button>
-								))}
-							</Grid>
+              <Grid theme='category_body'>
+                <Grid theme='category_form'>
+                  {category.map((cat, index) => (
+                    <Button theme='cardWasteList' key={index} onClick={handleWasteBtnClick}>
+                      <div style={cardWaste}>
+                        <Img src={categoryImg[index]} alt={cat} />
+                        <div style={cardWasteCategory}> {cat} </div>
+                        <div style={cardWasteAmount}> {categoryWaste[index]}원 </div>
+                      </div>
+                    </Button>
+                  ))}
+                </Grid>
+              </Grid>
+              
 						</>
 					)}
 				</>
