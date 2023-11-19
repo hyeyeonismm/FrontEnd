@@ -211,7 +211,6 @@ const styles = {
 		gap: 10,
 	},
 	category_form: {
-		height: '380px',
 		borderRadius: '18px',
 		border: '0.5px solid #c0c0c0',
 		boxShadow: '0px 4px 14px 0px rgba(0, 0, 0, 0.25)',

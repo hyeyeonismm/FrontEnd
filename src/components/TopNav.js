@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { styled, Modal, Box, Typography, Paper, IconButton, InputBase, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Button, Img } from '../components';
+import WasteBar from './WasteBar';
 
 function TopNav() {
 	const navigate = useNavigate();
@@ -27,7 +28,7 @@ function TopNav() {
 
 	return (
 		<>
-			<Grid theme='topNavContainer'>
+        <Grid theme='topNavContainer'>
 				{/* 홈 버튼 */}
 				<button style={buttonStyle} onClick={() => handleButtonClick('/main')}>
 					<img style={{ marginTop: -20 }} src={home} alt='arrow' />
@@ -60,7 +61,9 @@ function TopNav() {
 						</Typography>
 						<Typography id='modal-modal-title' variant='h7' component='h4'>
 							소비 내역
-							<Grid theme='sideBarBox'></Grid>
+							<Grid theme='sideBarBox'>
+                                <WasteBar/>
+                            </Grid>
 						</Typography>
 						<Typography id='modal-modal-title' variant='h7' component='h4'>
 							관심있는 종목
@@ -69,7 +72,6 @@ function TopNav() {
 					</Box>
 				</Modal>
 			</Grid>
-
 			<div
 				style={{
 					display: 'flex',
