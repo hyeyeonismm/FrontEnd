@@ -23,13 +23,12 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   background-color: black;
   padding: 0;
-  height: 100vh;
   overflow-x: hidden;
 }
 
 .layout{
     max-width: 390px;
-    height: auto;
+    height: 720px;
     background-color: white;
     margin: 0 auto ;
     overflow-y: scroll;
