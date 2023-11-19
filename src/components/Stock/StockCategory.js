@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index';
 import TopNav from '../TopNav';
-import food from '../../assets/images/food.png';
-import travel from '../../assets/images/travel.png';
-import traffic from '../../assets/images/traffic.png';
-import culture from '../../assets/images/culture.png';
-import shopping from '../../assets/images/shopping.png';
-import education from '../../assets/images/education.png';
-import finance from '../../assets/images/finance.png';
-import life from '../../assets/images/life.png';
-import doctor from '../../assets/images/doctor.png';
-import light from '../../assets/images/light.png';
+import food from '../../assets/images/category1.svg';
+import shopping from '../../assets/images/category2.svg';
+import doctor from '../../assets/images/category3.svg';
+import light from '../../assets/images/category4.svg';
+import life from '../../assets/images/category5.svg';
+import culture from '../../assets/images/category6.svg';
+import traffic from '../../assets/images/category7.svg';
+import travel from '../../assets/images/category8.svg';
+import education from '../../assets/images/category9.svg';
 
 function StockCategory() {
 	const navigate = useNavigate();
