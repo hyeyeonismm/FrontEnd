@@ -1,10 +1,12 @@
 import { styled } from '@mui/material';
 
 const styles = {
+  //로그인 & 회원가입 페이지
   //헤더
   arrow: {
     width: '13px',
     height: '26px',
+    marginTop: 7,
   },
   mainCharacter: {
     width: "50px",
@@ -34,6 +36,23 @@ const styles = {
     width: '100px',
     height: '120px',
     marginTop: '75px',
+  },
+  category_icon: {
+    width: '40px',
+    height: '40px',
+  },
+  list_icon: {
+    width: '80px',
+    height: '80px',
+  },
+  category_img: {
+    width: '20px',
+    height: '20px',
+  },
+  stock_logo: {
+    marginTop: '5px',
+    width: '40px',
+    height: '40px',
   },
   //내 소비 페이지
   arrowBefore:{

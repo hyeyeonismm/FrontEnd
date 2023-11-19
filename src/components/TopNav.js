@@ -12,10 +12,10 @@ function TopNav() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedButton, setSelectedButton] = useState("/card");
 
-    const handleButtonClick = (path) => {
-        setSelectedButton(path);
-        navigate(path);
-    };
+  const handleButtonClick = (path) => {
+    setSelectedButton(path);
+    navigate(path);
+  };
 
     const openModal = () => {
         setIsOpen(true);
@@ -81,9 +81,9 @@ function TopNav() {
 }
 
 const buttonStyle = {
-    background: "#fff",
-    border: "none",
-    cursor: "pointer",
+  background: '#fff',
+  border: 'none',
+  cursor: 'pointer',
 };
 
 const modalWrap = {

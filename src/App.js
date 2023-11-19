@@ -5,7 +5,6 @@ import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
 import Main from './pages/Main.js';
 import Card from './pages/Card';
-import Stock from './pages/Stock';
 import Onboarding from './pages/Onboarding.js';
 import ONESHINHANLIGHT from './assets/font/ONESHINHANLIGHT.TTF';
 
@@ -52,7 +51,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/card" element={<Card />} />
-          <Route path="/stock" element={<Stock />} />
+          <Route path="/stock/*" element={<StockApp />} />
         </Routes>
       </div>
     </BrowserRouter>
