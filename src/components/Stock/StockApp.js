@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import StockCategory from '../Stock/Category';
+import StockCategory from '../Stock/StockCategory';
 import StockMain from './StockMain';
 import StockList from './StockList';
 import StockInformation from './StockInformation';
