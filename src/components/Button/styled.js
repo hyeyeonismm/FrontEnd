@@ -4,11 +4,11 @@ import MuiButton from '@mui/material/Button';
 const styles = {
   // 헤더
   topNavBtn: {
-    textAlign: "center",
-    color: "black",
-    width: "150px",
-    height: "45px",
-    fontSize: "18px",
+    textAlign: 'center',
+    color: 'black',
+    width: '150px',
+    height: '45px',
+    fontSize: '18px',
     fontWeight: 700,
   },
 
@@ -107,26 +107,25 @@ const styles = {
 
   // 소비 페이지
   detailBtn: {
-    position: "absolute",
-    marginTop: "30px",
-    marginLeft: "220px",
-    width: "85px",
-    height: "40px",
-    background: "white",
-    color: "#88bde7",
-    borderRadius: "20px",
-    boxShadow: "0px 2px 4px 1px rgba(0, 0, 0, 0.25)",
-    textAlign: "center",
-    fontSize: "16px",
+    position: 'absolute',
+    marginTop: '30px',
+    marginLeft: '220px',
+    width: '85px',
+    height: '40px',
+    background: 'white',
+    color: '#88bde7',
+    borderRadius: '20px',
+    boxShadow: '0px 2px 4px 1px rgba(0, 0, 0, 0.25)',
+    textAlign: 'center',
+    fontSize: '16px',
     fontWeight: 700,
-    cursor: "pointer",
+    cursor: 'pointer',
   },
-  
+
   //소비 상세 페이지
   cardWasteList: {
-    width: "100%",
-  }
-  
+    width: '100%',
+  },
 };
 
 export const StyledButton = styled(MuiButton)(({ theme }) => ({

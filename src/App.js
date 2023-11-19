@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Login from './pages/Login.js';
@@ -6,6 +5,7 @@ import Signup from './pages/Signup.js';
 import Main from './pages/Main.js';
 import Card from './pages/Card';
 import Onboarding from './pages/Onboarding.js';
+import StockApp from './components/Stock/StockApp.js';
 import ONESHINHANLIGHT from './assets/font/ONESHINHANLIGHT.TTF';
 
 const GlobalStyle = createGlobalStyle`

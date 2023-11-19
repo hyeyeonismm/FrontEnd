@@ -1,7 +1,7 @@
 import { styled, Input } from '@mui/material';
 
 const styles = {
-  // 사이드바 
+  // 사이드바
   searchStock: {
     width: '214px',
     height: '37px',
@@ -12,7 +12,6 @@ const styles = {
     gap: '10px',
     borderRadius: '16px',
     background: 'rgba(190, 190, 190, 0.51)',
-    
   },
 };
 

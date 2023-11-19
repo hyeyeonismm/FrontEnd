@@ -27,9 +27,9 @@ spec:
         app: client
     spec:
       containers:
-      - name: client
-        image: heebin00/client:v1.3
-        ports:
-        - containerPort: 80
+        - name: client
+          image: heebin00/client:v1.3 ### 버전 바꾸기
+          ports:
+            - containerPort: 80
       nodeSelector:
-        app: client  # 올바른 들여쓰기 적용
+        app: client # 올바른 들여쓰기 적용

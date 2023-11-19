@@ -47,10 +47,7 @@ class WasteBar extends React.Component {
         },
         fill: {
           opacity: 0.8,
-          colors: [
-            '#FFE24A', '#AEB1FF', '#4EC68C', '#7392FF', '#FFB1B1',
-            '#B8B8B8', '#88BDE7', '#FF7979', '#FFA943',
-          ],
+          colors: ['#FFE24A', '#AEB1FF', '#4EC68C', '#7392FF', '#FFB1B1', '#B8B8B8', '#88BDE7', '#FF7979', '#FFA943'],
         },
         legend: { show: false },
       },
@@ -60,13 +57,7 @@ class WasteBar extends React.Component {
   render() {
     return (
       <div id="chart" style={{ margin: '0 auto', borderRadius: '20px' }}>
-        <ReactApexChart
-          options={this.state.options}
-          series={this.state.series}
-          type="bar"
-          height={70}
-          style={{ marginRight: '20px' }}
-        />
+        <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={70} style={{ marginRight: '20px' }} />
       </div>
     );
   }
