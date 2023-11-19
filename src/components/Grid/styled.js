@@ -295,20 +295,6 @@ const styles = {
     fontSize: '18px',
     fontWeight: 700,
   },
-  // 하단바
-  footerWrap: {
-    position: 'fixed',
-    bottom: 0,
-    width: '390px',
-    height: '160px',
-  },
-  footer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    boxShadow: '0px 5px 18px rgba(0, 0, 0, 0.25)',
-    background: 'white',
-  },
 
   //소비 페이지
   cardConsumption: {

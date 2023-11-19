@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import arrow from '../assets/images/arrow.svg';
+import home from '../assets/images/home.svg';
 import toggle from '../assets/images/toggle.svg';
 import mainCharacter from '../assets/images/mainCharacter.png';
 import { useNavigate } from 'react-router-dom';
@@ -28,14 +28,14 @@ function TopNav() {
 	return (
 		<>
 			<Grid theme='topNavContainer'>
-				{/* 뒤로가기 버튼 */}
-				<button style={buttonStyle}>
-					<img style={{ width: '13px', height: '26px', marginTop: 7 }} src={arrow} alt='arrow' />
+				{/* 홈 버튼 */}
+				<button style={buttonStyle} onClick={() => handleButtonClick('/main')}>
+					<img style={{marginTop: -20 }} src={home} alt='arrow' />
 				</button>
 
 				{/* 메뉴 버튼 */}
 				<button style={buttonStyle} onClick={openModal}>
-					<img style={{ marginTop: 7 }} src={toggle} alt='toggle' />
+					<img style={{ marginTop: -5 }} src={toggle} alt='toggle' />
 				</button>
 
 				{/* 모달 창 */}

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Grid, Img, Button } from '../index.js';
 import TopNav from '../TopNav';
-import Footer from '../Footer';
 import arrow from '../../assets/images/arrow.svg';
 import logo from '../../assets/images/finance.png';
 import Chart from './StockChart.js';
@@ -52,7 +51,6 @@ function StockInformation() {
 			</Grid>
 			{showChart && <Chart />}
 			{showNews && <News />}
-			<Footer />
 		</>
 	);
 }

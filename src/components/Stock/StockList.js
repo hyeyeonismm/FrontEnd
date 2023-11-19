@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TopNav from '../TopNav';
-import Footer from '../Footer';
 import { Grid, Img, Button } from '../index.js';
 
 function StockList() {
@@ -16,7 +15,6 @@ function StockList() {
 					상위 5개의 카테고리를 추천했어요.
 				</Grid>
 			</Grid>
-			<Footer />
 		</>
 	);
 }

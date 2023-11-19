@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index';
 import TopNav from '../TopNav';
-import Footer from '../Footer';
 import food from '../../assets/images/food.png';
 import travel from '../../assets/images/travel.png';
 import traffic from '../../assets/images/traffic.png';
@@ -132,7 +131,6 @@ function StockCategory() {
 					</>
 				)}
 			</Grid>
-			<Footer />
 		</>
 	);
 }

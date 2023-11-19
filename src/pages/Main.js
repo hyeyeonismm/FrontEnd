@@ -3,10 +3,15 @@ import { TextField } from '@mui/material';
 import { Grid, Button, Img } from '../components/index.js';
 import main from '../assets/images/mainCharacter.png';
 import main_bg from '../assets/images/main_bg.png';
-import Footer from '../components/Footer.js';
 import TopNav from '../components/TopNav.js';
 
 function Main() {
+	const navigate = useNavigate();
+
+	const handleButtonClick = (path) => {
+		navigate(path);
+	};
+
 	return (
 		<>
 			<Grid theme='main'>
@@ -16,9 +21,8 @@ function Main() {
 			</Grid>
 			<Grid theme='main_background'>
 				<Img theme='main' src={main} alt='main' />
-				<Button theme='mainStartBtn' children='시작하기' />
+				<Button theme='mainStartBtn' children='시작하기' onClick={() => handleButtonClick('/card')}/>
 			</Grid>
-			<Footer />
 		</>
 	);
 }
