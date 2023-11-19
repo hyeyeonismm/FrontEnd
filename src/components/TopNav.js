@@ -31,7 +31,7 @@ function TopNav() {
         <Grid theme='topNavContainer'>
 				{/* 홈 버튼 */}
 				<button style={buttonStyle} onClick={() => handleButtonClick('/main')}>
-					<img style={{marginTop: -20 }} src={home} alt='arrow' />
+					<img style={{ marginTop: -20 }} src={home} alt='arrow' />
 				</button>
 
 				{/* 메뉴 버튼 */}
