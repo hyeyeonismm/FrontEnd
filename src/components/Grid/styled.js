@@ -12,9 +12,13 @@ const styles = {
 	topNavLine: {
 		width: '390px',
 		height: '3px',
-    	marginBottom: '30px',
+		marginBottom: '30px',
 		background: '#FFFDF5;',
 		boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+	},
+	navSection: {
+		marginTop: '40px',
+		fontWeight: 700,
 	},
 	sideBar: {
 		width: '50%',
@@ -22,22 +26,44 @@ const styles = {
 		background: 'white',
 	},
 	sideBarBox: {
+		display: 'flex',
+		flexDirection: 'column',
+		gap: 30,
 		width: '250px',
-		height: '150px',
-		margin: '0 auto',
-		marginTop: '30px',
-		marginBottom: '70px',
+		height: '160px',
+		marginTop: '15px',
+		marginBottom: '45px',
+		padding: '20px 10px 10px 10px',
 		borderRadius: '8px',
-		border: '2px solid var(--Input-Box-Stroke-Thin, rgba(0, 0, 0, 0.15))',
+		border: '1px solid var(--Input-Box-Stroke-Thin, rgba(0, 0, 0, 0.15))',
 		boxShadow: '0px 2px 2px 0px rgba(0, 0, 0, 0.10)',
 	},
-	maintxt: {
-		margin: '10px',
-		color: 'grey'
+	consumeBox: {
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		width: '250px',
+		height: '160px',
+		marginTop: '15px',
+		marginBottom: '45px',
+		padding: '5px 10px 10px 5px',
+		borderRadius: '8px',
+		border: '1px solid var(--Input-Box-Stroke-Thin, rgba(0, 0, 0, 0.15))',
+		boxShadow: '0px 2px 2px 0px rgba(0, 0, 0, 0.10)',
 	},
-	subtxt: { 
-		margin: '11px',
-		fontSize: '13px'
+	sideBarTxt: {
+		display: 'flex',
+		flexDirection: 'column',
+		gap: 5,
+		padding: '0px 10px',
+	},
+	maintxt: {
+		color: '#c0c0c0',
+		fontWeight: 'normal',
+	},
+	subtxt: {
+		fontSize: '14px',
+		fontWeight: 'normal',
 	},
 	//온보딩 페이지
 	onboardingSlide: {
@@ -362,12 +388,12 @@ const styles = {
 
 	//소비상세 페이지
 	cardDetailWrap: {
-    marginTop: '15px',
+		marginTop: '15px',
 		display: 'flex',
 		justifyContent: 'left',
 	},
 	cardDetailDescription: {
-    margin : '0 auto',
+		margin: '0 auto',
 		fontSize: '18px',
 		fontWeight: '700',
 	},
@@ -375,7 +401,7 @@ const styles = {
 		marginTop: '8px',
 		fontSize: '15px',
 		fontWeight: '500',
-    textAlign: 'center'
+		textAlign: 'center',
 	},
 	cardWasteWrap: {
 		margin: '25px',

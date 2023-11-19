@@ -14,18 +14,17 @@ function TopNav() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedButton, setSelectedButton] = useState('/card');
 
-    const userName = '하린';
+	const userName = '하린';
 	const month = '11';
 	const money = '111,111';
 	const cardName = '신한카드 Deep Dream Platinum+';
-    const userEmail = 'harin1212'
-
+	const userEmail = 'harin1212';
 
 	const name = `${userName}님`;
 	const wasteMonth = `${month}월`;
 	const amount = `${money}원`;
 	const card = `${cardName}`;
-    const email = `${userEmail}`;
+	const email = `${userEmail}`;
 
 	const handleButtonClick = (path) => {
 		setSelectedButton(path);
@@ -42,7 +41,7 @@ function TopNav() {
 
 	return (
 		<>
-        <Grid theme='topNavContainer'>
+			<Grid theme='topNavContainer'>
 				{/* 홈 버튼 */}
 				<button style={buttonStyle} onClick={() => handleButtonClick('/main')}>
 					<img style={{ marginTop: -20 }} src={home} alt='arrow' />
@@ -69,22 +68,26 @@ function TopNav() {
 							<SearchIcon />
 						</SearchField>
 
-						<Typography id='modal-modal-title' variant='h7' component='h4'>
+						<Grid theme='navSection'>
 							기본 정보
 							<Grid theme='sideBarBox'>
-                                <Grid theme='maintxt'>Your Name</Grid>
-                                <Grid theme='subtxt'>{name}</Grid>
-                                <Grid theme='maintxt'>Email</Grid>
-                                <Grid theme='subtxt'>{email}</Grid>
-                            </Grid>
-						</Typography>
-						<Typography id='modal-modal-title' variant='h7' component='h4'>
+								<Grid theme='sideBarTxt'>
+									<Grid theme='maintxt'>Your Name</Grid>
+									<Grid theme='subtxt'>{name}</Grid>
+								</Grid>
+								<Grid theme='sideBarTxt'>
+									<Grid theme='maintxt'>Email</Grid>
+									<Grid theme='subtxt'>{email}</Grid>
+								</Grid>
+							</Grid>
+						</Grid>
+						<Grid theme='navSection'>
 							소비 내역
-							<Grid theme='sideBarBox'>
-                            <MonthWaste wasteMonth={wasteMonth}  amount={amount}/>
-                                <WasteBar/>
-                            </Grid>
-						</Typography>
+							<Grid theme='consumeBox'>
+								<MonthWaste wasteMonth={wasteMonth} amount={amount} />
+								<WasteBar />
+							</Grid>
+						</Grid>
 					</Box>
 				</Modal>
 			</Grid>
@@ -117,7 +120,7 @@ const SearchField = styled(Box)({
 	width: '200px',
 	display: 'flex',
 	padding: '10px 20px',
-	margin: '10px 0px 20px',
+	margin: '40px 0px',
 	gap: 10,
 	color: '#757575',
 	fontSize: 14,
