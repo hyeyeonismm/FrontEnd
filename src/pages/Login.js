@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import arrow from '../assets/images/arrow.svg';
 import register from '../assets/images/register.png';
 import { TextField } from '@mui/material';
 import { Grid, Button, Img } from '../components';
-import axios from "../api/axios";
 
 function Login() {
 	const navigate = useNavigate();
