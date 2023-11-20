@@ -58,11 +58,11 @@ function CardDetail() {
 		<>
 			{/* Header */}
 			<TopNav />
-            <MonthWaste wasteMonth={month} amount={wasteData.monthPrice} />
+            {/* <MonthWaste wasteMonth={month} amount={wasteData.monthPrice} /> */}
             <Grid theme='category_body'>
                 <Grid theme='categoryForm'>
                 {wasteDetailData.categoryConsumption.map((categoryItem, index) => (
-                    <Button theme='cardWasteList' key={index} onClick={handleWasteBtnClick()}>
+                    <Button theme='cardWasteList' key={index} >
                         <div style={cardWaste}>
                         {/* <Img src={categoryImg[index]} alt={categoryItem.category} /> 수정 필요 */}
                         <div style={cardWasteCategory}> {categoryItem.shop} </div>
