@@ -103,7 +103,7 @@ const styles = {
 	},
 	showBtn: {
 		height: '40px',
-		margin: '8px 0px 0px 30px',
+		margin: '8px 0px 0px 20px',
 		color: '#fff',
 		background: '#88BDE7',
 		'&:hover': {
@@ -111,10 +111,14 @@ const styles = {
 		},
 	},
 	newsBtn: {
+		borderRadius: 0,
 		display: 'flex',
 		justifyContent: 'flex-start',
+		textAlign: 'left',
 		height: '60px',
+		width: '330px',
 		color: '#575757',
+		borderTop: '1px solid #ddd',
 	},
 
 	// 소비 페이지

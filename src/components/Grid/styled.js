@@ -6,12 +6,13 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		padding: '44px 20px 15px 20px',
+		padding: '24px 20px 0px 20px',
 		alignItems: 'center',
 	},
 	topNavLine: {
 		width: '390px',
 		height: '3px',
+		marginTop: '15px',
 		marginBottom: '30px',
 		background: '#FFFDF5;',
 		boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
@@ -303,6 +304,18 @@ const styles = {
 		flexDirection: 'row',
 	},
 
+	loading_body: {
+		position: 'fixed',
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0,
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		zIndex: 1000,
+	},
+
 	//stockInformation 페이지
 	stock_nav: {
 		display: 'flex',
@@ -310,6 +323,12 @@ const styles = {
 		justifyContent: 'space-between',
 
 		padding: '20px 30px 15px 0px',
+	},
+	stock_first: {
+		display: 'flex',
+		flexDirection: 'row',
+		gap: 15,
+		width: '220px',
 	},
 	about_stock: {
 		padding: '5px 25px 20px 25px',
@@ -349,11 +368,12 @@ const styles = {
 	news_body: {
 		display: 'flex',
 		flexDirection: 'column',
-		padding: '0px 40px',
+		padding: '0px 30px',
 		gap: 10,
 	},
 	newsFont: {
 		paddingTop: '30px',
+		marginBottom: '20px',
 		fontSize: '18px',
 		fontWeight: 700,
 	},
