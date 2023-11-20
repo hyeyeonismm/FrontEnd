@@ -13,6 +13,15 @@ function StockInformation() {
 	const navigate = useNavigate();
 	const [showChart, setShowChart] = useState(true);
 	const [showNews, setShowNews] = useState(false);
+	const stockCode = '055550';
+	// 날짜 받아오기
+	const date = new Date();
+	const year = date.getFullYear();
+	const month = (date.getMonth() + 1).toString().padStart(2, '0');
+	const day = date.getDate().toString().padStart(2, '0');
+	const formattedDate = `${year}${month}${day}`;
+
+	console.log(formattedDate);
 
 	const onClickButton = () => {
 		setShowNews(!showNews);
@@ -50,7 +59,7 @@ function StockInformation() {
 				</Button>
 			</Grid>
 			{showChart && <Chart />}
-			{showNews && <News />}
+			{showNews && <News stockName={stockName} formattedDate={formattedDate} stockCode={stockCode} />}
 		</>
 	);
 }
