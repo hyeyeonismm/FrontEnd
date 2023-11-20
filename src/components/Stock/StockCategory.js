@@ -18,6 +18,7 @@ function StockCategory() {
 	const [showStockList, setShowStockList] = useState(false);
 	const [selectedCategory, setSelectedCategory] = useState();
 	const [selectedTab, setSelectedTab] = useState('수익률');
+	const userName = localStorage.getItem("userName");
 
 	const onClickCategory = (category) => {
 		setSelectedCategory(category);
@@ -49,13 +50,12 @@ function StockCategory() {
 	return (
 		<>
 			<TopNav />
-
 			<Grid theme='category_body'>
 				{showCategory && (
 					<>
-						<Grid theme='modal_title'>김하린님의 밀접 카테고리</Grid>
+						<Grid theme='modal_title'>{userName}님의 밀접 카테고리</Grid>
 						<Grid>
-							김하린님의 소비 데이터를 기반으로
+							{userName}님의 소비 데이터를 기반으로
 							<br />
 							상위 5개의 카테고리를 추천했어요.
 						</Grid>

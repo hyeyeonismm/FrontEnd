@@ -1,66 +1,88 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-class WasteBar extends React.Component {
-  constructor(props) {
-    super(props);
+const WasteBar = ({ data }) => {
+  const [chartData, setChartData] = useState([]);
+  const getCategoryColor = (category) => {
+    switch (category) {
+      case "식비":
+        return '#FFE24A';
+      case "패션/쇼핑":
+        return '#AEB1FF';
+      case "의료/건강":
+        return '#4EC68C';
+      case "전기/전자":
+        return '#7392FF';
+      case "생활":
+        return '#FFB1B1';
+      case "문화/여가":
+        return '#B8B8B8';
+      case "교통":
+        return '#88BDE7';
+      case "여행/숙박":
+        return '#FF7979';
+      case "교육":
+        return '#FFA943';
+      case "금융":
+        return '#8ED56C';
+      default:
+        return '#000000'; 
+    }
+  };
 
-    this.state = {
-      series: [
-        { name: '식비', data: [10] },
-        { name: '패션/쇼핑', data: [10] },
-        { name: '의료/건강', data: [10] },
-        { name: '전기/전자', data: [10] },
-        { name: '금융', data: [10] },
-        { name: '생활', data: [10] },
-        { name: '문화/여가', data: [10] },
-        { name: '교통', data: [10] },
-        { name: '교육', data: [20] },
-      ],
-      options: {
-        chart: {
-          type: 'bar',
-          stacked: true,
-          stackType: '100%',
-          toolbar: { show: false },
-        },
-        plotOptions: {
-          bar: {
-            horizontal: true,
-            barHeight: 40,
-          },
-        },
-        stroke: {
-          width: 1,
-          colors: ['#fff'],
-        },
-        xaxis: {
-          labels: { show: false },
-        },
-        yaxis: { show: false },
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return val + '%';
-            },
-          },
-        },
-        fill: {
-          opacity: 0.8,
-          colors: ['#FFE24A', '#AEB1FF', '#4EC68C', '#7392FF', '#FFB1B1', '#B8B8B8', '#88BDE7', '#FF7979', '#FFA943'],
-        },
-        legend: { show: false },
+  useEffect(() => {
+    // 정렬
+    const sortedData = data.consumption.sort((a, b) => b.categoryPrice - a.categoryPrice);
+    
+
+    const formattedData = sortedData.map(item => ({
+      name: item.category,
+      data: [item.categoryPrice],
+    }));
+  
+    setChartData(formattedData);
+  }, [data]);
+
+  const options = {
+    chart: {
+      type: 'bar',
+      stacked: true,
+      stackType: '100%',
+      toolbar: { show: false },
+    },
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        barHeight: 40,
       },
-    };
-  }
+    },
+    stroke: {
+      width: 1,
+      colors: ['#fff'],
+    },
+    xaxis: {
+      labels: { show: false },
+    },
+    yaxis: { show: false },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return val + '원';
+        },
+      },
+    },
+    fill: {
+      opacity: 0.8,
+      colors: chartData.map(item => getCategoryColor(item.name)),
+    },
+    legend: { show: false },
+  };
 
-  render() {
-    return (
-      <div id="chart" style={{ margin: '0 auto', borderRadius: '20px' }}>
-        <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={70} style={{ marginRight: '20px' }} />
-      </div>
-    );
-  }
-}
+  return (
+    <div id="chart" style={{ margin: '0 auto', borderRadius: '20px' }}>
+      <ReactApexChart options={options} series={chartData} type="bar" height={70} style={{ marginRight: '20px' }} />
+    </div>
+  );
+};
 
 export default WasteBar;

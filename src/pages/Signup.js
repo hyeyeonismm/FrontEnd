@@ -60,7 +60,7 @@ function Signup() {
 		navigate("/login");
 		}
 	} catch (error) {
-		console.error("회원가입 실패 ", error.response);
+		console.log("회원가입 실패 ");
 		alert(error);
 		setSameEmail(true);
 	}

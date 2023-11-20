@@ -38,7 +38,8 @@ function Login() {
 		event.preventDefault();
 	
 		try {
-		  const response = await axios.post('/auth/login',
+		  const response = await axios.post(
+			`${process.env.REACT_APP_SERVER_PORT}/auth/login`,
 			{
 			  email: email,
 			  password: password,
@@ -57,20 +58,14 @@ function Login() {
 		  localStorage.setItem("userName", userName);
 	
 		  // 로그인 성공 처리
-		  console.log("로그인 성공:", response.data);
+		  console.log("로그인 성공");
 	
 		  // 메인으로 이동
 		  navigate("/main");
-		  if (response && response.data) {
-			console.log(response.data);
-		  } else {
-			console.error('Response or response.data is undefined');
-		  }
-
 		} catch (error) {
 		  // 로그인 실패 처리
 		  setSuccessLogin(false);
-		  console.error("로그인 실패:", error.response.data.reason);
+		  console.log("로그인 실패");
 		}
 	  };
 
