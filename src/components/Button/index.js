@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyledButton } from './styled';
 
-const Button = ({ theme, onClick, children, clicked }) => {
+const Button = ({ theme, onClick, children, clicked, type }) => {
   return (
-    <StyledButton theme={theme} onClick={onClick} clicked={clicked}>
+    <StyledButton theme={theme} onClick={onClick} clicked={clicked} type={type}>
       {children}
     </StyledButton>
   );
