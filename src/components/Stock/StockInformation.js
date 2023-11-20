@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Grid, Img, Button } from '../index.js';
 import TopNav from '../TopNav';
@@ -13,7 +13,9 @@ function StockInformation() {
 	const navigate = useNavigate();
 	const [showChart, setShowChart] = useState(true);
 	const [showNews, setShowNews] = useState(false);
-	const stockCode = '055550';
+	const [stockData, setStockData] = useState(null);
+
+	const stockCode = '005930';
 	// 날짜 받아오기
 	const date = new Date();
 	const year = date.getFullYear();
@@ -28,6 +30,26 @@ function StockInformation() {
 		setShowChart(!showChart);
 	};
 
+	// useEffect(() => {
+	// 	const socket = new WebSocket('wss://a786-118-91-110-133.ngrok-free.app/');
+
+	// 	socket.onopen = (event) => {
+	// 		console.log('WebSocket Connected');
+	// 		socket.send(stockCode);
+	// 	};
+
+	// 	socket.addEventListener('message', (event) => {
+	// 		let numberPart = event.data.split(':')[1].trim();
+	// 		let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
+
+	// 		// console.log('Message from server:', event.data);
+	// 		setStockData(formattedNum);
+	// 	});
+
+	// 	return () => {
+	// 		socket.close();
+	// 	};
+	// }, []);
 	return (
 		<>
 			<Grid theme='stock_nav'>
@@ -49,7 +71,7 @@ function StockInformation() {
 				<Grid>
 					<Grid theme='stock_title'>{stockName}</Grid>
 					<Grid theme='stock_inform'>
-						<Grid theme='stock_price'>57,999원</Grid>
+						<Grid theme='stock_price'>{stockData}</Grid>
 						<Grid theme='stock_subinform'>+913원</Grid>
 						<Grid theme='stock_subinform'>(1.6%)</Grid>
 					</Grid>
