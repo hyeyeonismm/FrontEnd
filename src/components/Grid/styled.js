@@ -246,15 +246,15 @@ const styles = {
 	},
 
 	categoryForm: {
-		marginTop: '25px',
+		marginTop: '10%',
 		borderRadius: '18px',
 		border: '0.5px solid #c0c0c0',
 		boxShadow: '0px 4px 14px 0px rgba(0, 0, 0, 0.25)',
 	},
 	categoryFont: {
 		color: 'black',
-		width: '100px',
-		textAlign: 'left',
+		width: '250px',
+		textAlign: 'center',
 	},
 	list_icon: {
 		margin: '20px 0px',
