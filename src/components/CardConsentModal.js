@@ -4,7 +4,7 @@ import { Button, Img, Grid } from '../components';
 import Close from '@mui/icons-material/CloseRounded';
 import check from '../assets/images/check.png';
 
-function CardConsentModal() {
+function CardConsentModal({onConsentChange} ) {
 	const [open, setOpen] = useState(false);
 	const [selectedFirstBtn, setSelectedFirstBtn] = useState(false);
 	const [selectedSecondBtn, setSelectedSecondBtn] = useState(false);
@@ -18,6 +18,10 @@ function CardConsentModal() {
 	const onClickSecondBtn = () => {
 		setSelectedSecondBtn((current) => !current);
 	};
+
+	const getConsentValue = () => {
+		return selectedFirstBtn && selectedSecondBtn ? 1 : 0;
+	  };
 
 	const firstBtnStyle = {
 		padding: '10px',
@@ -65,7 +69,7 @@ function CardConsentModal() {
 				<div>카드내역 연동 동의서 확인하기</div>
 				<Img theme='check' src={check} alt='check' />
 			</button>
-			<Modal open={open} onClose={handleClose}>
+			<Modal open={open} onClose={handleClose} onExited={() => onConsentChange(getConsentValue())}>
 				<Grid theme='modal_body'>
 					<Grid theme='modal_header'>
 						<CloseButton onClick={handleClose} title='닫기' />
