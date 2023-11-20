@@ -62,7 +62,6 @@ function Login() {
 		  // 메인으로 이동
 		  navigate("/main");
 		  if (response && response.data) {
-			// Access response.data safely
 			console.log(response.data);
 		  } else {
 			console.error('Response or response.data is undefined');
