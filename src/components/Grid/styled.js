@@ -214,9 +214,10 @@ const styles = {
 	description: {
 		marginTop: '10px',
 		fontSize: '14px',
+		marginLeft: '10px',
 	},
 	main_background: {
-		marginTop: '40px',
+		marginTop: '30px',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',

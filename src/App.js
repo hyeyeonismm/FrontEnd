@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto ;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding-bottom: 40px;
+   
 }
 
 .layout::-webkit-scrollbar {

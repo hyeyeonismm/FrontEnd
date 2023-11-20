@@ -26,8 +26,8 @@ function Onboarding() {
 			<Grid theme='main_background'>
 				<Img theme='main' src={main} alt='main' />
 				<Button theme='mainStartBtn' children='시작하기' onClick={() => handleButtonClick('/login')} />
+				<Img theme='main_bg' src={main_bg} alt='background' />
 			</Grid>
-			<Img theme='main_bg' src={main_bg}></Img>
 		</>
 	);
 }
