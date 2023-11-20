@@ -12,10 +12,16 @@ const styles = {
 	topNavLine: {
 		width: '390px',
 		height: '3px',
-		marginTop: '15px',
+		marginTop: '5px',
 		marginBottom: '30px',
 		background: '#FFFDF5;',
 		boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+	},
+	topNavGrid: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'center',
+		marginTop: '-8px',
 	},
 	navSection: {
 		marginTop: '40px',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import home from '../assets/images/home.svg';
 import toggle from '../assets/images/toggle.svg';
 import mainCharacter from '../assets/images/mainCharacter.png';
@@ -37,12 +37,15 @@ function TopNav() {
 	const closeModal = () => {
 		setIsOpen(false);
 	};
+	const onClickButton = () => {
+		navigate('/');
+	};
 
 	return (
 		<>
 			<Grid theme='topNavContainer'>
 				{/* 홈 버튼 */}
-				<button style={buttonStyle} onClick={() => handleButtonClick('/main')}>
+				<button style={buttonStyle} onClick={onClickButton}>
 					<img src={home} alt='arrow' />
 				</button>
 
@@ -86,13 +89,14 @@ function TopNav() {
 							소비 내역
 							<Grid theme='consumeBox'>
 								<MonthWaste wasteMonth={wasteMonth} amount={amount} />
-								<WasteBar />
+								{/* <WasteBar /> */}
 							</Grid>
 						</Grid>
 					</Box>
 				</Modal>
 			</Grid>
-			<div
+
+			{/* <div
 				style={{
 					display: 'flex',
 					flexDirection: 'row',
@@ -111,6 +115,7 @@ function TopNav() {
 					)}
 					<Grid>내 소비</Grid>
 				</StyledButton>
+
 				<StyledButton
 					style={{ color: selectedButton === '/stock' ? '#88BDE7' : 'black' }}
 					onClick={() => handleButtonClick('/stock')}>
@@ -121,23 +126,8 @@ function TopNav() {
 					)}
 					<Grid>주주되기</Grid>
 				</StyledButton>
-
-				{/* <Button theme='topNavBtn' onClick={() => handleButtonClick('/card')} selected={selectedButton === '/card'}>
-					<span
-
-						style={{
-							color: selectedButton === '/card' ? '#88BDE7' : 'black',
-						}}>
-						내 소비
-					</span>
-					{selectedButton === '/card' && <Img theme='mainCharacter' src={mainCharacter} alt={mainCharacter} />}
-				</Button>
-				<Button theme='topNavBtn' onClick={() => handleButtonClick('/stock')} selected={selectedButton === '/stock'}>
-					<span style={{ color: selectedButton === '/stock' ? '#88BDE7' : 'black' }}>주주되기</span>
-					{selectedButton === '/stock' && <Img theme='mainCharacter' src={mainCharacter} alt={mainCharacter} />}
-				</Button> */}
 			</div>
-			<Grid theme='topNavLine' />
+			<Grid theme='topNavLine' /> */}
 		</>
 	);
 }
