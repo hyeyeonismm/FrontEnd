@@ -26,9 +26,8 @@ function TopNav() {
 	const card = `${cardName}`;
 	const email = `${userEmail}`;
 
-	const handleButtonClick = (path) => {
-		setSelectedButton(path);
-		navigate(path);
+	const handleButtonClick = (button) => {
+		setSelectedButton(button);
 	};
 
 	const openModal = () => {
@@ -44,12 +43,12 @@ function TopNav() {
 			<Grid theme='topNavContainer'>
 				{/* 홈 버튼 */}
 				<button style={buttonStyle} onClick={() => handleButtonClick('/main')}>
-					<img style={{ marginTop: -20 }} src={home} alt='arrow' />
+					<img src={home} alt='arrow' />
 				</button>
 
 				{/* 메뉴 버튼 */}
 				<button style={buttonStyle} onClick={openModal}>
-					<img style={{ marginTop: -5 }} src={toggle} alt='toggle' />
+					<img src={toggle} alt='toggle' />
 				</button>
 
 				{/* 모달 창 */}
@@ -102,14 +101,41 @@ function TopNav() {
 					marginLeft: '30px',
 					marginRight: '30px',
 				}}>
-				<Button theme='topNavBtn' onClick={() => handleButtonClick('/card')} selected={selectedButton === '/card'}>
-					<span style={{ color: selectedButton === '/card' ? '#88BDE7' : 'black' }}>내 소비</span>
+				<StyledButton
+					style={{ color: selectedButton === '/card' ? '#88BDE7' : 'black' }}
+					onClick={() => handleButtonClick('/card')}>
+					{selectedButton === '/card' ? (
+						<Img theme='mainCharacter' src={mainCharacter} alt='mainCharacter' />
+					) : (
+						<div style={{ width: '150px', height: '55px' }}></div>
+					)}
+					<Grid>내 소비</Grid>
+				</StyledButton>
+				<StyledButton
+					style={{ color: selectedButton === '/stock' ? '#88BDE7' : 'black' }}
+					onClick={() => handleButtonClick('/stock')}>
+					{selectedButton === '/stock' ? (
+						<Img theme='mainCharacter' src={mainCharacter} alt='mainCharacter' />
+					) : (
+						<div style={{ width: '150px', height: '55px' }}></div>
+					)}
+					<Grid>주주되기</Grid>
+				</StyledButton>
+
+				{/* <Button theme='topNavBtn' onClick={() => handleButtonClick('/card')} selected={selectedButton === '/card'}>
+					<span
+
+						style={{
+							color: selectedButton === '/card' ? '#88BDE7' : 'black',
+						}}>
+						내 소비
+					</span>
 					{selectedButton === '/card' && <Img theme='mainCharacter' src={mainCharacter} alt={mainCharacter} />}
 				</Button>
 				<Button theme='topNavBtn' onClick={() => handleButtonClick('/stock')} selected={selectedButton === '/stock'}>
 					<span style={{ color: selectedButton === '/stock' ? '#88BDE7' : 'black' }}>주주되기</span>
 					{selectedButton === '/stock' && <Img theme='mainCharacter' src={mainCharacter} alt={mainCharacter} />}
-				</Button>
+				</Button> */}
 			</div>
 			<Grid theme='topNavLine' />
 		</>
@@ -146,4 +172,16 @@ const modalStyle = {
 	background: 'white',
 };
 
+const StyledButton = styled('button')({
+	background: '#fff',
+	border: 'none',
+	textAlign: 'center',
+	color: 'black',
+	width: '150px',
+	height: '45px',
+	fontSize: '18px',
+	fontWeight: 700,
+	marginBottom: '35px',
+	marginTop: '-8px',
+});
 export default TopNav;

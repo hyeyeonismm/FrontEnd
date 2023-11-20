@@ -9,6 +9,13 @@ module.exports = function (app) {
 		}),
 	);
 	app.use(
+		'/stock',
+		createProxyMiddleware({
+			target: 'https://398a-118-91-110-133.ngrok-free.app/',
+			changeOrigin: true,
+		}),
+	);
+	app.use(
 		'/auth',
 		createProxyMiddleware({
 			target: 'http://backend-service:8080/',

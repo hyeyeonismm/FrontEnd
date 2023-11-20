@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Grid, Img, Button } from '../index.js';
-import TopNav from '../TopNav';
 import arrow from '../../assets/images/arrow.svg';
 import logo from '../../assets/images/finance.png';
 import Chart from './StockChart.js';
@@ -18,38 +17,41 @@ function StockInformation() {
 	const stockCode = '005930';
 	// 날짜 받아오기
 	const date = new Date();
-	const year = date.getFullYear();
-	const month = (date.getMonth() + 1).toString().padStart(2, '0');
-	const day = date.getDate().toString().padStart(2, '0');
-	const formattedDate = `${year}${month}${day}`;
+	const pastDate = new Date(new Date().setFullYear(date.getFullYear() - 1));
+	const formattedDate = `${date.toISOString().slice(0, 4)}${date.toISOString().slice(5, 7)}${date
+		.toISOString()
+		.slice(8, 10)}`;
+	const formattedPastDate = `${pastDate.toISOString().slice(0, 4)}${pastDate.toISOString().slice(5, 7)}${pastDate
+		.toISOString()
+		.slice(8, 10)}`;
 
 	console.log(formattedDate);
-
+	console.log(formattedPastDate);
 	const onClickButton = () => {
 		setShowNews(!showNews);
 		setShowChart(!showChart);
 	};
 
-	// useEffect(() => {
-	// 	const socket = new WebSocket('wss://a786-118-91-110-133.ngrok-free.app/');
+	useEffect(() => {
+		const socket = new WebSocket('wss://a786-118-91-110-133.ngrok-free.app/');
 
-	// 	socket.onopen = (event) => {
-	// 		console.log('WebSocket Connected');
-	// 		socket.send(stockCode);
-	// 	};
+		socket.onopen = (event) => {
+			console.log('WebSocket Connected');
+			socket.send(stockCode);
+		};
 
-	// 	socket.addEventListener('message', (event) => {
-	// 		let numberPart = event.data.split(':')[1].trim();
-	// 		let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
+		socket.addEventListener('message', (event) => {
+			let numberPart = event.data.split(':')[1].trim();
+			let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
 
-	// 		// console.log('Message from server:', event.data);
-	// 		setStockData(formattedNum);
-	// 	});
+			// console.log('Message from server:', event.data);
+			setStockData(formattedNum);
+		});
 
-	// 	return () => {
-	// 		socket.close();
-	// 	};
-	// }, []);
+		return () => {
+			socket.close();
+		};
+	}, []);
 	return (
 		<>
 			<Grid theme='stock_nav'>
@@ -67,20 +69,29 @@ function StockInformation() {
 					marginRight: '30px',
 				}}></div> */}
 			<Grid theme='about_stock'>
-				<Img theme='stock_logo' src={logo} alt='logo' />
-				<Grid>
-					<Grid theme='stock_title'>{stockName}</Grid>
-					<Grid theme='stock_inform'>
-						<Grid theme='stock_price'>{stockData}</Grid>
-						<Grid theme='stock_subinform'>+913원</Grid>
-						<Grid theme='stock_subinform'>(1.6%)</Grid>
+				<Grid theme='stock_first'>
+					<Img theme='stock_logo' src={logo} alt='logo' />
+					<Grid>
+						<Grid theme='stock_title'>{stockName}</Grid>
+						<Grid theme='stock_inform'>
+							<Grid theme='stock_price'>{stockData}</Grid>
+							<Grid theme='stock_subinform'>+913원</Grid>
+							<Grid theme='stock_subinform'>(1.6%)</Grid>
+						</Grid>
 					</Grid>
 				</Grid>
 				<Button theme='showBtn' onClick={onClickButton}>
 					{showNews ? '차트보기' : '뉴스보기'}
 				</Button>
 			</Grid>
-			{showChart && <Chart />}
+			{showChart && (
+				<Chart
+					formattedDate={formattedDate}
+					formattedPastDate={formattedPastDate}
+					stockCode={stockCode}
+					stockName={stockName}
+				/>
+			)}
 			{showNews && <News stockName={stockName} formattedDate={formattedDate} stockCode={stockCode} />}
 		</>
 	);
