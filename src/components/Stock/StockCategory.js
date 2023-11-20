@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index';
-import TopNav from '../TopNav';
-import axios from "axios";
+import StockTopNav from './StockTopNav';
+import axios from 'axios';
 import { categoryImages, getCategoryColor } from '../constants';
 
 function StockCategory() {
@@ -11,82 +11,83 @@ function StockCategory() {
 	const [showStockList, setShowStockList] = useState(false);
 	const [selectedCategory, setSelectedCategory] = useState();
 	const [selectedTab, setSelectedTab] = useState('수익률');
-	const userName = localStorage.getItem("userName");
-	const [stockEarningData, setStockEarningData ] = useState(
-		[{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			stockPrice: "99230",
-			stockRange: "+8.9",
+	const userName = localStorage.getItem('userName');
+	const [stockEarningData, setStockEarningData] = useState([
+		{
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			stockPrice: '99230',
+			stockRange: '+8.9',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			stockPrice: "99230",
-			stockRange: "+8.9",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			stockPrice: '99230',
+			stockRange: '+8.9',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			stockPrice: "99230",
-			stockRange: "+8.9",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			stockPrice: '99230',
+			stockRange: '+8.9',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			stockPrice: "99230",
-			stockRange: "+8.9",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			stockPrice: '99230',
+			stockRange: '+8.9',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			stockPrice: "99230",
-			stockRange: "+8.9",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			stockPrice: '99230',
+			stockRange: '+8.9',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			stockPrice: "99230",
-			stockRange: "+8.9",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			stockPrice: '99230',
+			stockRange: '+8.9',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			stockPrice: "99230",
-			stockRange: "+8.9",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			stockPrice: '99230',
+			stockRange: '+8.9',
 		},
 	]);
-	const [stockCapData, setStocCapData ] = useState(
-		[{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			marketCap: "992303484480",
+	const [stockCapData, setStocCapData] = useState([
+		{
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			marketCap: '992303484480',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			marketCap: "992303484480",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			marketCap: '992303484480',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			marketCap: "992303484480",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			marketCap: '992303484480',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			marketCap: "992303484480",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			marketCap: '992303484480',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			marketCap: "992303484480",
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			marketCap: '992303484480',
 		},
 		{
-			stockCode: "001800",
-			stockName: "오리온홀딩스",
-			marketCap: "992303484480",
-		}]);
+			stockCode: '001800',
+			stockName: '오리온홀딩스',
+			marketCap: '992303484480',
+		},
+	]);
 
 	const onClickCategory = (category) => {
 		setSelectedCategory(category);
@@ -102,56 +103,55 @@ function StockCategory() {
 	const mapCategoryToImage = (category) => categoryImages[category] || null;
 
 	const categoryData = Array.from({ length: 5 }, (_, index) => ({
-	name: JSON.parse(localStorage.getItem(`category${index}`)),
-	icon: mapCategoryToImage(JSON.parse(localStorage.getItem(`category${index}`))),
+		name: JSON.parse(localStorage.getItem(`category${index}`)),
+		icon: mapCategoryToImage(JSON.parse(localStorage.getItem(`category${index}`))),
 	}));
-
 
 	// 카테고리별 종목(등락률) api
 	const stockEarningList = async () => {
 		try {
-			const token = localStorage.getItem("token");
+			const token = localStorage.getItem('token');
 			const headers = {
-			Authorization: `Bearer ${token}`,
+				Authorization: `Bearer ${token}`,
 			};
-	
+
 			const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/link/stock/earning/${selectedCategory}`, //카테고리 보내주기
-			{
-				headers,
-			}
+				`${process.env.REACT_APP_SERVER_PORT}/link/stock/earning/${selectedCategory}`, //카테고리 보내주기
+				{
+					headers,
+				},
 			);
-			console.log("카테고리별 종목(등락률)", response.data.data);
-			setStockEarningData(response.data.data); 
+			console.log('카테고리별 종목(등락률)', response.data.data);
+			setStockEarningData(response.data.data);
 		} catch (error) {
-			console.error("Error fetching data from API: ", error);
+			console.error('Error fetching data from API: ', error);
 		}
 	};
 
 	// 카테고리별 종목(시가총액) api
 	const stockCapList = async () => {
 		try {
-			const token = localStorage.getItem("token");
+			const token = localStorage.getItem('token');
 			const headers = {
-			Authorization: `Bearer ${token}`,
+				Authorization: `Bearer ${token}`,
 			};
-	
+
 			const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/link/stock/cap/${selectedCategory}`, //카테고리 보내주기
-			{
-				headers,
-			}
+				`${process.env.REACT_APP_SERVER_PORT}/link/stock/cap/${selectedCategory}`, //카테고리 보내주기
+				{
+					headers,
+				},
 			);
-			console.log("카테고리별 종목(시가총액)", response.data.data);
-			setStocCapData(response.data.data); 
+			console.log('카테고리별 종목(시가총액)', response.data.data);
+			setStocCapData(response.data.data);
 		} catch (error) {
-			console.error("Error fetching data from API: ", error);
+			console.error('Error fetching data from API: ', error);
 		}
 	};
 
 	return (
 		<>
-			<TopNav />
+			<StockTopNav />
 			<Grid theme='category_body'>
 				{showCategory && (
 					<>
@@ -215,9 +215,7 @@ function StockCategory() {
 									<Grid theme='stock_list'>
 										{stockCapData.map((stock, index) => (
 											<Grid theme='category_img'>
-												<Grid key={index}>
-													{/* <Img theme='category_img' src={stock.icon} alt={stock.name} /> */}
-												</Grid>
+												<Grid key={index}>{/* <Img theme='category_img' src={stock.icon} alt={stock.name} /> */}</Grid>
 											</Grid>
 										))}
 										{stockCapData.map((stock, index) => (

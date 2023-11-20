@@ -4,10 +4,23 @@ import MuiButton from '@mui/material/Button';
 const styles = {
 	// 헤더
 	topNavBtn: {
+		display: 'flex',
+		flexDirection: 'column',
 		textAlign: 'center',
 		color: 'black',
 		width: '150px',
-		height: '45px',
+		paddingTop: '50px',
+		height: '80px',
+		fontSize: '18px',
+		fontWeight: 700,
+	},
+	selectedBtn: {
+		display: 'flex',
+		flexDirection: 'column',
+		textAlign: 'center',
+		color: '#88BDE7',
+		width: '150px',
+		height: '80px',
 		fontSize: '18px',
 		fontWeight: 700,
 	},
