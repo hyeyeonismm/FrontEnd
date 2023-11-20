@@ -38,8 +38,7 @@ function Login() {
 		event.preventDefault();
 	
 		try {
-		  const response = await axios.post(
-			`${process.env.REACT_APP_SERVER_PORT}/auth/login`,
+		  const response = await axios.post('/auth/login',
 			{
 			  email: email,
 			  password: password,
@@ -62,6 +61,13 @@ function Login() {
 	
 		  // 메인으로 이동
 		  navigate("/main");
+		  if (response && response.data) {
+			// Access response.data safely
+			console.log(response.data);
+		  } else {
+			console.error('Response or response.data is undefined');
+		  }
+
 		} catch (error) {
 		  // 로그인 실패 처리
 		  setSuccessLogin(false);
