@@ -57,7 +57,7 @@ function Login() {
 		  localStorage.setItem("userName", userName);
 	
 		  // 로그인 성공 처리
-		  console.log("로그인 성공:", response.data);
+		  console.log("로그인 성공:");
 	
 		  // 메인으로 이동
 		  navigate("/main");
@@ -70,7 +70,7 @@ function Login() {
 		} catch (error) {
 		  // 로그인 실패 처리
 		  setSuccessLogin(false);
-		  console.error("로그인 실패:", error.response.data.reason);
+		  console.log("로그인 실패:");
 		}
 	  };
 
