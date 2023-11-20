@@ -281,6 +281,7 @@ const styles = {
 		fontWeight: 700,
 	},
 	list_content: {
+		lineHeight: 1.6,
 		marginTop: '5px',
 		fontSize: '14px',
 	},

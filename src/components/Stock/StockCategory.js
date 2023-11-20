@@ -181,8 +181,11 @@ function StockCategory() {
 						</Grid>
 						<Grid theme='list_grid'>
 							<Grid theme='list_title'>{selectedCategory.name}</Grid>
-							<Grid>33개 회사 / 13개 ETF</Grid>
-							<Grid theme='list_content'>카테고리 설명입니다. 카테고리 설명입니다. 카테고리 설명입니다...</Grid>
+							<Grid>20개 주식</Grid>
+							<Grid theme='list_content'>
+								{selectedCategory.name} 카테고리와 관련한 주식들을 추천해드립니다.
+								<br />더 자세한 종목 정보를 확인하고 싶으시다면 종목명을 클릭해주세요.
+							</Grid>
 						</Grid>
 						<Grid theme='categoryForm'>
 							<Grid theme='list_tab'>
