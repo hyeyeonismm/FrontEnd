@@ -186,12 +186,30 @@ function StockCategory() {
 						</Grid>
 						<Grid theme='categoryForm'>
 							<Grid theme='list_tab'>
-								<Button theme='listTabBtn' onClick={() => setSelectedTab('수익률')}>
+								<button
+									style={{
+										borderRadius: '20px',
+										border: 'none',
+										width: '90px',
+										height: '35px',
+										backgroundColor: selectedTab === '수익률' ? '#88BDE7' : '#fff',
+										color: selectedTab === '수익률' ? '#fff' : 'black',
+									}}
+									onClick={() => setSelectedTab('수익률')}>
 									수익률
-								</Button>
-								<Button theme='listTabBtn' onClick={() => setSelectedTab('시가총액')}>
+								</button>
+								<button
+									style={{
+										borderRadius: '20px',
+										backgroundColor: selectedTab === '시가총액' ? '#88BDE7' : '#fff',
+										color: selectedTab === '시가총액' ? '#fff' : 'black',
+										border: 'none',
+										width: '90px',
+										height: '35px',
+									}}
+									onClick={() => setSelectedTab('시가총액')}>
 									시가총액
-								</Button>
+								</button>
 							</Grid>
 
 							{selectedTab === '수익률' && (

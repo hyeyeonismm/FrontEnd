@@ -16,6 +16,7 @@ const styles = {
 	main_bg: {
 		marginBottom: 0,
 	},
+
 	//온보딩
 	onboardingImg: {
 		width: '200px',
@@ -38,8 +39,7 @@ const styles = {
 		height: '120px',
 		marginTop: '75px',
 	},
-	category_icon: {
-	},
+	category_icon: {},
 	list_icon: {
 		width: '80px',
 		height: '80px',
