@@ -5,7 +5,7 @@ pipeline {
         // 환경 변수 설정
         DOCKERHUB_CREDENTIALS_ID = 'dockerHub'
         DOCKERHUB_USERNAME = 'heebin00'
-        IMAGE_TAG = 'v2.2' // !!!! yml파일이랑 똑같이 버전 맞추기
+        IMAGE_TAG = 'v2.3.2' // !!!! yml파일이랑 똑같이 버전 맞추기
     }
 
     stages {

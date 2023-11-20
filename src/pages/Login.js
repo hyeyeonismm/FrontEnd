@@ -38,8 +38,7 @@ function Login() {
 		event.preventDefault();
 	
 		try {
-		  const response = await axios.post(
-			`${process.env.REACT_APP_SERVER_PORT}/auth/login`,
+		  const response = await axios.post(`${process.env.REACT_APP_SERVER_PORT}/auth/login`,
 			{
 			  email: email,
 			  password: password,
@@ -58,14 +57,14 @@ function Login() {
 		  localStorage.setItem("userName", userName);
 	
 		  // 로그인 성공 처리
-		  console.log("로그인 성공");
+		  console.log("로그인 성공:");
 	
 		  // 메인으로 이동
 		  navigate("/main");
 		} catch (error) {
 		  // 로그인 실패 처리
 		  setSuccessLogin(false);
-		  console.log("로그인 실패");
+		  console.log("로그인 실패:");
 		}
 	  };
 
