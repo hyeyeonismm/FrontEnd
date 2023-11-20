@@ -39,8 +39,6 @@ const styles = {
 		marginTop: '75px',
 	},
 	category_icon: {
-		width: '40px',
-		height: '40px',
 	},
 	list_icon: {
 		width: '80px',

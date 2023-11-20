@@ -61,12 +61,6 @@ function Login() {
 	
 		  // 메인으로 이동
 		  navigate("/main");
-		  if (response && response.data) {
-			console.log(response.data);
-		  } else {
-			console.error('Response or response.data is undefined');
-		  }
-
 		} catch (error) {
 		  // 로그인 실패 처리
 		  setSuccessLogin(false);
