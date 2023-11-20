@@ -1,34 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import { categoryImages, getCategoryColor } from '../components/constants';
 
 const WasteBar = ({ data }) => {
   const [chartData, setChartData] = useState([]);
-  const getCategoryColor = (category) => {
-    switch (category) {
-      case "식비":
-        return '#FFE24A';
-      case "패션/쇼핑":
-        return '#AEB1FF';
-      case "의료/건강":
-        return '#4EC68C';
-      case "전기/전자":
-        return '#7392FF';
-      case "생활":
-        return '#FFB1B1';
-      case "문화/여가":
-        return '#B8B8B8';
-      case "교통":
-        return '#88BDE7';
-      case "여행/숙박":
-        return '#FF7979';
-      case "교육":
-        return '#FFA943';
-      case "금융":
-        return '#8ED56C';
-      default:
-        return '#000000'; 
-    }
-  };
 
   useEffect(() => {
     // 정렬

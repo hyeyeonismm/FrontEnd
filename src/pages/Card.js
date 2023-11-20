@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Button, Img, Input } from '../components';
+import { categoryImages, getCategoryColor } from '../components/constants';
 import axios from "axios";
 import TopNav from '../components/TopNav';
 import arrowBefore from '../assets/images/arrowBefore.svg';
 import arrowAfter from '../assets/images/arrowAfter.svg';
 import cardShinhanDD from '../assets/images/cardShinhanDD.png';
 import WasteBar from '../components/WasteBar';
-import category1 from '../assets/images/category1.svg';
-import category2 from '../assets/images/category2.svg';
-import category3 from '../assets/images/category3.svg';
-import category4 from '../assets/images/category4.svg';
-import category5 from '../assets/images/category5.svg';
-import category6 from '../assets/images/category6.svg';
-import category7 from '../assets/images/category7.svg';
-import category8 from '../assets/images/category8.svg';
-import category9 from '../assets/images/category9.svg';
-import category10 from '../assets/images/category10.svg';
 import MonthWaste from '../components/MonthWaste';
 
 function Card() {
@@ -29,9 +20,6 @@ function Card() {
 		cardType: 1,
         cardName: "신한카드 Deep Dream Platinum+"
 	});
-	const categoryImg = [
-		category1, category2, category3, category4, category5, category6, category7, category8, category9,
-	];
 	const [wasteData, setWasteData] = useState({
 		monthPrice: 510000,
         consumption: [{
@@ -89,33 +77,11 @@ function Card() {
 			price: 20000,
 		},
 	]});
-	const mapCategoryToImage = (category) => {
-		switch (category) {
-		  case "식비":
-			return category1;
-		  case "패션/쇼핑":
-			return category2;
-		  case "의료/건강":
-			return category3;
-		  case "전기/전자":
-			return category4;
-		  case "생활":
-			return category5;
-		  case "문화/여가":
-			return category6;
-		  case "교통":
-			return category7;
-		  case "여행/숙박":
-			return category8;
-		  case "교육":
-			return category9;
-			case "금융":
-				return category10;
-		  default:
-			return null;
-		}
-	  };
 
+
+	const mapCategoryToImage = (category) => {
+		return categoryImages[category] || null;
+	  };
 
 	// 카드 정보 api
 	const getCardData = async () => {
@@ -275,6 +241,7 @@ function Card() {
                   {wasteData.consumption
 				  .sort((a, b) => b.categoryPrice - a.categoryPrice)
 				  .map((categoryItem, index) => (
+					localStorage.setItem(`category${index}`, JSON.stringify(categoryItem.category)),
                     <Button theme='cardWasteList' key={index} onClick={() => handleCategoryBtnClick(categoryItem.category)}>
                       <div style={cardWaste}>
                         <Img src={mapCategoryToImage(categoryItem.category)} alt={categoryItem.category} />
