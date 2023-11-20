@@ -38,7 +38,7 @@ function Login() {
 		event.preventDefault();
 	
 		try {
-		  const response = await axios.post('/auth/login',
+		  const response = await axios.post(`${process.env.REACT_APP_SERVER_PORT}/auth/login`,
 			{
 			  email: email,
 			  password: password,
