@@ -164,6 +164,11 @@ const styles = {
 		display: 'flex',
 		minWidth: '40px',
 	},
+	//마이페이지
+	logout:{
+		padding: 0
+		
+	}
 };
 
 export const StyledButton = styled(MuiButton)(({ theme }) => ({

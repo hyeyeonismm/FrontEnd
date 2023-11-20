@@ -8,27 +8,21 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Button, Img } from '../components';
 import WasteBar from './WasteBar';
 import MonthWaste from './MonthWaste';
+import logout from '../assets/images/logout.svg'
 
 function TopNav() {
 	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedButton, setSelectedButton] = useState('/card');
 
-	const userName = '하린';
-	const month = '11';
-	const money = '111,111';
-	const cardName = '신한카드 Deep Dream Platinum+';
-	const userEmail = 'harin1212';
+	const userName = localStorage.getItem('userName');
+	const email = sessionStorage.getItem('email');
+	const card = localStorage.getItem('cardName')
+	
 
-	const name = `${userName}님`;
-	const wasteMonth = `${month}월`;
-	const amount = `${money}원`;
-	const card = `${cardName}`;
-	const email = `${userEmail}`;
 
 	const handleButtonClick = (button) => {
 		setSelectedButton(button);
-		
 	};
 
 	const openModal = () => {
@@ -39,7 +33,7 @@ function TopNav() {
 		setIsOpen(false);
 	};
 	const onClickButton = () => {
-		navigate('/');
+		navigate('/main');
 	};
 
 	return (
@@ -78,7 +72,7 @@ function TopNav() {
 							<Grid theme='sideBarBox'>
 								<Grid theme='sideBarTxt'>
 									<Grid theme='maintxt'>Your Name</Grid>
-									<Grid theme='subtxt'>{name}</Grid>
+									<Grid theme='subtxt'>{userName}님</Grid>
 								</Grid>
 								<Grid theme='sideBarTxt'>
 									<Grid theme='maintxt'>Email</Grid>
@@ -87,12 +81,18 @@ function TopNav() {
 							</Grid>
 						</Grid>
 						<Grid theme='navSection'>
-							소비 내역
-							<Grid theme='consumeBox'>
-								<MonthWaste wasteMonth={wasteMonth} amount={amount} />
-								{/* <WasteBar /> */}
+							보유 카드
+							<Grid theme='sideBarBox'>
+								<Grid theme='sideBarTxt'>
+									<Grid theme='maintxt'>Card Name</Grid>
+									<Grid theme='subtxt'>{card}</Grid>
+								</Grid>
 							</Grid>
 						</Grid>
+						<Button theme="logout">
+							<Img theme="logout" src={logout}/>Logout
+						</Button>
+						
 					</Box>
 				</Modal>
 			</Grid>

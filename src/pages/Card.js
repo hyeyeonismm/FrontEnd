@@ -23,6 +23,7 @@ function Card() {
 		cardType: 1,
 		cardName: '신한카드 Deep Dream Platinum+',
 	});
+
 	const [wasteData, setWasteData] = useState({
 		monthPrice: 510000,
 		consumption: [
@@ -171,10 +172,6 @@ function Card() {
 		}
 	};
 
-	const onClickStock = () => {
-		navigate('/stock');
-	};
-
 	const handleArrowAfterClick = () => {
 		const updatedMonth = month + 1;
 		if (updatedMonth <= 12) {
@@ -182,7 +179,11 @@ function Card() {
 		  getWasteList(updatedMonth);
 		  getDetailWasteList(updatedMonth, category);
 		}
-	  };
+	};
+
+	const onClickStock = () => {
+		navigate('/stock');
+	};
 
 	useEffect(() => {
 		getCardData();
@@ -190,6 +191,7 @@ function Card() {
 		getDetailWasteList(month, category);
 	}, [month, category]); 
 	
+	localStorage.setItem('cardName', cardData.cardName)
 
 	return (
 		<>
@@ -238,12 +240,19 @@ function Card() {
 			{/* 상세보기 버튼 클릭 시에 카테고리 소비창 */}
 			{showDetailWaste && (
 				<>
-					<MonthWaste wasteMonth={month} amount={wasteData.monthPrice} />
+					<MonthWaste
+                        wasteMonth={month}
+                        amount={wasteData.monthPrice}
+                        wasteCategory={category} 
+                        getWasteList={getWasteList}
+                        getDetailWasteList={getDetailWasteList}
+                    />
 
 					{/* 카테고리 클릭 시에 세부 내역 */}
 					{showCategoryWaste ? (
 						<>
-							{/* true */}
+							{/* 소비 세부 내역 */}
+							<Grid>{category}</Grid>
 							<Grid theme='category_body'>
 								<Grid theme='categoryForm'>
 									{wasteDetailData.categoryConsumption.map((categoryItem, index) => (
@@ -259,7 +268,7 @@ function Card() {
 						</>
 					) : (
 						<>
-							{/* false */}
+							{/* 카테고리별 소비 내역 */}
 							<WasteBar data={wasteData} />
 							<Grid theme='category_body'>
 								<Grid theme='categoryForm'>

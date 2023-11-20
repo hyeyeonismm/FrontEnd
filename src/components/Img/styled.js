@@ -79,6 +79,9 @@ const styles = {
 		cursor: 'pointer',
 		filter: 'invert(1)',
 	},
+	logout:{
+		padding: '20px'
+	}
 };
 
 export const StyledImg = styled('img')(({ theme }) => ({
