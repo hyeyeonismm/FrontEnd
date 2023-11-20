@@ -2,15 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index';
 import TopNav from '../TopNav';
-import food from '../../assets/images/category1.svg';
-import shopping from '../../assets/images/category2.svg';
-import doctor from '../../assets/images/category3.svg';
-import light from '../../assets/images/category4.svg';
-import life from '../../assets/images/category5.svg';
-import culture from '../../assets/images/category6.svg';
-import traffic from '../../assets/images/category7.svg';
-import travel from '../../assets/images/category8.svg';
-import education from '../../assets/images/category9.svg';
+import { categoryImages, getCategoryColor } from '../constants';
 
 function StockCategory() {
 	const navigate = useNavigate();
@@ -30,21 +22,20 @@ function StockCategory() {
 		navigate('/stock/information', { state: { stockName: stock.name } });
 	};
 
-	//예시 데이터
-	const categoryData = [
-		{ name: '식비', icon: food, percentage: '50%' },
-		{ name: '여행/숙박', icon: travel, percentage: '50%' },
-		{ name: '교통', icon: traffic, percentage: '50%' },
-		{ name: '문화/여가', icon: culture, percentage: '50%' },
-		{ name: '패션/쇼핑', icon: shopping, percentage: '50%' },
-	];
+	// 카테고리 이름, 이미지 매핑
+	const mapCategoryToImage = (category) => categoryImages[category] || null;
+
+	const categoryData = Array.from({ length: 5 }, (_, index) => ({
+	name: JSON.parse(localStorage.getItem(`category${index}`)),
+	icon: mapCategoryToImage(JSON.parse(localStorage.getItem(`category${index}`))),
+	}));
 
 	const stockData = [
-		{ name: '삼성전자', icon: food, percentage: '+20%' },
-		{ name: '카카오', icon: travel, percentage: '50%' },
-		{ name: 'LG전자', icon: traffic, percentage: '50%' },
-		{ name: '하이브', icon: culture, percentage: '50%' },
-		{ name: 'JYP', icon: shopping, percentage: '50%' },
+		// { name: '삼성전자', icon: food, percentage: '+20%' },
+		// { name: '카카오', icon: travel, percentage: '50%' },
+		// { name: 'LG전자', icon: traffic, percentage: '50%' },
+		// { name: '하이브', icon: culture, percentage: '50%' },
+		// { name: 'JYP', icon: shopping, percentage: '50%' },
 	];
 
 	return (
@@ -66,7 +57,6 @@ function StockCategory() {
 									<Button theme='categoryBtn' onClick={() => onClickCategory(category)}>
 										<Img theme='category_icon' src={category.icon} alt={category.name} />
 										<Grid theme='categoryFont'>{category.name}</Grid>
-										<Grid>{category.percentage}</Grid>
 									</Button>
 								</Grid>
 							))}
