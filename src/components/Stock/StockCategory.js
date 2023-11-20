@@ -95,7 +95,7 @@ function StockCategory() {
 	};
 
 	const onClickStock = (stock) => {
-		navigate('/stock/information', { state: { stockName: stock.name } });
+		navigate('/stock/information', { state: { stockName: stock.stockName } });
 	};
 
 	// 카테고리 이름, 이미지 매핑
