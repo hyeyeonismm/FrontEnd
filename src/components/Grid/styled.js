@@ -243,6 +243,10 @@ const styles = {
 		borderRadius: '270px',
 		background: '#EBF3FC',
 	},
+	stockMain_bigtxt: {
+		fontSize: '18px'
+	},
+
 
 	//Category 페이지
 	category_body: {

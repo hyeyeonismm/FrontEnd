@@ -20,31 +20,31 @@ export default class SimpleSlider extends Component {
 		return (
 			<Slider {...settings}>
 				<div>
-					<h3 style={Toptxt}>Link Stock이 뭔가요?</h3>
+					<h3 style={toptxt}>Link Stock이 뭔가요?</h3>
 					<div>
 						<Img theme='onboardingImg' src={sol2} alt='register' />
-						<p>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
+						<p style={subTxt}>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
 					</div>
 				</div>
 				<div>
-					<h3 style={Toptxt}>카드 내역 설명</h3>
+					<h3 style={toptxt}>카드 내역 설명</h3>
 					<div>
 						<Img theme='onboardingImg' src={sol3} alt='register' />
-						<p>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
+						<p style={subTxt}>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
 					</div>
 				</div>
 				<div>
-					<h3 style={Toptxt}>주식 추천 설명</h3>
+					<h3 style={toptxt}>주식 추천 설명</h3>
 					<div>
 						<Img theme='onboardingImg' src={sol4} alt='register' />
-						<p>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
+						<p style={subTxt}>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
 					</div>
 				</div>
 				<div>
-					<h3 style={Toptxt}>서비스 설명</h3>
+					<h3 style={toptxt}>서비스 설명</h3>
 					<div>
 						<Img theme='onboardingImg' src={sol5} alt='register' />
-						<p>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
+						<p style={subTxt}>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
 					</div>
 				</div>
 			</Slider>
@@ -52,6 +52,12 @@ export default class SimpleSlider extends Component {
 	}
 }
 
-const Toptxt = {
+const toptxt = {
+	margin: '20px',
+	color: '#175DA9'
+};
+
+const subTxt = {
 	margin: '20px',
 };
+

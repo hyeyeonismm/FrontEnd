@@ -5,6 +5,7 @@ import arrow from '../../assets/images/arrow.svg';
 import logo from '../../assets/images/finance.png';
 import Chart from './StockChart.js';
 import News from './StockNews.js';
+import TopNav from '../TopNav.js';
 
 function StockInformation() {
 	const location = useLocation();
@@ -31,6 +32,10 @@ function StockInformation() {
 		setShowNews(!showNews);
 		setShowChart(!showChart);
 	};
+	// 뒤로가기 버튼 클릭 시의 동작
+	const handleBackButtonClick = () => {
+		navigate('/stock')
+	  };
 
 	useEffect(() => {
 		const socket = new WebSocket('wss://a786-118-91-110-133.ngrok-free.app/');
@@ -54,11 +59,7 @@ function StockInformation() {
 	}, []);
 	return (
 		<>
-			<Grid theme='stock_nav'>
-				<Button>
-					<img style={{ width: '13px', height: '26px' }} src={arrow} alt='arrow' />
-				</Button>
-			</Grid>
+			<TopNav onBackButtonClick={handleBackButtonClick}/>
 			{/* <div
 				style={{
 					display: 'flex',

@@ -34,9 +34,8 @@ const styles = {
 		height: '38px',
 	},
 	character: {
-		width: '100px',
-		height: '120px',
-		marginTop: '75px',
+		width: '150px',
+		marginTop: '50px',
 	},
 	category_icon: {
 	},

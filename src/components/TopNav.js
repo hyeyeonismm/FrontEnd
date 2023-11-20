@@ -6,11 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { styled, Modal, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Button, Img } from '../components';
-import WasteBar from './WasteBar';
-import MonthWaste from './MonthWaste';
-import logout from '../assets/images/logout.svg'
+import arrow from '../assets/images/arrow.svg';
+import logout from '../assets/images/logout.svg';
 
-function TopNav() {
+function TopNav({onBackButtonClick }) {
 	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedButton, setSelectedButton] = useState('/card');
@@ -32,16 +31,17 @@ function TopNav() {
 	const closeModal = () => {
 		setIsOpen(false);
 	};
+	
 	const onClickButton = () => {
-		navigate('/main');
-	};
+		onBackButtonClick();
+	  };
 
 	return (
 		<>
 			<Grid theme='topNavContainer'>
-				{/* 홈 버튼 */}
+				{/* 뒤로가기 버튼 */}
 				<button style={buttonStyle} onClick={onClickButton}>
-					<img src={home} alt='arrow' />
+					<img src={arrow} alt='arrow' />
 				</button>
 
 				{/* 메뉴 버튼 */}
@@ -155,24 +155,15 @@ const buttonStyle = {
 const modalWrap = {
 	margin: '0 auto',
 	width: '390px',
+	
 };
 
 const modalStyle = {
 	padding: '30px',
 	marginLeft: '20%',
 	background: 'white',
+	height: '700px',
 };
 
-const StyledButton = styled('button')({
-	background: '#fff',
-	border: 'none',
-	textAlign: 'center',
-	color: 'black',
-	width: '150px',
-	height: '45px',
-	fontSize: '18px',
-	fontWeight: 700,
-	marginBottom: '35px',
-	marginTop: '-8px',
-});
+
 export default TopNav;

@@ -150,12 +150,14 @@ function Card() {
 		}
 	};
 
+	// 상세보기 버튼 클릭
 	const handleDetailBtnClick = () => {
 		setShowWaste(false);
 		setShowDetailWaste(true);
 		setShowCategoryWaste(false);
 	};
 
+	// 카테고리 버튼 클릭
 	const handleCategoryBtnClick = (selectedCategory) => {
 		setCategory(selectedCategory);
 		setShowWaste(false);
@@ -163,6 +165,7 @@ function Card() {
 		setShowCategoryWaste(true);
 	};
 
+	// 이전 달
 	const handleArrowBeforeClick = () => {
 		const updatedMonth = month - 1;
 		if (updatedMonth >= 1) {
@@ -172,6 +175,7 @@ function Card() {
 		}
 	};
 
+	// 다음 달
 	const handleArrowAfterClick = () => {
 		const updatedMonth = month + 1;
 		if (updatedMonth <= 12) {
@@ -185,18 +189,26 @@ function Card() {
 		navigate('/stock');
 	};
 
+	// 뒤로가기 버튼 클릭 시의 동작
+	const handleBackButtonClick = () => {
+		setShowWaste(true);
+		setShowDetailWaste(false);
+		setShowCategoryWaste(false);
+	  };
+
+
 	useEffect(() => {
 		getCardData();
 		getWasteList(month);
 		getDetailWasteList(month, category);
 	}, [month, category]); 
-	
+
 	localStorage.setItem('cardName', cardData.cardName)
 
 	return (
 		<>
 			{/* Header */}
-			<TopNav />
+			<TopNav onBackButtonClick={handleBackButtonClick}  />
 			<Grid theme='topNavGrid'>
 				<Button theme='selectedBtn'>
 					<Img theme='mainCharacter' src={mainCharacter} alt='mainCharacter' />

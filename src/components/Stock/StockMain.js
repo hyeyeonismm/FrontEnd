@@ -16,7 +16,7 @@ function StockMain() {
 			<StockTopNav />
 			<Grid theme='stockMain_body'>
 				<Grid>소비자에서 주주가 되어봅시다.</Grid>
-				<Grid>
+				<Grid theme="stockMain_bigtxt">
 					{userName}님과 <strong>밀접한 종목</strong>을 알아볼까요?
 				</Grid>
 			</Grid>
