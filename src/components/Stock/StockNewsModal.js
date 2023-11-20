@@ -19,7 +19,7 @@ function StockNewsModal({ isOpen, onClose, news, formattedDate }) {
 
 					const response = await axios.post(`/news/detail/${news.newsCode}`, requestData);
 					if (response.data) {
-						console.log(response.data.message.result[0]);
+						setModalData(response.data.message.result[0]);
 					} else {
 						console.log('error');
 					}
@@ -35,8 +35,13 @@ function StockNewsModal({ isOpen, onClose, news, formattedDate }) {
 		<>
 			<Modal open={isOpen} onClose={onClose}>
 				<Grid theme='modal_body'>
-					<CloseButton onClick={onClose} title='닫기' />
-					<h3>{news.newsTitle}</h3>
+					<Grid theme='modal_header'>
+						<CloseButton onClick={onClose} title='닫기' />
+						<Grid theme='modal_title'>{news.newsTitle}</Grid>
+					</Grid>
+					<Grid theme='modal_section'>
+						<div dangerouslySetInnerHTML={{ __html: modalData }} />
+					</Grid>
 				</Grid>
 			</Modal>
 		</>

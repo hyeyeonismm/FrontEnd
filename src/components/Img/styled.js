@@ -11,12 +11,10 @@ const styles = {
 	mainCharacter: {
 		width: '50px',
 		height: '50px',
-		marginBottom: '80px',
-		marginLeft: '-55px',
 	},
 	//메인
-	main_bg:{
-		marginBottom: 0
+	main_bg: {
+		marginBottom: 0,
 	},
 	//온보딩
 	onboardingImg: {
