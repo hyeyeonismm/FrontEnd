@@ -28,6 +28,7 @@ function TopNav() {
 
 	const handleButtonClick = (button) => {
 		setSelectedButton(button);
+		
 	};
 
 	const openModal = () => {

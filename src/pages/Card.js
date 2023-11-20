@@ -105,7 +105,7 @@ function Card() {
 	  };
 
 	// n월 소비 내역 api
-	const getWasteList = async () => {
+	const getWasteList = async (selectedMonth) => {
 		try {
 		  const token = localStorage.getItem("token");
 		  const headers = {
@@ -113,12 +113,12 @@ function Card() {
 		  };
 	
 		  const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/consumption/${month}`, //월 보내주기
+			`${process.env.REACT_APP_SERVER_PORT}/consumption/${selectedMonth}`, //월 보내주기
 			{
 			  headers,
 			}
 		  );
-		  console.log("n월 소비내역 api", response.data.data);
+		  console.log(`${selectedMonth}월 소비내역 api`, response.data.data);
 		  setWasteData(response.data.data); //monthPrice, consumption리스트 {category, categoryPrice}
 		} catch (error) {
 		  console.error("Error fetching data from API: ", error);
@@ -126,7 +126,7 @@ function Card() {
 	  };
 
 	// n월 카테고리별 세부내역 내역 api
-	const getDetailWasteList = async () => {
+	const getDetailWasteList = async (selectedMonth, selectedCategory) => {
 		try {
 		  const token = localStorage.getItem("token");
 		  const headers = {
@@ -134,12 +134,12 @@ function Card() {
 		  };
 	
 		  const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/consumption/${month}/${category}`, //월, 카테고리 보내주기
+			`${process.env.REACT_APP_SERVER_PORT}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
 			{
 			  headers,
 			}
 		  );
-		  console.log("n월 카테고리별 세부내역 api", response.data.data);
+		  console.log(`${selectedMonth}월 ${selectedCategory} 세부내역 api`, response.data.data);
 		  setWasteDetailData(response.data.data); //categoryConsumption리스트 {shop, price}
 		} catch (error) {
 		  console.error("Error fetching data from API: ", error);
@@ -161,19 +161,27 @@ function Card() {
 
 	const handleArrowBeforeClick = () => {
 		const updatedMonth = month - 1;
-		setMonth(updatedMonth);
+		if (updatedMonth >= 1) {
+		  setMonth(updatedMonth);
+		  getWasteList(updatedMonth);
+		  getDetailWasteList(updatedMonth, category);
+		}
 	};
 	
 	const handleArrowAfterClick = () => {
 		const updatedMonth = month + 1;
-		setMonth(updatedMonth);
-	};
+		if (updatedMonth <= 12) {
+		  setMonth(updatedMonth);
+		  getWasteList(updatedMonth);
+		  getDetailWasteList(updatedMonth, category);
+		}
+	  };
 
 	useEffect(() => {
 		getCardData();
-		getWasteList();
-		getDetailWasteList();
-	  }, []);
+		getWasteList(month);
+		getDetailWasteList(month, category);
+	}, [month, category]); 
 	
 
 	return (
