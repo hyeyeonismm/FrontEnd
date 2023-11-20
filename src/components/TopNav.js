@@ -18,10 +18,8 @@ function TopNav({onBackButtonClick }) {
 	const email = sessionStorage.getItem('email');
 	const card = localStorage.getItem('cardName')
 	
-
-
-	const handleButtonClick = (button) => {
-		setSelectedButton(button);
+	const homeButton = () => {
+		navigate('/main')
 	};
 
 	const openModal = () => {
@@ -31,7 +29,7 @@ function TopNav({onBackButtonClick }) {
 	const closeModal = () => {
 		setIsOpen(false);
 	};
-	
+
 	const onClickButton = () => {
 		onBackButtonClick();
 	  };
@@ -52,6 +50,10 @@ function TopNav({onBackButtonClick }) {
 				{/* 모달 창 */}
 				<Modal open={isOpen} onClose={closeModal} sx={modalWrap}>
 					<Box sx={modalStyle}>
+					{/* 홈 버튼 */}
+					<Button theme="home" onClick={homeButton}>
+						<Img theme="home" src={home}/>
+					</Button>
 						<SearchField>
 							<input
 								type='text'
@@ -92,43 +94,9 @@ function TopNav({onBackButtonClick }) {
 						<Button theme="logout">
 							<Img theme="logout" src={logout}/>Logout
 						</Button>
-						
 					</Box>
 				</Modal>
 			</Grid>
-
-			{/* <div
-				style={{
-					display: 'flex',
-					flexDirection: 'row',
-					justifyContent: 'space-around',
-					alignItems: 'center',
-					marginLeft: '30px',
-					marginRight: '30px',
-				}}>
-				<StyledButton
-					style={{ color: selectedButton === '/card' ? '#88BDE7' : 'black' }}
-					onClick={() => handleButtonClick('/card')}>
-					{selectedButton === '/card' ? (
-						<Img theme='mainCharacter' src={mainCharacter} alt='mainCharacter' />
-					) : (
-						<div style={{ width: '150px', height: '55px' }}></div>
-					)}
-					<Grid>내 소비</Grid>
-				</StyledButton>
-
-				<StyledButton
-					style={{ color: selectedButton === '/stock' ? '#88BDE7' : 'black' }}
-					onClick={() => handleButtonClick('/stock')}>
-					{selectedButton === '/stock' ? (
-						<Img theme='mainCharacter' src={mainCharacter} alt='mainCharacter' />
-					) : (
-						<div style={{ width: '150px', height: '55px' }}></div>
-					)}
-					<Grid>주주되기</Grid>
-				</StyledButton>
-			</div>
-			<Grid theme='topNavLine' /> */}
 		</>
 	);
 }
@@ -139,7 +107,8 @@ const SearchField = styled(Box)({
 	width: '200px',
 	display: 'flex',
 	padding: '10px 20px',
-	margin: '40px 0px',
+	margin: '0 auto',
+	marginTop: '20px',
 	gap: 0,
 	color: '#757575',
 	fontSize: 14,

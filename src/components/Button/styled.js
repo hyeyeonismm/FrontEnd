@@ -24,6 +24,9 @@ const styles = {
 		fontSize: '18px',
 		fontWeight: 700,
 	},
+	home:{
+		marginRight : '60px'
+	},
 
 	// 회원가입
 	signupBtn: {
@@ -166,7 +169,8 @@ const styles = {
 	},
 	//마이페이지
 	logout:{
-		padding: 0
+		padding: 0,
+		marginLeft: '125px'
 		
 	}
 };
