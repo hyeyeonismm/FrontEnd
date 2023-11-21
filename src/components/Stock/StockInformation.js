@@ -10,6 +10,7 @@ function StockInformation() {
 	const location = useLocation();
 	const stockName = location.state?.stockName;
 	const navigate = useNavigate();
+	const [newSocket, setNewSocket] = useState();
 	const [showChart, setShowChart] = useState(true);
 	const [showNews, setShowNews] = useState(false);
 	const [stockData, setStockData] = useState(null);
@@ -38,25 +39,50 @@ function StockInformation() {
 	};
 
 	// useEffect(() => {
-	// 	const socket = new WebSocket('wss://a786-118-91-110-133.ngrok-free.app/');
+	// 	const socket = new WebSocket('wss://fresh-arguably-phoenix.ngrok-free.app');
 
-	// 	socket.onopen = (event) => {
+	// 	socket.addEventListener('open', () => {
 	// 		console.log('WebSocket Connected');
 	// 		socket.send(stockCode);
-	// 	};
-
-	// 	socket.addEventListener('message', (event) => {
-	// 		let numberPart = event.data.split(':')[1].trim();
-	// 		let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
-
-	// 		// console.log('Message from server:', event.data);
-	// 		setStockData(formattedNum);
 	// 	});
+	// socket.onerror = function (event) {
+	// 	console.error('WebSocket Error', event);
+	// };
 
-	// 	return () => {
-	// 		socket.close();
-	// 	};
+	// socket.addEventListener('message', (event) => {
+	// 	let numberPart = event.data.split(':')[1].trim();
+	// 	let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
+
+	// 	console.log('Message from server:', event.data);
+	// 	setStockData(formattedNum);
+	// });
+
+	// return () => {
+	// 	socket.close();
+	// };
 	// }, []);
+	useEffect(() => {
+		const socket = new WebSocket('wss://fresh-arguably-phoenix.ngrok-free.app');
+		setNewSocket(socket);
+
+		socket.addEventListener('open', () => {
+			console.log('WebSocket 연결이 열렸습니다.');
+			socket.send(stockCode);
+		});
+
+		socket.addEventListener('close', () => {
+			console.log('WebSocket 연결이 닫혔습니다.');
+		});
+
+		socket.addEventListener('error', (event) => {
+			console.log('WebSocket 에러:', event.data);
+		});
+
+		return () => {
+			socket.close();
+		};
+	}, [stockCode]);
+
 	return (
 		<>
 			<TopNav onBackButtonClick={handleBackButtonClick} />
