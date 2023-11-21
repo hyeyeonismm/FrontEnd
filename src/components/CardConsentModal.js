@@ -66,10 +66,17 @@ function CardConsentModal({ onConsentChange  }) {
 
 	if (selectedFirstBtn && selectedSecondBtn) {
 		cardBtn.background = '#88BdE7';
-		setAgreeState(1);
 	} else {
 		cardBtn.background = 'transparent';
 	}
+
+	useEffect(() => {
+		if (selectedFirstBtn && selectedSecondBtn) {
+		  setAgreeState(1);
+		} else {
+		  setAgreeState(0);
+		}
+	  }, [selectedFirstBtn, selectedSecondBtn]);
 
 	return (
 		<>

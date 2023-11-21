@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Button, Img } from '../components';
 import { categoryImages } from '../components/constants';
-import axios from 'axios';
+import instance from '../api/axios';
 import TopNav from '../components/TopNav';
 import arrowBefore from '../assets/images/arrowBefore.svg';
 import arrowAfter from '../assets/images/arrowAfter.svg';
@@ -164,7 +164,7 @@ function Card() {
 				Authorization: `Bearer ${token}`,
 			};
 
-			const response = await axios.get('/card', {
+			const response = await instance.get('/card', {
 				headers,
 			});
 			console.log('카드 정보 api', response.data.data);
@@ -182,8 +182,8 @@ function Card() {
 				Authorization: `Bearer ${token}`,
 			};
 
-			const response = await axios.get(
-				`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
+			const response = await instance.get(
+				`/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
 				{
 					headers,
 				},
@@ -203,8 +203,8 @@ function Card() {
 				Authorization: `Bearer ${token}`,
 			};
 
-			const response = await axios.get(
-				`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
+			const response = await instance.get(
+				`/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
 				{
 					headers,
 				},

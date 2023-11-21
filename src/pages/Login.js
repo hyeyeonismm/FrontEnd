@@ -27,7 +27,7 @@ function Login() {
 	// email input 값 변경 시 실행되는 함수
 	const handleEmailChange = (event) => {
 		setEmail(event.target.value);
-	  };
+	};
 
 	// password input 값 변경 시 실행되는 함수
 	const handlePasswordChange = (event) => {
@@ -39,7 +39,7 @@ function Login() {
 
 		try {
 			const response = await instance.post(
-				`${process.env.REACT_APP_SERVER_PORT}/auth/login`,
+				'/auth/login',
 				{
 					email: email,
 					password: password,
@@ -48,9 +48,8 @@ function Login() {
 					withCredentials: true,
 				},
 			);
-			
+
 			console.log(response);
-			
 
 			// 토큰 값을 가져옴
 			const token = response.data.accessToken;
@@ -60,15 +59,15 @@ function Login() {
 			// 유저 이름을 LocalStorage에 저장
 			localStorage.setItem('userName', userName);
 
-		// 로그인 성공 처리
-		console.log('로그인 성공:');
+			// 로그인 성공 처리
+			console.log('로그인 성공:');
 
-		// 메인으로 이동
-		navigate('/main');
+			// 메인으로 이동
+			navigate('/main');
 		} catch (error) {
 			// 로그인 실패 처리
 			setSuccessLogin(false);
-			console.error("로그인 실패:");
+			console.error('로그인 실패:');
 		}
 		sessionStorage.setItem('email', email);
 	};
@@ -87,13 +86,13 @@ function Login() {
 
 			<form onSubmit={handleFormSubmit}>
 				<Grid theme='loginForm'>
-				<TextField id='id' label='이메일' variant='outlined' size='small' onChange={handleEmailChange} />
-				<TextField id='pw' label='패스워드' variant='outlined' size='small' onChange={handlePasswordChange} />
-				<Grid theme='loginOption'>
-					<div style={{ marginTop: '2px', color: '#757575' }}>계정이 없으신가요?</div>
-					<Button theme='signupBtn' children='회원가입' onClick={onClickSignup} />
+					<TextField id='id' label='이메일' variant='outlined' size='small' onChange={handleEmailChange} />
+					<TextField id='pw' label='패스워드' variant='outlined' size='small' onChange={handlePasswordChange} />
+					<Grid theme='loginOption'>
+						<div style={{ marginTop: '2px', color: '#757575' }}>계정이 없으신가요?</div>
+						<Button theme='signupBtn' children='회원가입' onClick={onClickSignup} />
+					</Grid>
 				</Grid>
-			</Grid>
 				<Grid theme='startGrid'>
 					<Button theme='startBtn' children='로그인' type='submit' />
 				</Grid>
