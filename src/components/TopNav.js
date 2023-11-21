@@ -131,7 +131,7 @@ const modalStyle = {
 	padding: '30px',
 	marginLeft: '20%',
 	background: 'white',
-	height: '700px',
+	height: '700px'
 };
 
 
