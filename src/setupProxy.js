@@ -4,14 +4,14 @@ module.exports = function (app) {
 	app.use(
 		'/news',
 		createProxyMiddleware({
-			target: 'https://398a-118-91-110-133.ngrok-free.app/',
+			target: 'https://2c66-103-218-158-71.ngrok-free.app/',
 			changeOrigin: true,
 		}),
 	);
 	app.use(
 		'/stock',
 		createProxyMiddleware({
-			target: 'https://398a-118-91-110-133.ngrok-free.app/',
+			target: 'https://2c66-103-218-158-71.ngrok-free.app/',
 			changeOrigin: true,
 		}),
 	);
