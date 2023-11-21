@@ -151,6 +151,12 @@ const styles = {
 		justifyContent: 'center',
 		padding: '20px 0px 10px 0px',
 	},
+	error:{
+		textAlign : 'center',
+		fontSize: '12px',
+		color: '#E7735A'
+
+	},
 
 	//회원가입 페이지
 	registerForm: {
@@ -442,9 +448,9 @@ const styles = {
 		fontWeight: '500',
 	},
 	cardDetail: {
+		justifyContent: 'flex-start', 
 		display: 'flex',
 		flexDirection: 'row',
-		gap: 25,
 		marginTop: '30px',
 		fontSize: '24px',
 		fontWeight: '700',
@@ -455,6 +461,14 @@ const styles = {
 		textAlign: 'center',
 		fontSize: '13px',
 	},
+	monthPrice: {
+		whiteSpace: 'nowrap', 
+		overflow: 'hidden', 
+		textOverflow: 'ellipsis', 
+		fontSize: '20px', 
+		transition: 'font-size 0.3s ease-in-out', 
+		marginTop: '5px'
+	  },	  
 	smallLine: {
 		width: '350px',
 		height: '2px',
