@@ -2,16 +2,42 @@ import React, { useState } from 'react';
 import home from '../assets/images/home.svg';
 import toggle from '../assets/images/toggle.svg';
 import { useNavigate } from 'react-router-dom';
-import { styled, Modal, Box } from '@mui/material';
+import { styled, Modal, Box, Dialog } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Button, Img } from '../components';
 import arrow from '../assets/images/arrow.svg';
 import logout from '../assets/images/logout.svg';
+import instance from '../api/axios';
 
 function TopNav({ onBackButtonClick }) {
 	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = useState(false);
+	const [open, setOpen] = useState(false);
 
+	const onClickLogout = async () => {
+		try {
+			const token = localStorage.getItem('token');
+			const headers = {
+				Authorization: `Bearer ${token}`,
+			};
+			const response = await instance.post('/auth/logout', {}, { headers });
+			if (response.data) {
+				setOpen(true);
+			}
+		} catch (error) {
+			console.log('로그아웃 실패');
+		}
+	};
+
+	const onClickYes = () => {
+		setOpen(false);
+		localStorage.clear();
+		navigate('/');
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
 	const userName = localStorage.getItem('userName');
 	const email = sessionStorage.getItem('email');
 	const card = localStorage.getItem('cardName');
@@ -89,10 +115,24 @@ function TopNav({ onBackButtonClick }) {
 								</Grid>
 							</Grid>
 						</Grid>
-						<Button theme='logout'>
+						<Button theme='logout' onClick={onClickLogout}>
 							<Img theme='logout' src={logout} />
 							Logout
 						</Button>
+						<Dialog open={open} onClose={handleClose}>
+							<Grid theme='dialogGrid'>
+								<Grid theme='modal_title'>로그아웃하시겠습니까?</Grid>
+								<Box>
+									<Box sx={{ fontSize: '14px', color: '#757575', margin: '10px 0px' }}>
+										'예' 버튼을 누르시면 메인 화면으로 돌아갑니다.
+									</Box>
+								</Box>
+								<Grid theme='ButtonMain'>
+									<Button theme='black' onClick={onClickYes} children='예' />
+									<Button theme='black' onClick={handleClose} children='아니오' />
+								</Grid>
+							</Grid>
+						</Dialog>
 					</Box>
 				</Modal>
 			</Grid>

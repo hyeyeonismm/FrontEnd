@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { Grid, Button, Img } from '../components/index.js';
 import main from '../assets/images/mainCharacter.png';
 import main_bg from '../assets/images/main_bg.svg';
-import logo from '../assets/images/logo2.svg';
+import logo from '../assets/images/logo.svg';
 
 function Onboarding() {
 	const navigate = useNavigate();

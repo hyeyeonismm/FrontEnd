@@ -82,6 +82,7 @@ const styles = {
 	},
 	onboardingContent: {
 		padding: '0px 15px',
+		lineHeight: 1.7,
 	},
 	//헤더
 	line: {
@@ -103,6 +104,11 @@ const styles = {
 		// padding: '24px 20px 15px 20px',
 		// alignItems: 'center',
 	},
+	headerMain: {
+		display: 'flex',
+		justifyContent: 'center',
+		margin: '10px 0px',
+	},
 	registerImg: {
 		marginTop: '-15px',
 		marginBottom: '15px',
@@ -123,7 +129,11 @@ const styles = {
 		fontSize: '14px',
 		marginBottom: '10px',
 	},
-
+	dialogGrid: {
+		display: 'flex',
+		flexDirection: 'column',
+		padding: '20px',
+	},
 	headerTitle: {
 		flex: 0.9,
 		marginTop: 6,
@@ -151,11 +161,10 @@ const styles = {
 		justifyContent: 'center',
 		padding: '20px 0px 10px 0px',
 	},
-	error:{
-		textAlign : 'center',
+	error: {
+		textAlign: 'center',
 		fontSize: '12px',
-		color: '#E7735A'
-
+		color: '#E7735A',
 	},
 
 	//회원가입 페이지
@@ -406,6 +415,13 @@ const styles = {
 		justifyContent: 'center',
 		textAlign: 'center',
 	},
+	ButtonMain: {
+		marginTop: '10px',
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'center',
+		gap: 10,
+	},
 	news_body: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -448,7 +464,7 @@ const styles = {
 		fontWeight: '500',
 	},
 	cardDetail: {
-		justifyContent: 'flex-start', 
+		justifyContent: 'flex-start',
 		display: 'flex',
 		flexDirection: 'row',
 		marginTop: '30px',
@@ -462,13 +478,13 @@ const styles = {
 		fontSize: '13px',
 	},
 	monthPrice: {
-		whiteSpace: 'nowrap', 
-		overflow: 'hidden', 
-		textOverflow: 'ellipsis', 
-		fontSize: '20px', 
-		transition: 'font-size 0.3s ease-in-out', 
-		marginTop: '5px'
-	  },	  
+		whiteSpace: 'nowrap',
+		overflow: 'hidden',
+		textOverflow: 'ellipsis',
+		fontSize: '20px',
+		transition: 'font-size 0.3s ease-in-out',
+		marginTop: '5px',
+	},
 	smallLine: {
 		width: '350px',
 		height: '2px',

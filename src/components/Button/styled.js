@@ -14,6 +14,10 @@ const styles = {
 		fontSize: '18px',
 		fontWeight: 700,
 	},
+	black: {
+		marginRight: '10px',
+		color: 'black',
+	},
 	selectedBtn: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -27,7 +31,14 @@ const styles = {
 	home: {
 		marginRight: '60px',
 	},
-
+	headerTitle: {
+		marginTop: 6,
+		color: '#88BDE7',
+		textAlign: 'center',
+		fontSize: '28px',
+		fontWeight: 700,
+		width: '300px',
+	},
 	// 회원가입
 	signupBtn: {
 		color: '#B87514',
