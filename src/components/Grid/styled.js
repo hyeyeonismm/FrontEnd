@@ -426,6 +426,10 @@ const styles = {
 		color: 'white',
 		zIndex: 10,
 	},
+	cardCategory: {
+		textAlign: 'center',
+		fontSize: '13px',
+	},
 	smallLine: {
 		width: '350px',
 		height: '2px',

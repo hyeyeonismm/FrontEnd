@@ -86,6 +86,54 @@ function Card() {
 				shop: '천궁',
 				price: 20000,
 			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
+			{
+				shop: '천궁',
+				price: 20000,
+			},
 		],
 	});
 
@@ -225,7 +273,7 @@ function Card() {
 
 	return (
 		<>
-			{/* Header */}
+			{/* 헤더 */}
 			<TopNav onBackButtonClick={handleBackButtonClick}  />
 			<Grid theme='topNavGrid'>
 				<Button theme='selectedBtn'>
@@ -238,6 +286,7 @@ function Card() {
 				</Button>
 			</Grid>
 			<Grid theme='topNavLine' />
+
 			{/* 소비&카드 창 */}
 			{showWaste && (
 				<>
@@ -282,9 +331,16 @@ function Card() {
 					{showCategoryWaste ? (
 						<>
 							{/* 소비 세부 내역 */}
-							<Grid>{category}</Grid>
+							<Grid theme='list_icon'>
+								<Img theme='list_icon' src={mapCategoryToImage(category)} alt={category} />
+							</Grid>
+							<Grid theme='list_grid'>
+								<Grid theme='cardCategory'>{category}</Grid>
+							</Grid>
+
 							<Grid theme='category_body'>
 								<Grid theme='categoryForm'>
+									<Grid theme='stock_list'>
 									{wasteDetailData.categoryConsumption.map((categoryItem, index) => (
 										<Button theme='cardWasteList' key={index}>
 											<div style={cardWaste}>
@@ -294,6 +350,7 @@ function Card() {
 										</Button>
 									))}
 								</Grid>
+							</Grid>
 							</Grid>
 						</>
 					) : (
