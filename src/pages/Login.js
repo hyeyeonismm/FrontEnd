@@ -87,14 +87,21 @@ function Login() {
 				<Grid theme='loginFont'>이메일과 비밀번호를 입력해주세요</Grid>
 				<form onSubmit={handleFormSubmit}>
 					<Grid theme='loginForm'>
-						<TextField id='id' label='이메일' variant='outlined' size='small' onChange={handleEmailChange} />
-						<TextField id='pw' label='패스워드' variant='outlined' size='small' onChange={handlePasswordChange} />
-						{successLogin ? null : 
-						<Alert severity="error" style={{ marginLeft: -20, width: '260px' }}>
+						<TextField id='id' type='email' label='이메일' variant='outlined' size='small' onChange={handleEmailChange} />
+						<TextField
+							id='pw'
+							type='password'
+							label='패스워드'
+							variant='outlined'
+							size='small'
+							onChange={handlePasswordChange}
+						/>
+						{successLogin ? null : (
+							<Alert severity='error' style={{ marginLeft: -20, width: '260px' }}>
 								<AlertTitle>로그인 실패</AlertTitle>
 								<strong>아이디</strong>와 <strong>비밀번호</strong>를 확인해보세요.
-						</Alert>
-					}
+							</Alert>
+						)}
 						<Grid theme='loginOption'>
 							<div style={{ marginTop: '2px', color: '#757575' }}>계정이 없으신가요?</div>
 							<Button theme='signupBtn' children='회원가입' onClick={onClickSignup} />
