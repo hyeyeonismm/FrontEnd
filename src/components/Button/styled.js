@@ -14,6 +14,10 @@ const styles = {
 		fontSize: '18px',
 		fontWeight: 700,
 	},
+	black: {
+		marginRight: '10px',
+		color: 'black',
+	},
 	selectedBtn: {
 		display: 'flex',
 		flexDirection: 'column',
