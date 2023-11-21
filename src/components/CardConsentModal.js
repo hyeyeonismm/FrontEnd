@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled, Modal } from '@mui/material';
 import { Img, Grid } from '../components';
 import Close from '@mui/icons-material/CloseRounded';
@@ -13,15 +13,24 @@ function CardConsentModal({ onConsentChange }) {
 
 	const onClickFirstBtn = () => {
 		setSelectedFirstBtn((current) => !current);
-	};
-
-	const onClickSecondBtn = () => {
+		onConsentChange(getConsentValue(1));
+	  };
+	  
+	  const onClickSecondBtn = () => {
 		setSelectedSecondBtn((current) => !current);
-	};
-
-	const getConsentValue = () => {
-		return selectedFirstBtn && selectedSecondBtn ? 1 : 0;
-	};
+		onConsentChange(getConsentValue(1));
+	  };
+	  
+	  const getConsentValue = (agreeBefore) => {
+		
+		let agreeAfter = 0;
+		if (agreeBefore >= 2) {
+		  agreeAfter = 1;
+		} else {
+		  agreeAfter = 0;
+		}
+		return agreeAfter;
+	  };
 
 	const firstBtnStyle = {
 		padding: '10px',
@@ -57,6 +66,8 @@ function CardConsentModal({ onConsentChange }) {
 		fontSize: '14px',
 	};
 
+
+
 	if (selectedFirstBtn && selectedSecondBtn) {
 		cardBtn.background = '#88BdE7';
 	} else {
@@ -69,7 +80,7 @@ function CardConsentModal({ onConsentChange }) {
 				<div>카드내역 연동 동의서 확인하기</div>
 				<Img theme='check' src={check} alt='check' />
 			</button>
-			<Modal open={open} onClose={handleClose} onExited={() => onConsentChange(getConsentValue())}>
+			<Modal open={open} onClose={handleClose}>
 				<Grid theme='modal_body'>
 					<Grid theme='modal_header'>
 						<CloseButton onClick={handleClose} title='닫기' />
@@ -146,7 +157,7 @@ function CardConsentModal({ onConsentChange }) {
 						</Grid>
 					</Grid>
 					<Grid theme='modal_btnSection'>
-						<button style={firstBtnStyle} onClick={onClickFirstBtn}>
+						<button style={firstBtnStyle} onClick={onClickFirstBtn} >
 							개인신용정보 수집 · 이용 동의
 						</button>
 						<button style={secondBtnStyle} onClick={onClickSecondBtn}>

@@ -36,7 +36,7 @@ function Signup() {
 	// agree 시에 실행되는 함수
 	const handleConsentChange = (consentValue) => {
 	console.log("Consent Value:", consentValue);
-	setSignupData({ ...signupData, agree: consentValue.target.value });
+	// setSignupData({ ...signupData, agree: consentValue.target.value });
 	};
 	
 	// 회원가입 데이터 전송
@@ -70,9 +70,6 @@ function Signup() {
 		navigate('/login');
 	};
 
-	// const onClickStart = () => {
-	// 	navigate('/login');
-	// };
 	return (
 		<>
 			<Grid theme='header'>
