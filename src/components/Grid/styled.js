@@ -82,6 +82,7 @@ const styles = {
 	},
 	onboardingContent: {
 		padding: '0px 15px',
+		lineHeight: 1.7,
 	},
 	//헤더
 	line: {
@@ -102,6 +103,11 @@ const styles = {
 		// flexDirection: 'row',
 		// padding: '24px 20px 15px 20px',
 		// alignItems: 'center',
+	},
+	headerMain: {
+		display: 'flex',
+		justifyContent: 'center',
+		margin: '10px 0px',
 	},
 	registerImg: {
 		marginTop: '-15px',

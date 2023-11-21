@@ -8,14 +8,15 @@ function Main() {
 	const handleButtonClick = () => {
 		navigate('/card');
 	};
+	const onClickLogo = () => {
+		navigate('/');
+	};
 
 	return (
 		<>
 			<div style={onboardingWrap}>
-				<Grid theme='header'>
-					<div style={{ marginLeft: '45px', justifyContent: 'center', flex: 1 }}>
-						<Grid theme='headerTitle'>Link Stock</Grid>
-					</div>
+				<Grid theme='headerMain'>
+					<Button theme='headerTitle' onClick={onClickLogo} children='Link Stock' />
 				</Grid>
 
 				<Grid theme='onboardingSlide'>
