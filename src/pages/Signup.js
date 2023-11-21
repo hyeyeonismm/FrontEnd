@@ -29,6 +29,9 @@ function Signup() {
 	// email input 값 변경 시 실행되는 함수
 	const handleEmailChange = async (e) => {
 		const email = e.target.value;
+		setSignupData({ ...signupData, email: email });
+
+		console.log(email)
 		if (email && email.includes('@')) {
 			try {
 				const response = await instance.post('/auth/emailcheck', { email });

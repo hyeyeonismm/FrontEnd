@@ -6,10 +6,8 @@ const WasteBar = ({ data }) => {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
-    // 정렬
     const sortedData = data.consumption.sort((a, b) => b.categoryPrice - a.categoryPrice);
-    
-
+  
     const formattedData = sortedData.map(item => ({
       name: item.category,
       data: [item.categoryPrice],
