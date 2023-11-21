@@ -16,10 +16,11 @@ const styles = {
 	main_bg: {
 		marginBottom: 0,
 	},
+
 	//온보딩
 	onboardingImg: {
-		width: '200px',
-		margin: '0 auto',
+		width: '300px',
+		marginLeft: '20px',
 	},
 	register: {
 		width: '342px',
@@ -37,8 +38,7 @@ const styles = {
 		width: '150px',
 		marginTop: '50px',
 	},
-	category_icon: {
-	},
+	category_icon: {},
 	list_icon: {
 		width: '80px',
 		height: '80px',

@@ -1,63 +1,45 @@
-import React, { Component } from 'react';
 import { Grid, Button, Img } from '../components';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import sol2 from '../assets/images/sol2.png';
-import sol3 from '../assets/images/sol3.png';
-import sol4 from '../assets/images/sol4.png';
-import sol5 from '../assets/images/sol5.png';
+import Carousel from 'react-material-ui-carousel';
+import onboarding1 from '../assets/images/onboarding1.svg';
+import onboarding2 from '../assets/images/onboarding2.svg';
+import onboarding3 from '../assets/images/onboarding3.svg';
+import { FlashOnTwoTone } from '@mui/icons-material';
 
-export default class SimpleSlider extends Component {
-	render() {
-		const settings = {
-			dots: true,
-			infinite: true,
-			speed: 500,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-		};
-		return (
-			<Slider {...settings}>
-				<div>
-					<h3 style={toptxt}>Link Stock이 뭔가요?</h3>
-					<div>
-						<Img theme='onboardingImg' src={sol2} alt='register' />
-						<p style={subTxt}>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
+function OnboardingSlide() {
+	const items = [
+		{
+			image: onboarding1,
+			content:
+				'Link Stock은 사용자의 소비 습관에 기반하여 맞춤형 주식 투자 기회를 제공하는 플랫폼입니다. 여러분의 신용카드 사용내역을 분석하여 가장 많이 지출하는 카테고리를 파악하고, 그에 맞는 주식을 추천해드립니다. 당신의 소비가 미래의 재테크로 연결되는 여정을 시작해보세요!',
+		},
+		{
+			image: onboarding2,
+			content:
+				"시작하기 앞서, '내 소비' 를 통해 여러분의 신용카드를 Link Stock과 연동해주세요. 단 몇 번의 클릭으로 여러분의 소비 패턴을 분석할 수 있습니다. 해당 카드 정보는 오직 주식 추천을 위해서만 사용되며, 언제든지 관리할 수 있습니다.",
+		},
+		{
+			image: onboarding3,
+			content:
+				"소비 확인을 마쳤다면, '주주되기' 를 통해 지출 카테고리와 관련된 개인화된 주식 추천 종목을 제공합니다. 이제 여러분의 일상적인 소비가 투자 전략의 기반이 되어 주주가 되는 길로 향하실 수 있습니다!",
+		},
+	];
+	return (
+		<>
+			<Carousel
+				autoPlay={false}
+				animation='slide'
+				timeout={500}
+				navButtonsAlwaysVisible={true}
+				navButtonsAlwaysInvisible={false}>
+				{items.map((item, i) => (
+					<div style={{ height: 450 }} key={i}>
+						<Img theme='onboardingImg' src={item.image} alt='onboarding' />
+						<Grid theme='onboardingContent'>{item.content}</Grid>
 					</div>
-				</div>
-				<div>
-					<h3 style={toptxt}>카드 내역 설명</h3>
-					<div>
-						<Img theme='onboardingImg' src={sol3} alt='register' />
-						<p style={subTxt}>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
-					</div>
-				</div>
-				<div>
-					<h3 style={toptxt}>주식 추천 설명</h3>
-					<div>
-						<Img theme='onboardingImg' src={sol4} alt='register' />
-						<p style={subTxt}>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
-					</div>
-				</div>
-				<div>
-					<h3 style={toptxt}>서비스 설명</h3>
-					<div>
-						<Img theme='onboardingImg' src={sol5} alt='register' />
-						<p style={subTxt}>그것은 ~~~~~~~~~~~~~~~ 이야~~~~~~</p>
-					</div>
-				</div>
-			</Slider>
-		);
-	}
+				))}
+			</Carousel>
+		</>
+	);
 }
 
-const toptxt = {
-	margin: '20px',
-	color: '#175DA9'
-};
-
-const subTxt = {
-	margin: '20px',
-};
-
+export default OnboardingSlide;

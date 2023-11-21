@@ -74,12 +74,15 @@ const styles = {
 	},
 	//온보딩 페이지
 	onboardingSlide: {
-		padding: '40px 20px',
+		padding: '20px',
 	},
 	onboardingButton: {
 		display: 'flex',
 		justifyContent: 'center',
 		padding: '20px 0px',
+	},
+	onboardingContent: {
+		padding: '0px 15px',
 	},
 	//헤더
 	line: {
@@ -200,6 +203,7 @@ const styles = {
 		margin: '0px 20px',
 	},
 	introTagLine: {
+		marginLeft: '10px',
 		fontWeight: 600,
 	},
 	title: {
@@ -213,9 +217,10 @@ const styles = {
 	description: {
 		marginTop: '10px',
 		fontSize: '14px',
+		marginLeft: '10px',
 	},
 	main_background: {
-		marginTop: '40px',
+		marginTop: '30px',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
@@ -257,7 +262,7 @@ const styles = {
 	},
 
 	categoryForm: {
-		marginTop: '10%',
+		marginTop: '20px',
 		borderRadius: '18px',
 		border: '0.5px solid #c0c0c0',
 		boxShadow: '0px 4px 14px 0px rgba(0, 0, 0, 0.25)',
@@ -268,7 +273,7 @@ const styles = {
 		textAlign: 'center',
 	},
 	list_icon: {
-		margin: '20px 0px',
+		margin: '10px 0px',
 		display: 'flex',
 		justifyContent: 'center',
 	},
@@ -283,6 +288,7 @@ const styles = {
 		fontWeight: 700,
 	},
 	list_content: {
+		lineHeight: 1.6,
 		marginTop: '5px',
 		fontSize: '14px',
 	},
@@ -290,7 +296,7 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		padding: '10px 60px',
+		padding: '10px 50px',
 		borderBottom: '2px solid #ddd',
 	},
 	stock_list: {

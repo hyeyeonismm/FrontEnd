@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
  body, html {
+  
   font-family: 'ROBOTO';
   background-color: white;
   letter-spacing: -0.1px;
@@ -33,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto ;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding-bottom: 40px;
+   
 }
 
 .layout::-webkit-scrollbar {

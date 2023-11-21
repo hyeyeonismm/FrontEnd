@@ -95,9 +95,7 @@ const styles = {
 		paddingLeft: '10px',
 		gap: 5,
 	},
-	listTabBtn: {
-		color: '#000',
-	},
+
 	categoryBtn: {
 		gap: 10,
 		display: 'flex',
