@@ -9,17 +9,17 @@ import { Grid, Button, Img } from '../components';
 import arrow from '../assets/images/arrow.svg';
 import logout from '../assets/images/logout.svg';
 
-function TopNav({onBackButtonClick }) {
+function TopNav({ onBackButtonClick }) {
 	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedButton, setSelectedButton] = useState('/card');
 
 	const userName = localStorage.getItem('userName');
 	const email = sessionStorage.getItem('email');
-	const card = localStorage.getItem('cardName')
-	
+	const card = localStorage.getItem('cardName');
+
 	const homeButton = () => {
-		navigate('/main')
+		navigate('/main');
 	};
 
 	const openModal = () => {
@@ -32,7 +32,7 @@ function TopNav({onBackButtonClick }) {
 
 	const onClickButton = () => {
 		onBackButtonClick();
-	  };
+	};
 
 	return (
 		<>
@@ -50,10 +50,10 @@ function TopNav({onBackButtonClick }) {
 				{/* 모달 창 */}
 				<Modal open={isOpen} onClose={closeModal} sx={modalWrap}>
 					<Box sx={modalStyle}>
-					{/* 홈 버튼 */}
-					<Button theme="home" onClick={homeButton}>
-						<Img theme="home" src={home}/>
-					</Button>
+						{/* 홈 버튼 */}
+						<Button theme='home' onClick={homeButton}>
+							<Img theme='home' src={home} />
+						</Button>
 						<SearchField>
 							<input
 								type='text'
@@ -91,8 +91,9 @@ function TopNav({onBackButtonClick }) {
 								</Grid>
 							</Grid>
 						</Grid>
-						<Button theme="logout">
-							<Img theme="logout" src={logout}/>Logout
+						<Button theme='logout'>
+							<Img theme='logout' src={logout} />
+							Logout
 						</Button>
 					</Box>
 				</Modal>
@@ -107,9 +108,7 @@ const SearchField = styled(Box)({
 	width: '200px',
 	display: 'flex',
 	padding: '10px 20px',
-	margin: '0 auto',
-	marginTop: '20px',
-	gap: 0,
+	marginTop: '15px',
 	color: '#757575',
 	fontSize: 14,
 	cursor: 'pointer',
@@ -124,15 +123,13 @@ const buttonStyle = {
 const modalWrap = {
 	margin: '0 auto',
 	width: '390px',
-	
 };
 
 const modalStyle = {
 	padding: '30px',
 	marginLeft: '20%',
 	background: 'white',
-	height: '700px'
+	height: '700px',
 };
-
 
 export default TopNav;

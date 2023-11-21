@@ -32,11 +32,11 @@ function StockInformation() {
 		setShowNews(!showNews);
 		setShowChart(!showChart);
 	};
-	
+
 	// 뒤로가기 버튼 클릭 시의 동작
 	const handleBackButtonClick = () => {
-		navigate('/stock')
-	  };
+		navigate('/stock');
+	};
 
 	useEffect(() => {
 		const socket = new WebSocket('wss://a786-118-91-110-133.ngrok-free.app/');
@@ -60,7 +60,7 @@ function StockInformation() {
 	}, []);
 	return (
 		<>
-			<TopNav onBackButtonClick={handleBackButtonClick}/>
+			<TopNav onBackButtonClick={handleBackButtonClick} />
 			{/* <div
 				style={{
 					display: 'flex',

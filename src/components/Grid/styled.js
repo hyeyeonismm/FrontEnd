@@ -24,7 +24,7 @@ const styles = {
 		marginTop: '-8px',
 	},
 	navSection: {
-		marginTop: '40px',
+		marginTop: '30px',
 		fontWeight: 700,
 	},
 	sideBar: {
@@ -35,11 +35,10 @@ const styles = {
 	sideBarBox: {
 		display: 'flex',
 		flexDirection: 'column',
-		gap: 30,
 		width: '250px',
-		height: '160px',
-		marginTop: '15px',
-		marginBottom: '45px',
+		height: '150px',
+		marginTop: '10px',
+		marginBottom: '20px',
 		padding: '20px 10px 10px 10px',
 		borderRadius: '8px',
 		border: '1px solid var(--Input-Box-Stroke-Thin, rgba(0, 0, 0, 0.15))',
@@ -249,9 +248,8 @@ const styles = {
 		background: '#EBF3FC',
 	},
 	stockMain_bigtxt: {
-		fontSize: '18px'
+		fontSize: '18px',
 	},
-
 
 	//Category 페이지
 	category_body: {
