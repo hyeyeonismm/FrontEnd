@@ -86,8 +86,8 @@ function Login() {
 
 			<form onSubmit={handleFormSubmit}>
 				<Grid theme='loginForm'>
-					<TextField id='id' label='이메일' variant='outlined' size='small' onChange={handleEmailChange} />
-					<TextField id='pw' label='패스워드' variant='outlined' size='small' onChange={handlePasswordChange} />
+					<TextField id='id' label='이메일' type='email' variant='outlined' size='small' onChange={handleEmailChange} />
+					<TextField id='pw' label='패스워드' type='password' variant='outlined' size='small' onChange={handlePasswordChange} />
 					{successLogin ? null : 
 						<Alert severity="error" style={{ marginLeft: -20, width: '260px' }}>
 								<AlertTitle>로그인 실패</AlertTitle>

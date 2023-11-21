@@ -92,8 +92,6 @@ const styles = {
 		border: '1px solid #c4c4c4',
 		color: '#757575',
 		justifyContent: 'flex-start',
-		paddingLeft: '10px',
-		gap: 5,
 	},
 
 	categoryBtn: {
@@ -137,15 +135,16 @@ const styles = {
 
 	// 소비 페이지
 	detailBtn: {
-		width: '105px',
+		width: '80px',
 		height: '40px',
 		background: 'white',
 		color: '#000',
 		borderRadius: '20px',
 		boxShadow: '0px 2px 4px 1px rgba(0, 0, 0, 0.25)',
-		textAlign: 'center',
-		fontSize: '16px',
+		textAlign: 'left',
+		fontSize: '15px',
 		fontWeight: 700,
+		marginLeft: '10px',
 		cursor: 'pointer',
 		'&:hover': {
 			background: '#fff',

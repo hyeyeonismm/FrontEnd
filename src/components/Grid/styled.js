@@ -427,9 +427,9 @@ const styles = {
 		fontWeight: '500',
 	},
 	cardDetail: {
+		justifyContent: 'flex-start', 
 		display: 'flex',
 		flexDirection: 'row',
-		gap: 25,
 		marginTop: '30px',
 		fontSize: '24px',
 		fontWeight: '700',
@@ -440,6 +440,14 @@ const styles = {
 		textAlign: 'center',
 		fontSize: '13px',
 	},
+	monthPrice: {
+		whiteSpace: 'nowrap', 
+		overflow: 'hidden', 
+		textOverflow: 'ellipsis', 
+		fontSize: '20px', 
+		transition: 'font-size 0.3s ease-in-out', 
+		marginTop: '5px'
+	  },	  
 	smallLine: {
 		width: '350px',
 		height: '2px',

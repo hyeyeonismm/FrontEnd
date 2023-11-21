@@ -82,6 +82,7 @@ function Card() {
 				},
 			);
 			console.log(`${selectedMonth}월 소비내역 api`, response.data.data);
+			
 			setWasteData(response.data.data);
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
@@ -156,21 +157,18 @@ function Card() {
 
 	useEffect(() => {
 		getCardData();
-		getWasteList(month);
-		getDetailWasteList(month, category);
+		getWasteList(month)
 	}, []);
 
-	// useEffect(() => {
-	// 	getWasteList(month);
-	// }, [month]);
+	useEffect(() => {
+		console.log('useEffect - showDetailWaste, month, category:', showCategoryWaste, month, category);
+		if (showCategoryWaste  && month && category) {
+			console.log('useEffect - showDetailWaste, month, category:', showCategoryWaste, month, category);
+			getDetailWasteList(month, category);
+		  }
+	  }, [showCategoryWaste , month, category]);
 
-	// useEffect(() => {
-	// 	console.log('useEffect - showDetailWaste, month, category:', showCategoryWaste, month, category);
-	// 	if (showCategoryWaste  && month && category) {
-	// 		console.log('useEffect - showDetailWaste, month, category:', showCategoryWaste, month, category);
-	// 		getDetailWasteList(month, category);
-	// 	  }
-	//   }, [showCategoryWaste , month, category]);
+	const monthPrice = Number(wasteData.monthPrice).toLocaleString();
 	  
 
 	return (
@@ -201,7 +199,8 @@ function Card() {
 							<Img theme='arrowBefore' src={arrowBefore} alt='arrowBefore' />
 						</Button>
 						<Grid theme='cardDetail'>
-							<Grid>{wasteData.monthPrice}원</Grid>
+							
+							<Grid theme="monthPrice">{monthPrice}원</Grid>
 							<Button theme='detailBtn' onClick={handleDetailBtnClick} children='상세보기' />
 						</Grid>
 						<Button theme='cardArrowBtn' onClick={handleArrowAfterClick}>
@@ -223,10 +222,7 @@ function Card() {
 				<>
 					<MonthWaste
 						wasteMonth={month}
-						amount={wasteData.monthPrice}
-						wasteCategory={category}
-						getWasteList={getWasteList}
-						getDetailWasteList={getDetailWasteList}
+						wasteAmount={monthPrice}
 					/>
 
 					{/* 카테고리 클릭 시에 세부 내역 */}

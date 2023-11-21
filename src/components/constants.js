@@ -18,7 +18,7 @@ export const categoryImages = {
   '문화/여가': category6,
   '교통': category7,
   '여행/숙박': category8,
-  '교육': category9,
+  '교육/학습': category9,
   '금융': category10,
 };
 
@@ -40,7 +40,7 @@ export const getCategoryColor = (category) => {
       return '#88BDE7';
     case '여행/숙박':
       return '#FF7979';
-    case '교육':
+    case '교육/학습':
       return '#FFA943';
     case '금융':
       return '#8ED56C';
