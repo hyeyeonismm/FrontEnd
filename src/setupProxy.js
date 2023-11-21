@@ -15,18 +15,18 @@ module.exports = function (app) {
 			changeOrigin: true,
 		}),
 	);
-	app.use(
-		'/auth',
-		createProxyMiddleware({
-			target: 'http://backend-service:8080/',
-			changeOrigin: true,
-		}),
-	);
-	app.use(
-		'/card',
-		createProxyMiddleware({
-			target: 'http://backend-service:8080/',
-			changeOrigin: true,
-		}),
-	);
+	// app.use(
+	// 	'/auth',
+	// 	createProxyMiddleware({
+	// 		target: 'http://backend-service:8080/',
+	// 		changeOrigin: true,
+	// 	}),
+	// );
+	// app.use(
+	// 	'/card',
+	// 	createProxyMiddleware({
+	// 		target: 'http://backend-service:8080/',
+	// 		changeOrigin: true,
+	// 	}),
+	// );
 };

@@ -67,6 +67,7 @@ function Login() {
 		// 	setSuccessLogin(false);
 		// 	console.log('로그인 실패:');
 		// }
+		// sessionStorage.setItem('email', email);
 	};
 
 	return (

@@ -9,9 +9,15 @@ function StockTopNav() {
 	const onClickCard = () => {
 		navigate('/card');
 	};
+
+	// 뒤로가기 버튼 클릭 시의 동작
+	const handleBackButtonClick = () => {
+		navigate('/stock')
+	  };
+
 	return (
 		<>
-			<TopNav />
+			<TopNav onBackButtonClick={handleBackButtonClick}/>
 			<Grid theme='topNavGrid'>
 				<Button theme='topNavBtn' onClick={onClickCard}>
 					<Grid>내 소비</Grid>

@@ -35,9 +35,8 @@ const styles = {
 		height: '38px',
 	},
 	character: {
-		width: '100px',
-		height: '120px',
-		marginTop: '75px',
+		width: '150px',
+		marginTop: '50px',
 	},
 	category_icon: {},
 	list_icon: {
@@ -79,6 +78,9 @@ const styles = {
 		cursor: 'pointer',
 		filter: 'invert(1)',
 	},
+	logout:{
+		padding: '20px'
+	}
 };
 
 export const StyledImg = styled('img')(({ theme }) => ({
