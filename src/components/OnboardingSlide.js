@@ -32,7 +32,7 @@ function OnboardingSlide() {
 				navButtonsAlwaysVisible={true}
 				navButtonsAlwaysInvisible={false}>
 				{items.map((item, i) => (
-					<div style={{ height: 500 }} key={i}>
+					<div style={{ height: 450 }} key={i}>
 						<Img theme='onboardingImg' src={item.image} alt='onboarding' />
 						<Grid theme='onboardingContent'>{item.content}</Grid>
 					</div>
