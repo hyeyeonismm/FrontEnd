@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Grid, Button, Img } from '../components';
 import { categoryImages } from '../components/constants';
 import instance from '../api/axios';
@@ -15,20 +15,16 @@ import mainCharacter from '../assets/images/mainCharacter.png';
 
 function Card() {
 	const navigate = useNavigate();
+	const location = useLocation();
+	const cardData = location.state?.cardData;
 	const [showWaste, setShowWaste] = useState(true);
 	const [showDetailWaste, setShowDetailWaste] = useState(false);
-	const [month, setMonth] = useState(11);
+	const [month, setMonth] = useState('11');
 	const [category, setCategory] = useState('식비');
 	const [showCategoryWaste, setShowCategoryWaste] = useState(false);
-	const userName = localStorage.getItem('userName');
-	const [cardData, setCardData] = useState({
-		cardType: 1,
-		cardName: '신한카드 Deep Dream Platinum+',
-		cardSeq: 1,
-	});
-
 	const [wasteData, setWasteData] = useState("");
 	const [wasteDetailData, setWasteDetailData] = useState("");
+	const userName = localStorage.getItem('userName');
 
 	// 카테고리 이미지 매핑
 	const mapCategoryToImage = (category) => {
@@ -46,24 +42,6 @@ function Card() {
 				return cardShinhanDO;
 			default:
 				return cardShinhanDD;
-		}
-	};
-
-	// 카드 정보 api
-	const getCardData = async () => {
-		try {
-			const token = localStorage.getItem('token');
-			const headers = {
-				Authorization: `Bearer ${token}`,
-			};
-
-			const response = await instance.get('/card', {
-				headers,
-			});
-			console.log('카드 정보 api', response.data.data);
-			setCardData(response.data.data);
-		} catch (error) {
-			console.error('Error fetching data from API: ', error);
 		}
 	};
 
@@ -156,7 +134,6 @@ function Card() {
 	};
 
 	useEffect(() => {
-		getCardData();
 		getWasteList(month)
 	}, []);
 
