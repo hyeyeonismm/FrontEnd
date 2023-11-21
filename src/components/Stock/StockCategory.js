@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index';
 import StockTopNav from './StockTopNav';
@@ -12,85 +12,12 @@ function StockCategory() {
 	const [selectedCategory, setSelectedCategory] = useState();
 	const [selectedTab, setSelectedTab] = useState('수익률');
 	const userName = localStorage.getItem('userName');
-	const [stockEarningData, setStockEarningData] = useState([
-		{
-			stockName: '에이치피오',
-			stockRange: '9.03',
-			stockClose: '7730',
-			stockCode: '357230',
-		},
-		{
-			stockName: '에이치피오',
-			stockRange: '9.03',
-			stockClose: '7730',
-			stockCode: '357230',
-		},
-		{
-			stockName: '에이치피오',
-			stockRange: '9.03',
-			stockClose: '7730',
-			stockCode: '357230',
-		},
-		{
-			stockName: '에이치피오',
-			stockRange: '9.03',
-			stockClose: '7730',
-			stockCode: '357230',
-		},
-		{
-			stockName: '에이치피오',
-			stockRange: '9.03',
-			stockClose: '7730',
-			stockCode: '357230',
-		},
-		{
-			stockName: '에이치피오',
-			stockRange: '9.03',
-			stockClose: '7730',
-			stockCode: '357230',
-		},
-		{
-			stockName: '에이치피오',
-			stockRange: '9.03',
-			stockClose: '7730',
-			stockCode: '357230',
-		},
-	]);
-	const [stockCapData, setStocCapData] = useState([
-		{
-			marketCap: '992303484480',
-			stockName: '오리온홀딩스',
-			stockCode: '001800',
-		},
-		{
-			marketCap: '992303484480',
-			stockName: '오리온홀딩스',
-			stockCode: '001800',
-		},
-		{
-			marketCap: '992303484480',
-			stockName: '오리온홀딩스',
-			stockCode: '001800',
-		},
-		{
-			marketCap: '992303484480',
-			stockName: '오리온홀딩스',
-			stockCode: '001800',
-		},
-		{
-			marketCap: '992303484480',
-			stockName: '오리온홀딩스',
-			stockCode: '001800',
-		},
-		{
-			marketCap: '992303484480',
-			stockName: '오리온홀딩스',
-			stockCode: '001800',
-		},
-	]);
+	const [stockEarningData, setStockEarningData] = useState();
 
 	const onClickCategory = (category) => {
 		setSelectedCategory(category);
+		stockCapList(category);
+		stockEarningList(category);
 		setShowStockList(true);
 		setShowCategory(false);
 	};
@@ -108,7 +35,8 @@ function StockCategory() {
 	}));
 
 	// 카테고리별 종목(등락률) api
-	const stockEarningList = async () => {
+	const stockEarningList = async (category) => {
+		console.log('stockEarningList', category);
 		try {
 			const token = localStorage.getItem('token');
 			const headers = {
@@ -116,7 +44,7 @@ function StockCategory() {
 			};
 
 			const response = await instance.get(
-				`/link/stock/earning/${selectedCategory}`, //카테고리 보내주기
+				`/link/stock/earning/${category.name}`, //카테고리 보내주기
 				{
 					headers,
 				},
@@ -129,7 +57,8 @@ function StockCategory() {
 	};
 
 	// 카테고리별 종목(시가총액) api
-	const stockCapList = async () => {
+	const stockCapList = async (category) => {
+		console.log('stockCapList', category);
 		try {
 			const token = localStorage.getItem('token');
 			const headers = {
@@ -137,7 +66,7 @@ function StockCategory() {
 			};
 
 			const response = await instance.get(
-				`/link/stock/cap/${selectedCategory}`, //카테고리 보내주기
+				`/link/stock/cap/${category.name}`, //카테고리 보내주기
 				{
 					headers,
 				},
