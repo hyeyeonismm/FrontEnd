@@ -74,12 +74,15 @@ const styles = {
 	},
 	//온보딩 페이지
 	onboardingSlide: {
-		padding: '40px 20px',
+		padding: '20px',
 	},
 	onboardingButton: {
 		display: 'flex',
 		justifyContent: 'center',
 		padding: '20px 0px',
+	},
+	onboardingContent: {
+		padding: '0px 15px',
 	},
 	//헤더
 	line: {

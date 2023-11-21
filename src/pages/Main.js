@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Slider from 'react-slick';
 import OnboardingSlide from '../components/OnboardingSlide';
 import { useNavigate } from 'react-router-dom';
 import { TextField, styled } from '@mui/material';
