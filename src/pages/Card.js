@@ -164,7 +164,7 @@ function Card() {
 				Authorization: `Bearer ${token}`,
 			};
 
-			const response = await axios.get(`${process.env.REACT_APP_SERVER_PORT}/card`, {
+			const response = await axios.get('/card', {
 				headers,
 			});
 			console.log('카드 정보 api', response.data.data);

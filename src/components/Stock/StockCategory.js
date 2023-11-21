@@ -116,7 +116,7 @@ function StockCategory() {
 			};
 
 			const response = await axios.get(
-				`${process.env.REACT_APP_SERVER_PORT}/link/stock/earning/${selectedCategory}`, //카테고리 보내주기
+				`/link/stock/earning/${selectedCategory}`, //카테고리 보내주기
 				{
 					headers,
 				},
@@ -137,7 +137,7 @@ function StockCategory() {
 			};
 
 			const response = await axios.get(
-				`${process.env.REACT_APP_SERVER_PORT}/link/stock/cap/${selectedCategory}`, //카테고리 보내주기
+				`/link/stock/cap/${selectedCategory}`, //카테고리 보내주기
 				{
 					headers,
 				},
