@@ -4,6 +4,7 @@ import { Grid, Img, Button } from '../index';
 import StockTopNav from './StockTopNav';
 import instance from '../../api/axios';
 import { categoryImages } from '../constants';
+import Footer from '../Footer';
 
 function StockCategory() {
 	const navigate = useNavigate();
@@ -181,15 +182,8 @@ function StockCategory() {
 					</>
 				)}
 			</Grid>
+			<Footer />
 		</>
 	);
 }
 export default StockCategory;
-
-// {
-// 	stockCapData.map((stock, index) => (
-// 		<Grid theme='category_img'>
-// 			<Grid key={index}>{/* <Img theme='category_img' src={stock.icon} alt={stock.name} /> */}</Grid>
-// 		</Grid>
-// 	));
-// }

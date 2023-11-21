@@ -8,9 +8,10 @@ const FooterContainer = styled.footer`
   width: 100%;
   background-color: #f0f0f0; /* Adjust the background color as needed */
   padding: 20px;
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: left;
-  font-size: 12px
+  font-size: 12px;
+  color : #757575;
 `;
 
 const Footer = () => {
@@ -24,7 +25,6 @@ const Footer = () => {
     <p>
       고객센터: link@linkstock.com | 전화: 010-4564-7890
     </p>
-    {/* Add any additional links or information as needed */}
   </FooterContainer>
   );
 };

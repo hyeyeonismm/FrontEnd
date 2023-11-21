@@ -12,6 +12,7 @@ import cardShinhanDO from '../assets/images/cardShinhanDO.png';
 import WasteBar from '../components/WasteBar';
 import MonthWaste from '../components/MonthWaste';
 import mainCharacter from '../assets/images/mainCharacter.png';
+import Footer from '../components/Footer';
 
 function Card() {
 	const navigate = useNavigate();
@@ -252,6 +253,7 @@ function Card() {
 					)}
 				</>
 			)}
+			<Footer />
 		</>
 	);
 }
