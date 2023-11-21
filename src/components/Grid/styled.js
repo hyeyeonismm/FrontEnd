@@ -294,7 +294,11 @@ const styles = {
 		flexDirection: 'column',
 		gap: 10,
 	},
-
+	category_price: {
+		display: 'flex',
+		justifyContent: 'flex-start',
+		width: '100px',
+	},
 	categoryForm: {
 		marginTop: '20px',
 		borderRadius: '18px',
@@ -348,6 +352,11 @@ const styles = {
 			borderRadius: '20px', // 스크롤바 모서리의 둥글기
 		},
 	},
+	category_font: {
+		display: 'flex',
+		justifyContent: 'flex-start',
+		width: '120px',
+	},
 
 	category_img: {
 		display: 'flex',
@@ -392,6 +401,11 @@ const styles = {
 		fontWeight: 700,
 		fontSize: '18px',
 		marginBottom: '4px',
+	},
+	stock_percentage: {
+		color: 'red',
+		display: 'flex',
+		justifyContent: 'flex-start',
 	},
 	stock_price: {
 		marginRight: '10px',

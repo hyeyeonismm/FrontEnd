@@ -120,11 +120,11 @@ const styles = {
 		gap: 10,
 		display: 'flex',
 		flexDirection: 'row',
-		justifyContent: 'space-between',
+		justifyContent: 'flex-start',
 		margin: '10px',
 		width: '94%',
 		height: '64px',
-		padding: '0px 30px',
+		padding: '0px 10px',
 		color: '#000',
 	},
 	shinhanLinkBtn: {

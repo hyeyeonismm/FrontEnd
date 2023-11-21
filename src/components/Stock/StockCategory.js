@@ -12,8 +12,8 @@ function StockCategory() {
 	const [selectedCategory, setSelectedCategory] = useState();
 	const [selectedTab, setSelectedTab] = useState('수익률');
 	const userName = localStorage.getItem('userName');
-	const [stockEarningData, setStockEarningData] = useState();
-
+	const [stockEarningData, setStockEarningData] = useState([]);
+	const [stockCapData, setStockCapData] = useState([]);
 	const onClickCategory = (category) => {
 		setSelectedCategory(category);
 		stockCapList(category);
@@ -152,8 +152,8 @@ function StockCategory() {
 												<Button theme='categoryBtn' onClick={() => onClickStock(stock)}>
 													{/* <Img theme='category_icon' src={stock.icon} alt={stock.name} /> */}
 													<Grid theme='category_font'>{stock.stockName}</Grid>
-													<Grid theme='stock_percentage'>{stock.stockClose}</Grid>
-													<Grid theme='stock_percentage'>{stock.stockRange}</Grid>
+													<Grid theme='category_price'>{parseFloat(stock.stockClose).toLocaleString()}원</Grid>
+													<Grid theme='stock_percentage'>+{stock.stockRange}%</Grid>
 												</Button>
 											</Grid>
 										))}
@@ -163,11 +163,6 @@ function StockCategory() {
 							{selectedTab === '시가총액' && (
 								<>
 									<Grid theme='stock_list'>
-										{stockCapData.map((stock, index) => (
-											<Grid theme='category_img'>
-												<Grid key={index}>{/* <Img theme='category_img' src={stock.icon} alt={stock.name} /> */}</Grid>
-											</Grid>
-										))}
 										{stockCapData.map((stock, index) => (
 											<Grid key={index}>
 												<Button theme='categoryBtn' onClick={() => onClickStock(stock)}>
@@ -188,3 +183,11 @@ function StockCategory() {
 	);
 }
 export default StockCategory;
+
+// {
+// 	stockCapData.map((stock, index) => (
+// 		<Grid theme='category_img'>
+// 			<Grid key={index}>{/* <Img theme='category_img' src={stock.icon} alt={stock.name} /> */}</Grid>
+// 		</Grid>
+// 	));
+// }
