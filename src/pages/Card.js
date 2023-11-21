@@ -25,6 +25,8 @@ function Card() {
 	const [wasteData, setWasteData] = useState("");
 	const [wasteDetailData, setWasteDetailData] = useState("");
 	const userName = localStorage.getItem('userName');
+	const cardSeq = localStorage.getItem('cardSeq');
+	const cardName = localStorage.getItem('cardName');
 
 	// 카테고리 이미지 매핑
 	const mapCategoryToImage = (category) => {
@@ -54,7 +56,7 @@ function Card() {
 			};
 
 			const response = await instance.get(
-				`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
+				`${process.env.REACT_APP_SERVER_PORT}/card/${cardSeq}/consumption/${selectedMonth}`, //월 보내주기
 				{
 					headers,
 				},
@@ -76,7 +78,7 @@ function Card() {
 			};
 
 			const response = await instance.get(
-				`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
+				`${process.env.REACT_APP_SERVER_PORT}/card/${cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
 				{
 					headers,
 				},
@@ -180,8 +182,8 @@ function Card() {
 					{/* 보유 카드 */}
 					<Grid theme='cardSection'>
 						<Grid theme='cardDescription'>보유 카드</Grid>
-						<Grid theme='cardDescriptionSmall'>{cardData.cardName}</Grid>
-						<Img theme='cardShinhanDD' src={getCardImage(cardData.cardName)} alt='cardShinhanDD' />
+						<Grid theme='cardDescriptionSmall'>{cardName}</Grid>
+						<Img theme='cardShinhanDD' src={getCardImage(cardName)} alt='cardShinhanDD' />
 					</Grid>
 				</>
 			)}
@@ -208,7 +210,8 @@ function Card() {
 							<Grid theme='category_body'>
 								<Grid theme='categoryForm'>
 									<Grid theme='stock_list'>
-										{wasteDetailData.categoryConsumption.map((categoryItem, index) => (
+										{wasteDetailData && wasteDetailData.categoryConsumption
+										.map((categoryItem, index) => (
 											<Button theme='cardWasteList' key={index}>
 												<div style={cardWaste}>
 													<div style={cardWasteCategory}> {categoryItem.shop} </div>
@@ -226,22 +229,23 @@ function Card() {
 							<WasteBar data={wasteData} />
 							<Grid theme='category_body'>
 								<Grid theme='categoryForm'>
-									{wasteData.consumption
-										.sort((a, b) => b.categoryPrice - a.categoryPrice)
-										.map(
-											(categoryItem, index) => (
-												localStorage.setItem(`category${index}`, JSON.stringify(categoryItem.category)),
-												(
-													<Button theme='cardWasteList' key={index} onClick={() => handleCategoryBtnClick(categoryItem.category)}>
-														<div style={cardWaste}>
-															<Img src={mapCategoryToImage(categoryItem.category)} alt={categoryItem.category} />
-															<div style={cardWasteCategory}> {categoryItem.category} </div>
-															<div style={cardWasteAmount}> {categoryItem.categoryPrice}원 </div>
-														</div>
-													</Button>
-												)
-											),
-										)}
+								{wasteData && wasteData.consumption
+									.sort((a, b) => b.categoryPrice - a.categoryPrice)
+									.map(
+										(categoryItem, index) => (
+										localStorage.setItem(`category${index}`, JSON.stringify(categoryItem.category)),
+										(
+											<Button theme='cardWasteList' key={index} onClick={() => handleCategoryBtnClick(categoryItem.category)}>
+											<div style={cardWaste}>
+												<Img src={mapCategoryToImage(categoryItem.category)} alt={categoryItem.category} />
+												<div style={cardWasteCategory}> {categoryItem.category} </div>
+												<div style={cardWasteAmount}> {categoryItem.categoryPrice}원 </div>
+											</div>
+											</Button>
+										)
+										),
+									)}
+
 								</Grid>
 							</Grid>
 						</>
