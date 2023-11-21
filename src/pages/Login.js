@@ -39,7 +39,7 @@ function Login() {
 
 		try {
 			const response = await axios.post(
-				'/auth/login',
+				'http://133.186.247.206:8080/auth/login',
 				{
 					email: email,
 					password: password,
