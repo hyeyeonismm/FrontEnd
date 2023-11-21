@@ -37,26 +37,30 @@ function StockInformation() {
 		navigate('/stock');
 	};
 
-	// useEffect(() => {
-	// 	const socket = new WebSocket('wss://a786-118-91-110-133.ngrok-free.app/');
+	useEffect(() => {
+		const socket = new WebSocket('ws://103.218.158.71:8765');
 
-	// 	socket.onopen = (event) => {
-	// 		console.log('WebSocket Connected');
-	// 		socket.send(stockCode);
-	// 	};
+		socket.addEventListener('open', () => {
+			console.log('WebSocket Connected');
+			socket.send(stockCode);
+		});
+		socket.onerror = function (event) {
+			console.error('WebSocket Error', event);
+		};
 
-	// 	socket.addEventListener('message', (event) => {
-	// 		let numberPart = event.data.split(':')[1].trim();
-	// 		let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
+		socket.addEventListener('message', (event) => {
+			let numberPart = event.data.split(':')[1].trim();
+			let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
 
-	// 		// console.log('Message from server:', event.data);
-	// 		setStockData(formattedNum);
-	// 	});
+			console.log('Message from server:', event.data);
+			setStockData(formattedNum);
+		});
 
-	// 	return () => {
-	// 		socket.close();
-	// 	};
-	// }, []);
+		return () => {
+			socket.close();
+		};
+	}, []);
+
 	return (
 		<>
 			<TopNav onBackButtonClick={handleBackButtonClick} />

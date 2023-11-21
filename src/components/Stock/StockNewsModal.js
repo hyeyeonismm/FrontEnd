@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { styled, Modal } from '@mui/material';
 import { Grid } from '../../components/index';
 import Close from '@mui/icons-material/CloseRounded';
-import axios from 'axios';
+import indiInstance from '../../api/indi';
 
 function StockNewsModal({ isOpen, onClose, news, formattedDate }) {
 	const [modalData, setModalData] = useState(null);
@@ -17,7 +17,7 @@ function StockNewsModal({ isOpen, onClose, news, formattedDate }) {
 						news_type_code: news.newsType,
 					};
 
-					const response = await axios.post(`/news/detail/${news.newsCode}`, requestData);
+					const response = await indiInstance.post(`/news/detail/${news.newsCode}`, requestData);
 					if (response.data) {
 						setModalData(response.data.message.result[0]);
 					} else {
