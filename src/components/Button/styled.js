@@ -24,8 +24,8 @@ const styles = {
 		fontSize: '18px',
 		fontWeight: 700,
 	},
-	home:{
-		marginRight : '60px'
+	home: {
+		marginRight: '60px',
 	},
 
 	// 회원가입
@@ -49,6 +49,17 @@ const styles = {
 		height: '45px',
 		fontSize: '18px',
 		fontWeight: 700,
+	},
+	emailcheckBtn: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'flex-start',
+		padding: 'px 10px',
+		backgroundColor: '#88bde7',
+		color: '#fff',
+		'&:hover': {
+			background: '#88BDE7',
+		},
 	},
 
 	mainStartBtn: {
@@ -165,11 +176,10 @@ const styles = {
 		minWidth: '40px',
 	},
 	//마이페이지
-	logout:{
+	logout: {
 		padding: 0,
-		marginLeft: '125px'
-		
-	}
+		marginLeft: '125px',
+	},
 };
 
 export const StyledButton = styled(MuiButton)(({ theme }) => ({

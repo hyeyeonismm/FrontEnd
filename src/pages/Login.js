@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import instance from '../api/axios';
 import { useNavigate } from 'react-router-dom';
 import arrow from '../assets/images/arrow.svg';
-import register from '../assets/images/register.png';
+import logoColumn from '../assets/images/logoColumn.svg';
 import { TextField, Alert, AlertTitle } from '@mui/material';
 import { Grid, Button, Img } from '../components';
 
@@ -78,33 +78,32 @@ function Login() {
 				<Button onClick={onClickArrow}>
 					<Img theme='arrow' src={arrow} alt='arrow' />
 				</Button>
-				<Grid theme='headerTitle'>로그인</Grid>
+			</Grid>
+			<Grid theme='registerImg'>
+				<Img theme='register' src={logoColumn} alt='register' />
 			</Grid>
 			<Grid>
-				<Img theme='register' src={register} alt='register' />
-			</Grid>
-
-			<form onSubmit={handleFormSubmit}>
-				<Grid theme='loginForm'>
-					<TextField id='id' label='이메일' type='email' variant='outlined' size='small' onChange={handleEmailChange} />
-					<TextField id='pw' label='패스워드' type='password' variant='outlined' size='small' onChange={handlePasswordChange} />
-					{successLogin ? null : 
+				<Grid theme='loginFont'>이메일과 비밀번호를 입력해주세요</Grid>
+				<form onSubmit={handleFormSubmit}>
+					<Grid theme='loginForm'>
+						<TextField id='id' label='이메일' variant='outlined' size='small' onChange={handleEmailChange} />
+						<TextField id='pw' label='패스워드' variant='outlined' size='small' onChange={handlePasswordChange} />
+						{successLogin ? null : 
 						<Alert severity="error" style={{ marginLeft: -20, width: '260px' }}>
 								<AlertTitle>로그인 실패</AlertTitle>
 								<strong>아이디</strong>와 <strong>비밀번호</strong>를 확인해보세요.
 						</Alert>
 					}
-					<Grid theme='loginOption'>
-						<div style={{ marginTop: '2px', color: '#757575' }}>계정이 없으신가요?</div>
-						<Button theme='signupBtn' children='회원가입' onClick={onClickSignup} />
+						<Grid theme='loginOption'>
+							<div style={{ marginTop: '2px', color: '#757575' }}>계정이 없으신가요?</div>
+							<Button theme='signupBtn' children='회원가입' onClick={onClickSignup} />
+						</Grid>
 					</Grid>
-				</Grid>
-				
-				<Grid theme='startGrid'>
-					<Button theme='startBtn' children='로그인' type='submit' />
-				</Grid>
-				
-			</form>
+					<Grid theme='startGrid'>
+						<Button theme='startBtn' children='로그인' type='submit' />
+					</Grid>
+				</form>
+			</Grid>
 		</>
 	);
 }

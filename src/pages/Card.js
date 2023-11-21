@@ -110,11 +110,29 @@ function Card() {
 		}
 	};
 
+	// 이전 달
+	const handleArrowBeforeClick = () => {
+		const updatedMonth = Math.max(1, month - 1);
+		setMonth(updatedMonth);
+		getWasteList(updatedMonth);
+		getDetailWasteList(updatedMonth, category);
+		};
+		
+
+	// 다음 달
+	const handleArrowAfterClick = () => {
+		const updatedMonth = Math.min(12, month + 1);
+		setMonth(updatedMonth);
+		getWasteList(updatedMonth);
+		getDetailWasteList(updatedMonth, category);
+	};
+
 	// 상세보기 버튼 클릭
 	const handleDetailBtnClick = () => {
 		setShowWaste(false);
 		setShowDetailWaste(true);
 		setShowCategoryWaste(false);
+		getWasteList(month)
 	};
 
 	// 카테고리 버튼 클릭
@@ -126,28 +144,6 @@ function Card() {
 		getDetailWasteList(month, selectedCategory);
 	};
 
-	// 이전 달
-	const handleArrowBeforeClick = () => {
-		const updatedMonth = Math.max(1, month - 1);
-		setMonth(updatedMonth);
-		// getWasteList(updatedMonth);
-		// getDetailWasteList(updatedMonth, category);
-	  };
-	  
-
-	// 다음 달
-	const handleArrowAfterClick = () => {
-		const updatedMonth = Math.min(12, month + 1);
-		setMonth(updatedMonth);
-		// getWasteList(updatedMonth);
-		// getDetailWasteList(updatedMonth, category);
-	};
-	  
-
-	const onClickStock = () => {
-		navigate('/stock');
-	};
-
 	// 뒤로가기 버튼 클릭 시의 동작
 	const handleBackButtonClick = () => {
 		setShowWaste(true);
@@ -155,21 +151,17 @@ function Card() {
 		setShowCategoryWaste(false);
 	};
 
+	const onClickStock = () => {
+		navigate('/stock');
+	};
+
 	useEffect(() => {
 		getCardData();
 		getWasteList(month)
 	}, []);
 
-	useEffect(() => {
-		console.log('useEffect - showDetailWaste, month, category:', showCategoryWaste, month, category);
-		if (showCategoryWaste  && month && category) {
-			console.log('useEffect - showDetailWaste, month, category:', showCategoryWaste, month, category);
-			getDetailWasteList(month, category);
-		  }
-	  }, [showCategoryWaste , month, category]);
 
 	const monthPrice = Number(wasteData.monthPrice).toLocaleString();
-	  
 
 	return (
 		<>
