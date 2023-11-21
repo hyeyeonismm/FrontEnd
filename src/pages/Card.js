@@ -21,7 +21,6 @@ function Card() {
 	const [category, setCategory] = useState('식비');
 	const [showCategoryWaste, setShowCategoryWaste] = useState(false);
 	const userName = localStorage.getItem('userName');
-	const [isDetailDataFetched, setIsDetailDataFetched] = useState(false);
 	const [cardData, setCardData] = useState({
 		cardType: 1,
 		cardName: '신한카드 Deep Dream Platinum+',
@@ -130,8 +129,8 @@ function Card() {
 	const handleArrowBeforeClick = () => {
 		const updatedMonth = Math.max(1, month - 1);
 		setMonth(updatedMonth);
-		getWasteList(updatedMonth);
-		getDetailWasteList(updatedMonth, category);
+		// getWasteList(updatedMonth);
+		// getDetailWasteList(updatedMonth, category);
 	  };
 	  
 
@@ -139,8 +138,8 @@ function Card() {
 	const handleArrowAfterClick = () => {
 		const updatedMonth = Math.min(12, month + 1);
 		setMonth(updatedMonth);
-		getWasteList(updatedMonth);
-		getDetailWasteList(updatedMonth, category);
+		// getWasteList(updatedMonth);
+		// getDetailWasteList(updatedMonth, category);
 	};
 	  
 
@@ -158,14 +157,21 @@ function Card() {
 	useEffect(() => {
 		getCardData();
 		getWasteList(month);
-	},  [month]);
+		getDetailWasteList(month, category);
+	}, []);
 
-	useEffect(() => {
-		if (showDetailWaste && !isDetailDataFetched) {
-		  getDetailWasteList(month, category);
-		  setIsDetailDataFetched(true); 
-		}
-	  }, [showDetailWaste, month, category, isDetailDataFetched]);
+	// useEffect(() => {
+	// 	getWasteList(month);
+	// }, [month]);
+
+	// useEffect(() => {
+	// 	console.log('useEffect - showDetailWaste, month, category:', showCategoryWaste, month, category);
+	// 	if (showCategoryWaste  && month && category) {
+	// 		console.log('useEffect - showDetailWaste, month, category:', showCategoryWaste, month, category);
+	// 		getDetailWasteList(month, category);
+	// 	  }
+	//   }, [showCategoryWaste , month, category]);
+	  
 
 	return (
 		<>

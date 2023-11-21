@@ -130,6 +130,12 @@ const styles = {
 		justifyContent: 'center',
 		padding: '40px 0px 10px 0px',
 	},
+	error:{
+		textAlign : 'center',
+		fontSize: '12px',
+		color: '#E7735A'
+
+	},
 
 	//회원가입 페이지
 	registerForm: {

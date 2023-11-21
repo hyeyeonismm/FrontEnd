@@ -80,7 +80,7 @@ function CardConsentModal({ onConsentChange  }) {
 
 	return (
 		<>
-			<button style={cardBtn} onClick={handleOpen}>
+			<button style={cardBtn} onClick={handleOpen} type='button'>
 				<div>카드내역 연동 동의서 확인하기</div>
 				<Img theme='check' src={check} alt='check' />
 			</button>
