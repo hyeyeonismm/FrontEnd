@@ -40,20 +40,23 @@ function StockInformation() {
 	useEffect(() => {
 		const socket = new WebSocket('ws://103.218.158.71:8765');
 
-		socket.addEventListener('open', () => {
+		socket.onopen = (event) => {
 			console.log('WebSocket Connected');
 			socket.send(stockCode);
-		});
-		socket.onerror = function (event) {
-			console.error('WebSocket Error', event);
 		};
 
 		socket.addEventListener('message', (event) => {
-			let numberPart = event.data.split(':')[1].trim();
-			let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
+			if (event.data) {
+				let numberPart = event.data.split(':')[1].trim();
+				let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
 
-			console.log('Message from server:', event.data);
-			setStockData(formattedNum);
+				console.log('Message from server:', event.data);
+				setStockData(formattedNum);
+			} else {
+				console.log('장시간이 아닙니다.');
+				setStockData('장시간이 아닙니다.');
+				socket.close();
+			}
 		});
 
 		return () => {
