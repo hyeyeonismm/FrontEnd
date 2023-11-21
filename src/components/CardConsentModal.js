@@ -4,7 +4,7 @@ import { Img, Grid } from '../components';
 import Close from '@mui/icons-material/CloseRounded';
 import check from '../assets/images/check.png';
 
-function CardConsentModal({ onConsentChange  }) {
+function CardConsentModal({ onConsentChange }) {
 	const [open, setOpen] = useState(false);
 	const [selectedFirstBtn, setSelectedFirstBtn] = useState(false);
 	const [selectedSecondBtn, setSelectedSecondBtn] = useState(false);
@@ -14,21 +14,20 @@ function CardConsentModal({ onConsentChange  }) {
 		const consentValue = getConsentValue(agreeState);
 		setOpen(false);
 		onConsentChange(consentValue);
-	  };
-	
+	};
 
-	  const onClickFirstBtn = () => {
+	const onClickFirstBtn = () => {
 		setSelectedFirstBtn((current) => !current);
-	  };
-	
-	  const onClickSecondBtn = () => {
+	};
+
+	const onClickSecondBtn = () => {
 		setSelectedSecondBtn((current) => !current);
-	  };
-	
-	  const getConsentValue = (agreeState) => {
-		console.log("agreeState", agreeState);
+	};
+
+	const getConsentValue = (agreeState) => {
+		console.log('agreeState', agreeState);
 		return agreeState;
-	  };
+	};
 
 	const firstBtnStyle = {
 		padding: '10px',
@@ -54,7 +53,7 @@ function CardConsentModal({ onConsentChange  }) {
 	const cardBtn = {
 		display: 'flex',
 		flexDirection: 'row',
-		padding: '10px',
+		padding: '10px 13px',
 		height: '40px',
 		border: '1px solid #c4c4c4',
 		gap: 5,
@@ -66,23 +65,23 @@ function CardConsentModal({ onConsentChange  }) {
 
 	if (selectedFirstBtn && selectedSecondBtn) {
 		cardBtn.background = '#88BdE7';
+		cardBtn.color = '#fff';
 	} else {
 		cardBtn.background = 'transparent';
 	}
 
 	useEffect(() => {
 		if (selectedFirstBtn && selectedSecondBtn) {
-		  setAgreeState(1);
+			setAgreeState(1);
 		} else {
-		  setAgreeState(0);
+			setAgreeState(0);
 		}
-	  }, [selectedFirstBtn, selectedSecondBtn]);
+	}, [selectedFirstBtn, selectedSecondBtn]);
 
 	return (
 		<>
-			<button style={cardBtn} onClick={handleOpen}>
+			<button style={cardBtn} onClick={handleOpen} type='button'>
 				<div>카드내역 연동 동의서 확인하기</div>
-				<Img theme='check' src={check} alt='check' />
 			</button>
 			<Modal open={open} onClose={handleClose}>
 				<Grid theme='modal_body'>
@@ -161,7 +160,7 @@ function CardConsentModal({ onConsentChange  }) {
 						</Grid>
 					</Grid>
 					<Grid theme='modal_btnSection'>
-						<button style={firstBtnStyle} onClick={onClickFirstBtn} >
+						<button style={firstBtnStyle} onClick={onClickFirstBtn}>
 							개인신용정보 수집 · 이용 동의
 						</button>
 						<button style={secondBtnStyle} onClick={onClickSecondBtn}>

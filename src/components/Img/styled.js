@@ -23,9 +23,7 @@ const styles = {
 		marginLeft: '20px',
 	},
 	register: {
-		width: '342px',
-		height: '214px',
-		margin: '60px 24px',
+		width: '40%',
 	},
 	main: {
 		width: '250px',
@@ -78,9 +76,9 @@ const styles = {
 		cursor: 'pointer',
 		filter: 'invert(1)',
 	},
-	logout:{
-		padding: '20px'
-	}
+	logout: {
+		padding: '20px',
+	},
 };
 
 export const StyledImg = styled('img')(({ theme }) => ({

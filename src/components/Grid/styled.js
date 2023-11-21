@@ -95,14 +95,35 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
-		padding: '20px 30px 15px 0px',
-		borderBottom: '3px solid rgba(235, 243, 252, 0.80)',
-		boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.10)',
-		// display: 'flex',
+		padding: '20px 30px 0px 0px',
+		// borderBottom: '3px solid rgba(235, 243, 252, 0.80)',
+		// boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.10)',
+		// // display: 'flex',
 		// flexDirection: 'row',
 		// padding: '24px 20px 15px 20px',
 		// alignItems: 'center',
 	},
+	registerImg: {
+		marginTop: '-15px',
+		marginBottom: '15px',
+		display: 'flex',
+		justifyContent: 'center',
+		gap: 20,
+	},
+	signupFont: {
+		margin: '10px',
+		paddingLeft: '60px',
+
+		fontSize: '18px',
+	},
+	loginFont: {
+		display: 'flex',
+
+		padding: '0px 70px',
+		fontSize: '14px',
+		marginBottom: '10px',
+	},
+
 	headerTitle: {
 		flex: 0.9,
 		marginTop: 6,
@@ -128,7 +149,7 @@ const styles = {
 	startGrid: {
 		display: 'flex',
 		justifyContent: 'center',
-		padding: '40px 0px 10px 0px',
+		padding: '20px 0px 10px 0px',
 	},
 
 	//회원가입 페이지
