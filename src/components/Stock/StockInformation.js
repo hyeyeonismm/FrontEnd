@@ -32,6 +32,7 @@ function StockInformation() {
 		setShowNews(!showNews);
 		setShowChart(!showChart);
 	};
+	
 	// 뒤로가기 버튼 클릭 시의 동작
 	const handleBackButtonClick = () => {
 		navigate('/stock')

@@ -7,6 +7,8 @@ import TopNav from '../components/TopNav';
 import arrowBefore from '../assets/images/arrowBefore.svg';
 import arrowAfter from '../assets/images/arrowAfter.svg';
 import cardShinhanDD from '../assets/images/cardShinhanDD.png';
+import cardShinhanBom from '../assets/images/cardShinhanBom.png';
+import cardShinhanDO from '../assets/images/cardShinhanDO.png';
 import WasteBar from '../components/WasteBar';
 import MonthWaste from '../components/MonthWaste';
 import mainCharacter from '../assets/images/mainCharacter.png';
@@ -22,6 +24,7 @@ function Card() {
 	const [cardData, setCardData] = useState({
 		cardType: 1,
 		cardName: '신한카드 Deep Dream Platinum+',
+		cardSeq:1
 	});
 
 	const [wasteData, setWasteData] = useState({
@@ -86,9 +89,24 @@ function Card() {
 		],
 	});
 
+	// 카테고리 이미지 매핑
 	const mapCategoryToImage = (category) => {
 		return categoryImages[category] || null;
 	};
+
+	// 카드 이미지 매핑
+	const getCardImage = (cardName) => {
+		switch (cardName) {
+		  case '신한카드 Deep Dream Platinum+':
+			return cardShinhanDD;
+		  case '신한카드 봄':
+			return cardShinhanBom;
+		  case '신한카드 Deep Oil':
+			return cardShinhanDO;
+		  default:
+			return cardShinhanDD;
+		}
+	  };
 
 	// 카드 정보 api
 	const getCardData = async () => {
@@ -98,11 +116,11 @@ function Card() {
 				Authorization: `Bearer ${token}`,
 			};
 
-			const response = await axios.get(`${process.env.REACT_APP_SERVER_PORT}/consumption`, {
+			const response = await axios.get(`${process.env.REACT_APP_SERVER_PORT}/card`, {
 				headers,
 			});
 			console.log('카드 정보 api', response.data.data);
-			setCardData(response.data.data); //카드 번호, 카드 이름
+			setCardData(response.data.data); 
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
 		}
@@ -117,7 +135,7 @@ function Card() {
 		  };
 	
 		  const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/consumption/${selectedMonth}`, //월 보내주기
+			`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
 			{
 			  headers,
 			}
@@ -138,7 +156,7 @@ function Card() {
 		  };
 	
 		  const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
+			`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
 			{
 			  headers,
 			}
@@ -244,7 +262,7 @@ function Card() {
 					<Grid theme='cardSection'>
 						<Grid theme='cardDescription'>보유 카드</Grid>
 						<Grid theme='cardDescriptionSmall'>{cardData.cardName}</Grid>
-						<Img theme='cardShinhanDD' src={cardShinhanDD} alt='cardShinhanDD' />
+						<Img theme='cardShinhanDD' src={getCardImage(cardData.cardName)} alt='cardShinhanDD' />
 					</Grid>
 				</>
 			)}
