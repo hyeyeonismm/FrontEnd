@@ -24,6 +24,9 @@ const styles = {
 		fontSize: '18px',
 		fontWeight: 700,
 	},
+	home:{
+		marginRight : '60px'
+	},
 
 	// 회원가입
 	signupBtn: {
@@ -162,6 +165,12 @@ const styles = {
 		display: 'flex',
 		minWidth: '40px',
 	},
+	//마이페이지
+	logout:{
+		padding: 0,
+		marginLeft: '125px'
+		
+	}
 };
 
 export const StyledButton = styled(MuiButton)(({ theme }) => ({

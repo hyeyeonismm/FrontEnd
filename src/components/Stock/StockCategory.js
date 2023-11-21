@@ -14,78 +14,78 @@ function StockCategory() {
 	const userName = localStorage.getItem('userName');
 	const [stockEarningData, setStockEarningData] = useState([
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
-			stockPrice: '99230',
-			stockRange: '+8.9',
+			stockName: "에이치피오",
+			stockRange: "9.03",
+			stockClose: "7730",
+			stockCode: "357230"
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
-			stockPrice: '99230',
-			stockRange: '+8.9',
+			stockName: "에이치피오",
+			stockRange: "9.03",
+			stockClose: "7730",
+			stockCode: "357230"
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
-			stockPrice: '99230',
-			stockRange: '+8.9',
+			stockName: "에이치피오",
+			stockRange: "9.03",
+			stockClose: "7730",
+			stockCode: "357230"
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
-			stockPrice: '99230',
-			stockRange: '+8.9',
+			stockName: "에이치피오",
+			stockRange: "9.03",
+			stockClose: "7730",
+			stockCode: "357230"
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
-			stockPrice: '99230',
-			stockRange: '+8.9',
+			stockName: "에이치피오",
+			stockRange: "9.03",
+			stockClose: "7730",
+			stockCode: "357230"
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
-			stockPrice: '99230',
-			stockRange: '+8.9',
+			stockName: "에이치피오",
+			stockRange: "9.03",
+			stockClose: "7730",
+			stockCode: "357230"
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
-			stockPrice: '99230',
-			stockRange: '+8.9',
+			stockName: "에이치피오",
+			stockRange: "9.03",
+			stockClose: "7730",
+			stockCode: "357230"
 		},
 	]);
 	const [stockCapData, setStocCapData] = useState([
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
 			marketCap: '992303484480',
+			stockName: '오리온홀딩스',
+			stockCode: '001800',
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
 			marketCap: '992303484480',
+			stockName: '오리온홀딩스',
+			stockCode: '001800',
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
 			marketCap: '992303484480',
+			stockName: '오리온홀딩스',
+			stockCode: '001800',
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
 			marketCap: '992303484480',
+			stockName: '오리온홀딩스',
+			stockCode: '001800',
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
 			marketCap: '992303484480',
+			stockName: '오리온홀딩스',
+			stockCode: '001800',
 		},
 		{
-			stockCode: '001800',
-			stockName: '오리온홀딩스',
 			marketCap: '992303484480',
+			stockName: '오리온홀딩스',
+			stockCode: '001800',
 		},
 	]);
 
@@ -215,42 +215,42 @@ function StockCategory() {
 								</button>
 							</Grid>
 
-							{selectedTab === '수익률' && (
-								<>
-									<Grid theme='stock_list'>
-										{stockEarningData.map((stock, index) => (
-											<Grid key={index}>
-												<Button theme='categoryBtn' onClick={() => onClickStock(stock)}>
-													{/* <Img theme='category_icon' src={stock.icon} alt={stock.name} /> */}
-													<Grid theme='category_font'>{stock.stockName}</Grid>
-													<Grid theme='stock_percentage'>{stock.stockPrice}</Grid>
-													<Grid theme='stock_percentage'>{stock.stockRange}</Grid>
-												</Button>
-											</Grid>
-										))}
-									</Grid>
-								</>
-							)}
-							{selectedTab === '시가총액' && (
-								<>
-									<Grid theme='stock_list'>
-										{stockCapData.map((stock, index) => (
-											<Grid theme='category_img'>
-												<Grid key={index}>{/* <Img theme='category_img' src={stock.icon} alt={stock.name} /> */}</Grid>
-											</Grid>
-										))}
-										{stockCapData.map((stock, index) => (
-											<Grid key={index}>
-												<Button theme='categoryBtn' onClick={() => onClickStock(stock)}>
-													{/* <Img theme='category_icon' src={stock.icon} alt={stock.name} /> */}
-													<Grid theme='category_font'>{stock.stockName}</Grid>
-													<Grid theme='stock_percentage'>{stock.marketCap}원</Grid>
-												</Button>
-											</Grid>
-										))}
-									</Grid>
-								</>
-							)}
+						{selectedTab === '수익률' && (
+							<>
+								<Grid theme='stock_list'>
+									{stockEarningData.map((stock, index) => (
+										<Grid key={index}>
+											<Button theme='categoryBtn' onClick={() => onClickStock(stock)}>
+												{/* <Img theme='category_icon' src={stock.icon} alt={stock.name} /> */}
+												<Grid theme='category_font'>{stock.stockName}</Grid>
+												<Grid theme='stock_percentage'>{stock.stockClose}</Grid>
+												<Grid theme='stock_percentage'>{stock.stockRange}</Grid>
+											</Button>
+										</Grid>
+									))}
+								</Grid>
+							</>
+						)}
+						{selectedTab === '시가총액' && (
+							<>
+								<Grid theme='stock_list'>
+									{stockCapData.map((stock, index) => (
+										<Grid theme='category_img'>
+											<Grid key={index}>{/* <Img theme='category_img' src={stock.icon} alt={stock.name} /> */}</Grid>
+										</Grid>
+									))}
+									{stockCapData.map((stock, index) => (
+										<Grid key={index}>
+											<Button theme='categoryBtn' onClick={() => onClickStock(stock)}>
+												{/* <Img theme='category_icon' src={stock.icon} alt={stock.name} /> */}
+												<Grid theme='category_font'>{stock.stockName}</Grid>
+												<Grid theme='stock_percentage'>{stock.marketCap}원</Grid>
+											</Button>
+										</Grid>
+									))}
+								</Grid>
+							</>
+						)}
 						</Grid>
 					</>
 				)}
