@@ -72,7 +72,7 @@ function StockCategory() {
 				},
 			);
 			console.log('카테고리별 종목(시가총액)', response.data.data);
-			setStocCapData(response.data.data);
+			setStockCapData(response.data.data);
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
 		}
