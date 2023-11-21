@@ -15,18 +15,18 @@ module.exports = function (app) {
 			changeOrigin: true,
 		}),
 	);
-	// app.use(
-	// 	'/auth',
-	// 	createProxyMiddleware({
-	// 		target: process.env.REACT_APP_BACKEND_SERVER_PORT,
-	// 		changeOrigin: true,
-	// 	}),
-	// );
-	// app.use(
-	// 	'/card',
-	// 	createProxyMiddleware({
-	// 		target: 'process.env.REACT_APP_BACKEND_SERVER_PORT',
-	// 		changeOrigin: true,
-	// 	}),
-	// );
+	app.use(
+		'/auth',
+		createProxyMiddleware({
+			target: process.env.REACT_APP_SERVER_PORT,
+			changeOrigin: true,
+		}),
+	);
+	app.use(
+		'/card',
+		createProxyMiddleware({
+			target: process.env.REACT_APP_SERVER_PORT,
+			changeOrigin: true,
+		}),
+	);
 };
