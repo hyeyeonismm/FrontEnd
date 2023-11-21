@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index';
 import StockTopNav from './StockTopNav';
-import axios from 'axios';
+import instance from '../../api/axios';
 import { categoryImages } from '../constants';
 
 function StockCategory() {
@@ -115,7 +115,7 @@ function StockCategory() {
 				Authorization: `Bearer ${token}`,
 			};
 
-			const response = await axios.get(
+			const response = await instance.get(
 				`/link/stock/earning/${selectedCategory}`, //카테고리 보내주기
 				{
 					headers,
@@ -136,7 +136,7 @@ function StockCategory() {
 				Authorization: `Bearer ${token}`,
 			};
 
-			const response = await axios.get(
+			const response = await instance.get(
 				`/link/stock/cap/${selectedCategory}`, //카테고리 보내주기
 				{
 					headers,

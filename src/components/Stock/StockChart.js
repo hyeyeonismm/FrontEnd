@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ApexChart from 'react-apexcharts';
 import { Grid, Button } from '../index';
-import instance from '../../api/axios';
+import indiInstance from '../../api/indi';
 
 function StockChart({ formattedDate, formattedPastDate, stockCode }) {
 	const [series, setSeries] = useState([]);
@@ -13,7 +13,7 @@ function StockChart({ formattedDate, formattedPastDate, stockCode }) {
 					end_date: formattedDate,
 				};
 
-				const response = await instance.post(`/stock/ohlc/${stockCode}`, requestData);
+				const response = await indiInstance.post(`/stock/ohlc/${stockCode}`, requestData);
 				if (response.data) {
 					const transformedData = response.data.result.map((item) => {
 						return {

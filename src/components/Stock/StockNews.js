@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Button } from '../index';
-import axios from 'axios';
+import indiInstance from '../../api/indi';
 import { BeatLoader } from 'react-spinners';
 import StockNewsModal from './StockNewsModal';
 
@@ -24,7 +24,7 @@ function StockNews({ stockName, formattedDate, stockCode }) {
 					news_type: '2',
 				};
 
-				const response = await axiosInstance.post(`/news/${stockCode}`, requestData);
+				const response = await indiInstance.post(`/news/${stockCode}`, requestData);
 				if (response.data) {
 					const newsItems = response.data.result.slice(0, 8).map((newsItem) => ({
 						newsTitle: newsItem.news_title,
