@@ -70,7 +70,7 @@ function Card() {
 	};
 
 	// n월 카테고리별 세부내역 내역 api
-	const getDetailWasteList = async (selectedMonth, selectedCategory) => {
+	const getDetailWasteList = async (selectedMonth, category) => {
 		try {
 			const token = localStorage.getItem('token');
 			const headers = {
@@ -78,12 +78,12 @@ function Card() {
 			};
 
 			const response = await instance.get(
-				`${process.env.REACT_APP_SERVER_PORT}/card/${cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
+				`${process.env.REACT_APP_SERVER_PORT}/card/${cardSeq}/consumption/${selectedMonth}/${category}`, //월, 카테고리 보내주기
 				{
 					headers,
 				},
 			);
-			console.log(`${selectedMonth}월 ${selectedCategory} 세부내역 api`, response.data.data);
+			console.log(`${selectedMonth}월 ${category} 세부내역 api`, response.data.data);
 			setWasteDetailData(response.data.data);
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
