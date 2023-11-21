@@ -13,11 +13,6 @@ function Onboarding() {
 
 	return (
 		<>
-			{/* <Grid theme='header'>
-				<div style={{ marginLeft: '45px', justifyContent: 'center', flex: 1 }}>
-					<Grid theme='headerTitle'>Link Stock</Grid>
-				</div>
-			</Grid> */}
 			<Grid theme='main'>
 				<Grid theme='introTagLine'>소비 데이터 기반 주식 추천 서비스</Grid>
 				<Img theme='logoImg' src={logo} alt='logo' />

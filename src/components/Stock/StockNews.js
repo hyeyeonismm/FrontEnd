@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { Grid, Img, Button } from '../index';
+import { Grid, Button } from '../index';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import StockNewsModal from './StockNewsModal';
@@ -35,13 +34,6 @@ function StockNews({ stockName, formattedDate, stockCode }) {
 
 					setLoading(false);
 					setNewsList(newsItems);
-
-					// const newsTitles = response.data.result.slice(0, 10).map((newsItem) => newsItem.news_title);
-					// const newsType = response.data.result.slice(0, 10).map((newsItem) => newsItem.news_type);
-					// const newsCode = response.data.result.slice(0, 10).map((newsItem) => newsItem.news_code);
-					// setNewsList(newsTitles);
-					// console.log(newsType);
-					// console.log(newsCode);
 				} else {
 					console.log(response);
 				}

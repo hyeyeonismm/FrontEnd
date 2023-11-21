@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
 import OnboardingSlide from '../components/OnboardingSlide';
 import { useNavigate } from 'react-router-dom';
-import { TextField, styled } from '@mui/material';
-import { Grid, Button, Img } from '../components';
+import { Grid, Button } from '../components';
 
 function Main() {
 	const navigate = useNavigate();

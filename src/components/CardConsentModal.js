@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { styled, Modal } from '@mui/material';
-import { Button, Img, Grid } from '../components';
+import { Img, Grid } from '../components';
 import Close from '@mui/icons-material/CloseRounded';
 import check from '../assets/images/check.png';
 
-function CardConsentModal({onConsentChange} ) {
+function CardConsentModal({ onConsentChange }) {
 	const [open, setOpen] = useState(false);
 	const [selectedFirstBtn, setSelectedFirstBtn] = useState(false);
 	const [selectedSecondBtn, setSelectedSecondBtn] = useState(false);
@@ -21,7 +21,7 @@ function CardConsentModal({onConsentChange} ) {
 
 	const getConsentValue = () => {
 		return selectedFirstBtn && selectedSecondBtn ? 1 : 0;
-	  };
+	};
 
 	const firstBtnStyle = {
 		padding: '10px',

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
 import ApexChart from 'react-apexcharts';
-import { Grid, Img, Button } from '../index';
+import { Grid, Button } from '../index';
 import axios from 'axios';
 
 function StockChart({ formattedDate, formattedPastDate, stockCode }) {

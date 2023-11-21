@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Grid, Img, Button } from '../index.js';
-import arrow from '../../assets/images/arrow.svg';
 import logo from '../../assets/images/finance.png';
 import Chart from './StockChart.js';
 import News from './StockNews.js';
@@ -61,15 +60,7 @@ function StockInformation() {
 	return (
 		<>
 			<TopNav onBackButtonClick={handleBackButtonClick} />
-			{/* <div
-				style={{
-					display: 'flex',
-					flexDirection: 'row',
-					justifyContent: 'space-around',
-					alignItems: 'center',
-					marginLeft: '30px',
-					marginRight: '30px',
-				}}></div> */}
+
 			<Grid theme='about_stock'>
 				<Grid theme='stock_first'>
 					<Img theme='stock_logo' src={logo} alt='logo' />

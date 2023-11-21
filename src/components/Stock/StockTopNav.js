@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index.js';
 import TopNav from '../TopNav.js';
@@ -12,12 +11,12 @@ function StockTopNav() {
 
 	// 뒤로가기 버튼 클릭 시의 동작
 	const handleBackButtonClick = () => {
-		navigate('/stock')
-	  };
+		navigate('/stock');
+	};
 
 	return (
 		<>
-			<TopNav onBackButtonClick={handleBackButtonClick}/>
+			<TopNav onBackButtonClick={handleBackButtonClick} />
 			<Grid theme='topNavGrid'>
 				<Button theme='topNavBtn' onClick={onClickCard}>
 					<Grid>내 소비</Grid>

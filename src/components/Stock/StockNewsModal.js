@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { styled, Modal } from '@mui/material';
-import { Button, Img, Grid } from '../../components/index';
+import { Grid } from '../../components/index';
 import Close from '@mui/icons-material/CloseRounded';
 import axios from 'axios';
 

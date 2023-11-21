@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import home from '../assets/images/home.svg';
 import toggle from '../assets/images/toggle.svg';
-import mainCharacter from '../assets/images/mainCharacter.png';
 import { useNavigate } from 'react-router-dom';
 import { styled, Modal, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
@@ -12,7 +11,6 @@ import logout from '../assets/images/logout.svg';
 function TopNav({ onBackButtonClick }) {
 	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = useState(false);
-	const [selectedButton, setSelectedButton] = useState('/card');
 
 	const userName = localStorage.getItem('userName');
 	const email = sessionStorage.getItem('email');

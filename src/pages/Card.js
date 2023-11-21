@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Grid, Button, Img, Input } from '../components';
-import { categoryImages, getCategoryColor } from '../components/constants';
+import { Grid, Button, Img } from '../components';
+import { categoryImages } from '../components/constants';
 import axios from 'axios';
 import TopNav from '../components/TopNav';
 import arrowBefore from '../assets/images/arrowBefore.svg';
@@ -24,7 +24,7 @@ function Card() {
 	const [cardData, setCardData] = useState({
 		cardType: 1,
 		cardName: '신한카드 Deep Dream Platinum+',
-		cardSeq:1
+		cardSeq: 1,
 	});
 
 	const [wasteData, setWasteData] = useState({
@@ -145,16 +145,16 @@ function Card() {
 	// 카드 이미지 매핑
 	const getCardImage = (cardName) => {
 		switch (cardName) {
-		  case '신한카드 Deep Dream Platinum+':
-			return cardShinhanDD;
-		  case '신한카드 봄':
-			return cardShinhanBom;
-		  case '신한카드 Deep Oil':
-			return cardShinhanDO;
-		  default:
-			return cardShinhanDD;
+			case '신한카드 Deep Dream Platinum+':
+				return cardShinhanDD;
+			case '신한카드 봄':
+				return cardShinhanBom;
+			case '신한카드 Deep Oil':
+				return cardShinhanDO;
+			default:
+				return cardShinhanDD;
 		}
-	  };
+	};
 
 	// 카드 정보 api
 	const getCardData = async () => {
@@ -168,7 +168,7 @@ function Card() {
 				headers,
 			});
 			console.log('카드 정보 api', response.data.data);
-			setCardData(response.data.data); 
+			setCardData(response.data.data);
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
 		}
@@ -177,19 +177,19 @@ function Card() {
 	// n월 소비 내역 api
 	const getWasteList = async (selectedMonth) => {
 		try {
-		  const token = localStorage.getItem("token");
-		  const headers = {
-			Authorization: `Bearer ${token}`,
-		  };
-	
-		  const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
-			{
-			  headers,
-			}
-		  );
-		  console.log(`${selectedMonth}월 소비내역 api`, response.data.data);
-		  setWasteData(response.data.data); //monthPrice, consumption리스트 {category, categoryPrice}
+			const token = localStorage.getItem('token');
+			const headers = {
+				Authorization: `Bearer ${token}`,
+			};
+
+			const response = await axios.get(
+				`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
+				{
+					headers,
+				},
+			);
+			console.log(`${selectedMonth}월 소비내역 api`, response.data.data);
+			setWasteData(response.data.data); //monthPrice, consumption리스트 {category, categoryPrice}
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
 		}
@@ -198,19 +198,19 @@ function Card() {
 	// n월 카테고리별 세부내역 내역 api
 	const getDetailWasteList = async (selectedMonth, selectedCategory) => {
 		try {
-		  const token = localStorage.getItem("token");
-		  const headers = {
-			Authorization: `Bearer ${token}`,
-		  };
-	
-		  const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
-			{
-			  headers,
-			}
-		  );
-		  console.log(`${selectedMonth}월 ${selectedCategory} 세부내역 api`, response.data.data);
-		  setWasteDetailData(response.data.data); //categoryConsumption리스트 {shop, price}
+			const token = localStorage.getItem('token');
+			const headers = {
+				Authorization: `Bearer ${token}`,
+			};
+
+			const response = await axios.get(
+				`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
+				{
+					headers,
+				},
+			);
+			console.log(`${selectedMonth}월 ${selectedCategory} 세부내역 api`, response.data.data);
+			setWasteDetailData(response.data.data); //categoryConsumption리스트 {shop, price}
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
 		}
@@ -235,9 +235,9 @@ function Card() {
 	const handleArrowBeforeClick = () => {
 		const updatedMonth = month - 1;
 		if (updatedMonth >= 1) {
-		  setMonth(updatedMonth);
-		  getWasteList(updatedMonth);
-		  getDetailWasteList(updatedMonth, category);
+			setMonth(updatedMonth);
+			getWasteList(updatedMonth);
+			getDetailWasteList(updatedMonth, category);
 		}
 	};
 
@@ -245,9 +245,9 @@ function Card() {
 	const handleArrowAfterClick = () => {
 		const updatedMonth = month + 1;
 		if (updatedMonth <= 12) {
-		  setMonth(updatedMonth);
-		  getWasteList(updatedMonth);
-		  getDetailWasteList(updatedMonth, category);
+			setMonth(updatedMonth);
+			getWasteList(updatedMonth);
+			getDetailWasteList(updatedMonth, category);
 		}
 	};
 
@@ -260,21 +260,20 @@ function Card() {
 		setShowWaste(true);
 		setShowDetailWaste(false);
 		setShowCategoryWaste(false);
-	  };
-
+	};
 
 	useEffect(() => {
 		getCardData();
 		getWasteList(month);
 		getDetailWasteList(month, category);
-	}, [month, category]); 
+	}, [month, category]);
 
-	localStorage.setItem('cardName', cardData.cardName)
+	localStorage.setItem('cardName', cardData.cardName);
 
 	return (
 		<>
 			{/* 헤더 */}
-			<TopNav onBackButtonClick={handleBackButtonClick}  />
+			<TopNav onBackButtonClick={handleBackButtonClick} />
 			<Grid theme='topNavGrid'>
 				<Button theme='selectedBtn'>
 					<Img theme='mainCharacter' src={mainCharacter} alt='mainCharacter' />
@@ -320,12 +319,12 @@ function Card() {
 			{showDetailWaste && (
 				<>
 					<MonthWaste
-                        wasteMonth={month}
-                        amount={wasteData.monthPrice}
-                        wasteCategory={category} 
-                        getWasteList={getWasteList}
-                        getDetailWasteList={getDetailWasteList}
-                    />
+						wasteMonth={month}
+						amount={wasteData.monthPrice}
+						wasteCategory={category}
+						getWasteList={getWasteList}
+						getDetailWasteList={getDetailWasteList}
+					/>
 
 					{/* 카테고리 클릭 시에 세부 내역 */}
 					{showCategoryWaste ? (
@@ -341,16 +340,16 @@ function Card() {
 							<Grid theme='category_body'>
 								<Grid theme='categoryForm'>
 									<Grid theme='stock_list'>
-									{wasteDetailData.categoryConsumption.map((categoryItem, index) => (
-										<Button theme='cardWasteList' key={index}>
-											<div style={cardWaste}>
-												<div style={cardWasteCategory}> {categoryItem.shop} </div>
-												<div style={cardWasteAmount}> {categoryItem.price}원 </div>
-											</div>
-										</Button>
-									))}
+										{wasteDetailData.categoryConsumption.map((categoryItem, index) => (
+											<Button theme='cardWasteList' key={index}>
+												<div style={cardWaste}>
+													<div style={cardWasteCategory}> {categoryItem.shop} </div>
+													<div style={cardWasteAmount}> {categoryItem.price}원 </div>
+												</div>
+											</Button>
+										))}
+									</Grid>
 								</Grid>
-							</Grid>
 							</Grid>
 						</>
 					) : (

@@ -1,9 +1,8 @@
-import { Grid, Button, Img } from '../components';
+import { Grid, Img } from '../components';
 import Carousel from 'react-material-ui-carousel';
 import onboarding1 from '../assets/images/onboarding1.svg';
 import onboarding2 from '../assets/images/onboarding2.svg';
 import onboarding3 from '../assets/images/onboarding3.svg';
-import { FlashOnTwoTone } from '@mui/icons-material';
 
 function OnboardingSlide() {
 	const items = [
