@@ -5,6 +5,7 @@ import arrow from '../assets/images/arrow.svg';
 import logoColumn from '../assets/images/logoColumn.svg';
 import { TextField, Alert, AlertTitle } from '@mui/material';
 import { Grid, Button, Img } from '../components';
+import Footer from '../components/Footer';
 
 function Login() {
 	const navigate = useNavigate();
@@ -21,7 +22,7 @@ function Login() {
 	};
 
 	const onClickArrow = () => {
-		navigate('/onboarding');
+		navigate('/');
 	};
 
 	// email input 값 변경 시 실행되는 함수

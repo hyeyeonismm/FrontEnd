@@ -7,6 +7,7 @@ import logoColumn from '../assets/images/logoColumn.svg';
 import { TextField } from '@mui/material';
 import { Grid, Button, Img } from '../components';
 import CardConsentModal from '../components/CardConsentModal';
+import Footer from '../components/Footer';
 
 function Signup() {
 	const navigate = useNavigate();

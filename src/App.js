@@ -59,7 +59,6 @@ function App() {
 					<Route path='/card' element={<Card />} />
 					<Route path='/stock/*' element={<StockApp />} />
 				</Routes>
-        <Footer />
 			</div>
 		</BrowserRouter>
 	);
