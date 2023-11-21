@@ -9,12 +9,14 @@ import TopNav from '../TopNav.js';
 function StockInformation() {
 	const location = useLocation();
 	const stockName = location.state?.stockName;
+	const stockPrice = location.state?.stockPrice;
+	const stockCode = location.state?.stockCode;
 	const navigate = useNavigate();
 	const [showChart, setShowChart] = useState(true);
 	const [showNews, setShowNews] = useState(false);
 	const [stockData, setStockData] = useState(null);
+	const [priceGap, setPriceGap] = useState();
 
-	const stockCode = '005930';
 	// 날짜 받아오기
 	const date = new Date();
 	const pastDate = new Date(new Date().setFullYear(date.getFullYear() - 1));
@@ -38,6 +40,7 @@ function StockInformation() {
 	};
 
 	useEffect(() => {
+		console.log('실행되고: ', stockCode);
 		const socket = new WebSocket('ws://103.218.158.71:8765');
 
 		socket.onopen = (event) => {
@@ -49,12 +52,13 @@ function StockInformation() {
 			if (event.data) {
 				let numberPart = event.data.split(':')[1].trim();
 				let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
-
+				const diff = stockPrice - formattedNum;
 				console.log('Message from server:', event.data);
 				setStockData(formattedNum);
 			} else {
-				console.log('장시간이 아닙니다.');
+				console.log('장시간이 아닙니다.', stockCode);
 				setStockData('장시간이 아닙니다.');
+
 				socket.close();
 			}
 		});
@@ -75,8 +79,8 @@ function StockInformation() {
 						<Grid theme='stock_title'>{stockName}</Grid>
 						<Grid theme='stock_inform'>
 							<Grid theme='stock_price'>{stockData}</Grid>
-							<Grid theme='stock_subinform'>+913원</Grid>
-							<Grid theme='stock_subinform'>(1.6%)</Grid>
+							{/* <Grid theme='stock_subinform'>{priceGap >= 0 ? `+${priceGap}원` : `-${priceGap}원`}</Grid> */}
+							{/* <Grid theme='stock_subinform'>(1.6%)</Grid> */}
 						</Grid>
 					</Grid>
 				</Grid>
@@ -84,14 +88,16 @@ function StockInformation() {
 					{showNews ? '차트보기' : '뉴스보기'}
 				</Button>
 			</Grid>
-			{showChart && (
-				<Chart
-					formattedDate={formattedDate}
-					formattedPastDate={formattedPastDate}
-					stockCode={stockCode}
-					stockName={stockName}
-				/>
-			)}
+			{showChart &&
+				(console.log(stockCode),
+				(
+					<Chart
+						formattedDate={formattedDate}
+						formattedPastDate={formattedPastDate}
+						stockCode={stockCode}
+						stockName={stockName}
+					/>
+				))}
 			{showNews && <News stockName={stockName} formattedDate={formattedDate} stockCode={stockCode} />}
 		</>
 	);

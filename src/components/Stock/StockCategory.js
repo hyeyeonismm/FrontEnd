@@ -23,7 +23,9 @@ function StockCategory() {
 	};
 
 	const onClickStock = (stock) => {
-		navigate('/stock/information', { state: { stockName: stock.stockName } });
+		navigate('/stock/information', {
+			state: { stockName: stock.stockName, stockPrice: stock.stockClose, stockCode: stock.stockCode },
+		});
 	};
 
 	// 카테고리 이름, 이미지 매핑

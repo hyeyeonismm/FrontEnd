@@ -6,6 +6,7 @@ import indiInstance from '../../api/indi';
 function StockChart({ formattedDate, formattedPastDate, stockCode }) {
 	const [series, setSeries] = useState([]);
 	useEffect(() => {
+		console.log(stockCode);
 		const fetchCharts = async () => {
 			try {
 				const requestData = {
@@ -15,6 +16,7 @@ function StockChart({ formattedDate, formattedPastDate, stockCode }) {
 
 				const response = await indiInstance.post(`/stock/ohlc/${stockCode}`, requestData);
 				if (response.data) {
+					console.log(response);
 					const transformedData = response.data.result.map((item) => {
 						return {
 							x: item.date,
