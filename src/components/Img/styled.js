@@ -20,6 +20,7 @@ const styles = {
 	//온보딩
 	onboardingImg: {
 		width: '300px',
+		marginLeft: '20px',
 	},
 	register: {
 		width: '342px',
