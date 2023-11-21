@@ -21,7 +21,6 @@ function Card() {
 	const [category, setCategory] = useState('식비');
 	const [showCategoryWaste, setShowCategoryWaste] = useState(false);
 	const userName = localStorage.getItem('userName');
-	const [isDetailDataFetched, setIsDetailDataFetched] = useState(false);
 	const [cardData, setCardData] = useState({
 		cardType: 1,
 		cardName: '신한카드 Deep Dream Platinum+',
@@ -83,6 +82,7 @@ function Card() {
 				},
 			);
 			console.log(`${selectedMonth}월 소비내역 api`, response.data.data);
+			
 			setWasteData(response.data.data);
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
@@ -110,11 +110,29 @@ function Card() {
 		}
 	};
 
+	// 이전 달
+	const handleArrowBeforeClick = () => {
+		const updatedMonth = Math.max(1, month - 1);
+		setMonth(updatedMonth);
+		getWasteList(updatedMonth);
+		getDetailWasteList(updatedMonth, category);
+		};
+		
+
+	// 다음 달
+	const handleArrowAfterClick = () => {
+		const updatedMonth = Math.min(12, month + 1);
+		setMonth(updatedMonth);
+		getWasteList(updatedMonth);
+		getDetailWasteList(updatedMonth, category);
+	};
+
 	// 상세보기 버튼 클릭
 	const handleDetailBtnClick = () => {
 		setShowWaste(false);
 		setShowDetailWaste(true);
 		setShowCategoryWaste(false);
+		getWasteList(month)
 	};
 
 	// 카테고리 버튼 클릭
@@ -126,28 +144,6 @@ function Card() {
 		getDetailWasteList(month, selectedCategory);
 	};
 
-	// 이전 달
-	const handleArrowBeforeClick = () => {
-		const updatedMonth = Math.max(1, month - 1);
-		setMonth(updatedMonth);
-		getWasteList(updatedMonth);
-		getDetailWasteList(updatedMonth, category);
-	  };
-	  
-
-	// 다음 달
-	const handleArrowAfterClick = () => {
-		const updatedMonth = Math.min(12, month + 1);
-		setMonth(updatedMonth);
-		getWasteList(updatedMonth);
-		getDetailWasteList(updatedMonth, category);
-	};
-	  
-
-	const onClickStock = () => {
-		navigate('/stock');
-	};
-
 	// 뒤로가기 버튼 클릭 시의 동작
 	const handleBackButtonClick = () => {
 		setShowWaste(true);
@@ -155,17 +151,17 @@ function Card() {
 		setShowCategoryWaste(false);
 	};
 
-	useEffect(() => {
-		getCardData();
-		getWasteList(month);
-	},  [month]);
+	const onClickStock = () => {
+		navigate('/stock');
+	};
 
 	useEffect(() => {
-		if (showDetailWaste && !isDetailDataFetched) {
-		  getDetailWasteList(month, category);
-		  setIsDetailDataFetched(true); 
-		}
-	  }, [showDetailWaste, month, category, isDetailDataFetched]);
+		getCardData();
+		getWasteList(month)
+	}, []);
+
+
+	const monthPrice = Number(wasteData.monthPrice).toLocaleString();
 
 	return (
 		<>
@@ -195,7 +191,8 @@ function Card() {
 							<Img theme='arrowBefore' src={arrowBefore} alt='arrowBefore' />
 						</Button>
 						<Grid theme='cardDetail'>
-							<Grid>{wasteData.monthPrice}원</Grid>
+							
+							<Grid theme="monthPrice">{monthPrice}원</Grid>
 							<Button theme='detailBtn' onClick={handleDetailBtnClick} children='상세보기' />
 						</Grid>
 						<Button theme='cardArrowBtn' onClick={handleArrowAfterClick}>
@@ -217,10 +214,7 @@ function Card() {
 				<>
 					<MonthWaste
 						wasteMonth={month}
-						amount={wasteData.monthPrice}
-						wasteCategory={category}
-						getWasteList={getWasteList}
-						getDetailWasteList={getDetailWasteList}
+						wasteAmount={monthPrice}
 					/>
 
 					{/* 카테고리 클릭 시에 세부 내역 */}

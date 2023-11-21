@@ -5,43 +5,43 @@ import arrowAfter from '../assets/images/arrowAfter.svg';
 import { Grid, Button, Img } from '../components';
 import instance from '../api/axios';
 
-const MonthWaste = ({ wasteMonth, amount, wasteCategory, getWasteList, getDetailWasteList }) => {
-	const location = useLocation();
-	const [month, setMonth] = useState(wasteMonth);
-	const [category, setCategory] = useState(wasteCategory);
+const MonthWaste = ({ wasteMonth, wasteAmount}) => {
+	// const [month, setMonth] = useState(wasteMonth);
+	// const [month, setMonth] = useState(wasteMonth);
+	// const [category, setCategory] = useState(wasteCategory);
 
-	useEffect(() => {
-		// 컴포넌트가 마운트되거나 월이 변경될 때마다 데이터를 가져옴
-		getWasteList(month);
-		getDetailWasteList(month, category);
-	}, [getWasteList, getDetailWasteList, month, category]);
+	// useEffect(() => {
+	// 	// 컴포넌트가 마운트되거나 월이 변경될 때마다 데이터를 가져옴
+	// 	getWasteList(month);
+	// 	getDetailWasteList(month, category);
+	// }, [getWasteList, getDetailWasteList, month, category]);
 
-	const handleArrowBeforeClick = () => {
-		const updatedMonth = month - 1;
-		if (updatedMonth >= 1) {
-			setMonth(updatedMonth);
-		}
-	};
+	// const handleArrowBeforeClick = () => {
+	// 	const updatedMonth = month - 1;
+	// 	if (updatedMonth >= 1) {
+	// 		setMonth(updatedMonth);
+	// 	}
+	// };
 
-	const handleArrowAfterClick = () => {
-		const updatedMonth = month + 1;
-		if (updatedMonth <= 12) {
-			setMonth(updatedMonth);
-		}
-	};
+	// const handleArrowAfterClick = () => {
+	// 	const updatedMonth = month + 1;
+	// 	if (updatedMonth <= 12) {
+	// 		setMonth(updatedMonth);
+	// 	}
+	// };
 
 	return (
 		<>
 			<Grid theme='cardDetailWrap'>
-				<Button onClick={handleArrowBeforeClick}>
+				{/* <Button onClick={handleArrowBeforeClick}>
 					<Img theme='arrowBeforeDetail' src={arrowBefore} alt='arrowBeforeDetail' />
-				</Button>
-				<Grid theme='cardDetailDescription'>{month}월 소비</Grid>
-				<Button onClick={handleArrowAfterClick}>
+				</Button> */}
+				<Grid theme='cardDetailDescription'>{wasteMonth}월 소비</Grid>
+				{/* <Button onClick={handleArrowAfterClick}>
 					<Img theme='arrowAfterDetail' src={arrowAfter} alt='arrowAfterDetail' />
-				</Button>
+				</Button> */}
 			</Grid>
-			<Grid theme='cardDetailDescriptionSmall'>{amount}</Grid>
+			<Grid theme='cardDetailDescriptionSmall'>{wasteAmount}</Grid>
 		</>
 	);
 };
