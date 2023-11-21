@@ -9,6 +9,7 @@ import CardConsentModal from '../components/CardConsentModal';
 
 function Signup() {
 	const navigate = useNavigate();
+	const [modalOpen, setModalOpen] = useState(false);
 	const [sameEmail, setSameEmail] = useState(false); //이메일 중복 확인
 	const [signupData, setSignupData] = useState({
 		//회원가입 데이터
@@ -35,8 +36,10 @@ function Signup() {
 
 	// agree 시에 실행되는 함수
 	const handleConsentChange = (consentValue) => {
-	console.log("Consent Value:", consentValue);
-	// setSignupData({ ...signupData, agree: consentValue.target.value });
+		if (!modalOpen) {
+			console.log("Consent Value:", consentValue);
+			setSignupData({ ...signupData, agree: consentValue });
+		  }
 	};
 	
 	// 회원가입 데이터 전송
@@ -90,7 +93,10 @@ function Signup() {
 				</Grid>
 				<Grid theme='cardGrid'>
 					<div style={{ fontSize: '14px', color: '#757575' }}>카드내역 연동 동의서</div>
-					<CardConsentModal onConsentChange={handleConsentChange}/>
+					<CardConsentModal
+						onConsentChange={handleConsentChange}
+						onExited={() => setModalOpen(false)}
+					/>
 				</Grid>
 
 				<Grid theme='startGrid'>

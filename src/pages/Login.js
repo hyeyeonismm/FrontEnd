@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import instance from '../api/axios';
 import { useNavigate } from 'react-router-dom';
 import arrow from '../assets/images/arrow.svg';
 import register from '../assets/images/register.png';
@@ -38,8 +38,8 @@ function Login() {
 		event.preventDefault();
 
 		try {
-			const response = await axios.post(
-				'/auth/login',
+			const response = await instance.post(
+				`${process.env.REACT_APP_SERVER_PORT}/auth/login`,
 				{
 					email: email,
 					password: password,

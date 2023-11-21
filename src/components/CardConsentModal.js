@@ -4,32 +4,30 @@ import { Img, Grid } from '../components';
 import Close from '@mui/icons-material/CloseRounded';
 import check from '../assets/images/check.png';
 
-function CardConsentModal({ onConsentChange }) {
+function CardConsentModal({ onConsentChange  }) {
 	const [open, setOpen] = useState(false);
 	const [selectedFirstBtn, setSelectedFirstBtn] = useState(false);
 	const [selectedSecondBtn, setSelectedSecondBtn] = useState(false);
+	const [agreeState, setAgreeState] = useState(0);
 	const handleOpen = () => setOpen(true);
-	const handleClose = () => setOpen(false);
-
-	const onClickFirstBtn = () => {
-		setSelectedFirstBtn((current) => !current);
-		onConsentChange(getConsentValue(1));
+	const handleClose = () => {
+		const consentValue = getConsentValue(agreeState);
+		setOpen(false);
+		onConsentChange(consentValue);
 	  };
-	  
+	
+
+	  const onClickFirstBtn = () => {
+		setSelectedFirstBtn((current) => !current);
+	  };
+	
 	  const onClickSecondBtn = () => {
 		setSelectedSecondBtn((current) => !current);
-		onConsentChange(getConsentValue(1));
 	  };
-	  
-	  const getConsentValue = (agreeBefore) => {
-		
-		let agreeAfter = 0;
-		if (agreeBefore >= 2) {
-		  agreeAfter = 1;
-		} else {
-		  agreeAfter = 0;
-		}
-		return agreeAfter;
+	
+	  const getConsentValue = (agreeState) => {
+		console.log("agreeState", agreeState);
+		return agreeState;
 	  };
 
 	const firstBtnStyle = {
@@ -66,10 +64,9 @@ function CardConsentModal({ onConsentChange }) {
 		fontSize: '14px',
 	};
 
-
-
 	if (selectedFirstBtn && selectedSecondBtn) {
 		cardBtn.background = '#88BdE7';
+		setAgreeState(1);
 	} else {
 		cardBtn.background = 'transparent';
 	}
