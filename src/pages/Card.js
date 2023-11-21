@@ -21,121 +21,15 @@ function Card() {
 	const [category, setCategory] = useState('식비');
 	const [showCategoryWaste, setShowCategoryWaste] = useState(false);
 	const userName = localStorage.getItem('userName');
+	const [isDetailDataFetched, setIsDetailDataFetched] = useState(false);
 	const [cardData, setCardData] = useState({
 		cardType: 1,
 		cardName: '신한카드 Deep Dream Platinum+',
 		cardSeq: 1,
 	});
 
-	const [wasteData, setWasteData] = useState({
-		monthPrice: 510000,
-		consumption: [
-			{
-				category: '식비',
-				categoryPrice: 50000,
-			},
-			{
-				category: '패션/쇼핑',
-				categoryPrice: 50000,
-			},
-			{
-				category: '의료/건강',
-				categoryPrice: 70000,
-			},
-			{
-				category: '전기/전자',
-				categoryPrice: 80000,
-			},
-			{
-				category: '금융',
-				categoryPrice: 30000,
-			},
-			{
-				category: '생활',
-				categoryPrice: 20000,
-			},
-			{
-				category: '문화/여가',
-				categoryPrice: 10000,
-			},
-			{
-				category: '교통',
-				categoryPrice: 90000,
-			},
-			{
-				category: '교육',
-				categoryPrice: 100000,
-			},
-			{
-				category: '여행/숙박',
-				categoryPrice: 10000,
-			},
-		],
-	});
-	const [wasteDetailData, setWasteDetailData] = useState({
-		categoryConsumption: [
-			{
-				shop: '꽃보다 소',
-				price: 10000,
-			},
-			{
-				shop: '더달달 아이스크림',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-			{
-				shop: '천궁',
-				price: 20000,
-			},
-		],
-	});
+	const [wasteData, setWasteData] = useState("");
+	const [wasteDetailData, setWasteDetailData] = useState("");
 
 	// 카테고리 이미지 매핑
 	const mapCategoryToImage = (category) => {
@@ -183,13 +77,13 @@ function Card() {
 			};
 
 			const response = await instance.get(
-				`/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
+				`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
 				{
 					headers,
 				},
 			);
 			console.log(`${selectedMonth}월 소비내역 api`, response.data.data);
-			setWasteData(response.data.data); //monthPrice, consumption리스트 {category, categoryPrice}
+			setWasteData(response.data.data);
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
 		}
@@ -204,13 +98,13 @@ function Card() {
 			};
 
 			const response = await instance.get(
-				`/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
+				`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
 				{
 					headers,
 				},
 			);
 			console.log(`${selectedMonth}월 ${selectedCategory} 세부내역 api`, response.data.data);
-			setWasteDetailData(response.data.data); //categoryConsumption리스트 {shop, price}
+			setWasteDetailData(response.data.data);
 		} catch (error) {
 			console.error('Error fetching data from API: ', error);
 		}
@@ -229,27 +123,26 @@ function Card() {
 		setShowWaste(false);
 		setShowDetailWaste(true);
 		setShowCategoryWaste(true);
+		getDetailWasteList(month, selectedCategory);
 	};
 
 	// 이전 달
 	const handleArrowBeforeClick = () => {
-		const updatedMonth = month - 1;
-		if (updatedMonth >= 1) {
-			setMonth(updatedMonth);
-			getWasteList(updatedMonth);
-			getDetailWasteList(updatedMonth, category);
-		}
-	};
+		const updatedMonth = Math.max(1, month - 1);
+		setMonth(updatedMonth);
+		getWasteList(updatedMonth);
+		getDetailWasteList(updatedMonth, category);
+	  };
+	  
 
 	// 다음 달
 	const handleArrowAfterClick = () => {
-		const updatedMonth = month + 1;
-		if (updatedMonth <= 12) {
-			setMonth(updatedMonth);
-			getWasteList(updatedMonth);
-			getDetailWasteList(updatedMonth, category);
-		}
+		const updatedMonth = Math.min(12, month + 1);
+		setMonth(updatedMonth);
+		getWasteList(updatedMonth);
+		getDetailWasteList(updatedMonth, category);
 	};
+	  
 
 	const onClickStock = () => {
 		navigate('/stock');
@@ -265,10 +158,14 @@ function Card() {
 	useEffect(() => {
 		getCardData();
 		getWasteList(month);
-		getDetailWasteList(month, category);
-	}, [month, category]);
+	},  [month]);
 
-	localStorage.setItem('cardName', cardData.cardName);
+	useEffect(() => {
+		if (showDetailWaste && !isDetailDataFetched) {
+		  getDetailWasteList(month, category);
+		  setIsDetailDataFetched(true); 
+		}
+	  }, [showDetailWaste, month, category, isDetailDataFetched]);
 
 	return (
 		<>

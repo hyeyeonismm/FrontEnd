@@ -53,7 +53,7 @@ function Signup() {
 		try {
 			const response = await instance.post('/auth/signup', signupData);
 
-			if (response.data.statusCode == 200) {
+			if (response.status == 200) {
 				alert('회원가입이 완료되었습니다.');
 				setSignupData({
 					userName: '',
@@ -63,9 +63,12 @@ function Signup() {
 				});
 				navigate('/login');
 			}
+			else if (response.data.message == "회원 가입을 실패했습니다. 이메일이 이미 존재합니다.") {
+				alert('회원 가입을 실패했습니다. 이메일이 이미 존재합니다.');
+			}
 		} catch (error) {
 			console.log('회원가입 실패 ');
-			alert(error);
+			alert('회원가입 실패 ');
 			setSameEmail(true);
 		}
 	};
