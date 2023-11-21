@@ -4,28 +4,28 @@ module.exports = function (app) {
 	app.use(
 		'/news',
 		createProxyMiddleware({
-			target: 'https://2c66-103-218-158-71.ngrok-free.app/',
+			target: process.env.REACT_APP_INDI_SERVER_PORT,
 			changeOrigin: true,
 		}),
 	);
 	app.use(
 		'/stock',
 		createProxyMiddleware({
-			target: 'https://2c66-103-218-158-71.ngrok-free.app/',
+			target: process.env.REACT_APP_INDI_SERVER_PORT,
 			changeOrigin: true,
 		}),
 	);
 	// app.use(
 	// 	'/auth',
 	// 	createProxyMiddleware({
-	// 		target: 'http://backend-service:8080/',
+	// 		target: process.env.REACT_APP_BACKEND_SERVER_PORT,
 	// 		changeOrigin: true,
 	// 	}),
 	// );
 	// app.use(
 	// 	'/card',
 	// 	createProxyMiddleware({
-	// 		target: 'http://backend-service:8080/',
+	// 		target: 'process.env.REACT_APP_BACKEND_SERVER_PORT',
 	// 		changeOrigin: true,
 	// 	}),
 	// );
