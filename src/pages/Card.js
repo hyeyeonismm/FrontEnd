@@ -164,7 +164,7 @@ function Card() {
 				Authorization: `Bearer ${token}`,
 			};
 
-			const response = await axios.get(`${process.env.REACT_APP_SERVER_PORT}/card`, {
+			const response = await axios.get('/card', {
 				headers,
 			});
 			console.log('카드 정보 api', response.data.data);
@@ -183,7 +183,7 @@ function Card() {
 		  };
 	
 		  const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
+			`/card/${cardData.cardSeq}/consumption/${selectedMonth}`, //월 보내주기
 			{
 			  headers,
 			}
@@ -204,7 +204,7 @@ function Card() {
 		  };
 	
 		  const response = await axios.get(
-			`${process.env.REACT_APP_SERVER_PORT}/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
+			`/card/${cardData.cardSeq}/consumption/${selectedMonth}/${selectedCategory}`, //월, 카테고리 보내주기
 			{
 			  headers,
 			}

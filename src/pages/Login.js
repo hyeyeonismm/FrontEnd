@@ -16,58 +16,61 @@ function Login() {
 		navigate('/signup');
 	};
 
-	// const onClickStart = () => {
-	// 	navigate('/main');
-	// };
+	const onClickStart = () => {
+		navigate('/main');
+	};
 
 	const onClickArrow = () => {
 		navigate('/onboarding');
 	};
 
 	// email input 값 변경 시 실행되는 함수
-	// const handleEmailChange = (event) => {
-	// 	setEmail(event.target.value);
-	//   };
+	const handleEmailChange = (event) => {
+		setEmail(event.target.value);
+	  };
 
-	// // password input 값 변경 시 실행되는 함수
-	// const handlePasswordChange = (event) => {
-	// 	setPassword(event.target.value);
-	// };
+	// password input 값 변경 시 실행되는 함수
+	const handlePasswordChange = (event) => {
+		setPassword(event.target.value);
+	};
 
 	const handleFormSubmit = async (event) => {
-		// event.preventDefault();
+		event.preventDefault();
 
-		// try {
-		// 	const response = await axios.post(
-		// 		`${process.env.REACT_APP_SERVER_PORT}/auth/login`,
-		// 		{
-		// 			email: email,
-		// 			password: password,
-		// 		},
-		// 		{
-		// 			withCredentials: true,
-		// 		},
-		// 	);
+		try {
+			const response = await axios.post(
+				'/auth/login',
+				{
+					email: email,
+					password: password,
+				},
+				{
+					withCredentials: true,
+				},
+			);
+			
+			console.log(response);
+			
 
-		// 	// 토큰 값을 가져옴
-		// 	const token = response.data.accessToken;
-		// 	const userName = response.data.userName;
-		// 	// 토큰을 LocalStorage에 저장
-		// 	localStorage.setItem('token', token);
-		// 	// 유저 이름을 LocalStorage에 저장
-		// 	localStorage.setItem('userName', userName);
+			// 토큰 값을 가져옴
+			const token = response.data.accessToken;
+			const userName = response.data.userName;
+			// 토큰을 LocalStorage에 저장
+			localStorage.setItem('token', token);
+			// 유저 이름을 LocalStorage에 저장
+			localStorage.setItem('userName', userName);
 
 		// 로그인 성공 처리
 		console.log('로그인 성공:');
 
 		// 메인으로 이동
 		navigate('/main');
-		// } catch (error) {
-		// 	// 로그인 실패 처리
-		// 	setSuccessLogin(false);
-		// 	console.log('로그인 실패:');
-		// }
-		// sessionStorage.setItem('email', email);
+		} catch (error) {
+			// 로그인 실패 처리
+			setSuccessLogin(false);
+			console.error("로그인 실패:");
+		}
+		sessionStorage.setItem('email', email);
 	};
 
 	return (
@@ -83,14 +86,14 @@ function Login() {
 			</Grid>
 
 			<form onSubmit={handleFormSubmit}>
-				{/* <Grid theme='loginForm'>
+				<Grid theme='loginForm'>
 				<TextField id='id' label='이메일' variant='outlined' size='small' onChange={handleEmailChange} />
 				<TextField id='pw' label='패스워드' variant='outlined' size='small' onChange={handlePasswordChange} />
 				<Grid theme='loginOption'>
 					<div style={{ marginTop: '2px', color: '#757575' }}>계정이 없으신가요?</div>
 					<Button theme='signupBtn' children='회원가입' onClick={onClickSignup} />
 				</Grid>
-			</Grid> */}
+			</Grid>
 				<Grid theme='startGrid'>
 					<Button theme='startBtn' children='로그인' type='submit' />
 				</Grid>

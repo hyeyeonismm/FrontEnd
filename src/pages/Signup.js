@@ -45,7 +45,7 @@ function Signup() {
 	console.log("회원가입 데이터:", signupData);
 	try {
 		const response = await axios.post(
-		`${process.env.REACT_APP_SERVER_PORT}/auth/login`,
+		'/auth/signup',
 		signupData
 		);
 
