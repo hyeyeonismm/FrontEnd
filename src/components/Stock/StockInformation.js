@@ -10,7 +10,6 @@ function StockInformation() {
 	const location = useLocation();
 	const stockName = location.state?.stockName;
 	const navigate = useNavigate();
-	const [newSocket, setNewSocket] = useState();
 	const [showChart, setShowChart] = useState(true);
 	const [showNews, setShowNews] = useState(false);
 	const [stockData, setStockData] = useState(null);
@@ -38,50 +37,29 @@ function StockInformation() {
 		navigate('/stock');
 	};
 
-	// useEffect(() => {
-	// 	const socket = new WebSocket('wss://fresh-arguably-phoenix.ngrok-free.app');
-
-	// 	socket.addEventListener('open', () => {
-	// 		console.log('WebSocket Connected');
-	// 		socket.send(stockCode);
-	// 	});
-	// socket.onerror = function (event) {
-	// 	console.error('WebSocket Error', event);
-	// };
-
-	// socket.addEventListener('message', (event) => {
-	// 	let numberPart = event.data.split(':')[1].trim();
-	// 	let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
-
-	// 	console.log('Message from server:', event.data);
-	// 	setStockData(formattedNum);
-	// });
-
-	// return () => {
-	// 	socket.close();
-	// };
-	// }, []);
 	useEffect(() => {
-		const socket = new WebSocket('wss://fresh-arguably-phoenix.ngrok-free.app');
-		setNewSocket(socket);
+		const socket = new WebSocket('ws://103.218.158.71:8765');
 
 		socket.addEventListener('open', () => {
-			console.log('WebSocket 연결이 열렸습니다.');
+			console.log('WebSocket Connected');
 			socket.send(stockCode);
 		});
+		socket.onerror = function (event) {
+			console.error('WebSocket Error', event);
+		};
 
-		socket.addEventListener('close', () => {
-			console.log('WebSocket 연결이 닫혔습니다.');
-		});
+		socket.addEventListener('message', (event) => {
+			let numberPart = event.data.split(':')[1].trim();
+			let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
 
-		socket.addEventListener('error', (event) => {
-			console.log('WebSocket 에러:', event.data);
+			console.log('Message from server:', event.data);
+			setStockData(formattedNum);
 		});
 
 		return () => {
 			socket.close();
 		};
-	}, [stockCode]);
+	}, []);
 
 	return (
 		<>
