@@ -7,6 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Button, Img } from '../components';
 import arrow from '../assets/images/arrow.svg';
 import logout from '../assets/images/logout.svg';
+import instance from '../api/axios';
 
 function TopNav({ onBackButtonClick }) {
 	const navigate = useNavigate();
@@ -30,6 +31,21 @@ function TopNav({ onBackButtonClick }) {
 
 	const onClickButton = () => {
 		onBackButtonClick();
+	};
+
+	const onClickLogout = async () => {
+		try {
+			const token = localStorage.getItem('token');
+			const headers = {
+				Authorization: `Bearer ${token}`,
+			};
+			const response = await instance.post('/auth/logout', {}, { headers });
+			if (response.data) {
+				alert(response.data.message);
+			}
+		} catch (error) {
+			console.log('로그아웃 실패');
+		}
 	};
 
 	return (
@@ -89,7 +105,7 @@ function TopNav({ onBackButtonClick }) {
 								</Grid>
 							</Grid>
 						</Grid>
-						<Button theme='logout'>
+						<Button theme='logout' onClick={onClickLogout}>
 							<Img theme='logout' src={logout} />
 							Logout
 						</Button>
