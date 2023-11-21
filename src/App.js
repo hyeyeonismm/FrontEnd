@@ -7,6 +7,7 @@ import Card from './pages/Card';
 import Onboarding from './pages/Onboarding.js';
 import StockApp from './components/Stock/StockApp.js';
 import ROBOTO from './assets/font/Roboto-Medium.ttf';
+import Footer from './components/Footer.js';
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -58,6 +59,7 @@ function App() {
 					<Route path='/card' element={<Card />} />
 					<Route path='/stock/*' element={<StockApp />} />
 				</Routes>
+        <Footer />
 			</div>
 		</BrowserRouter>
 	);

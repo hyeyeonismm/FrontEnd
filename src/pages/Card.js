@@ -200,7 +200,7 @@ function Card() {
 					{showCategoryWaste ? (
 						<>
 							{/* 소비 세부 내역 */}
-							<Grid theme='list_icon'>
+							<Grid theme='list_icon'> 
 								<Img theme='list_icon' src={mapCategoryToImage(category)} alt={category} />
 							</Grid>
 							<Grid theme='list_grid'>
@@ -215,7 +215,7 @@ function Card() {
 											<Button theme='cardWasteList' key={index}>
 												<div style={cardWaste}>
 													<div style={cardWasteCategory}> {categoryItem.shop} </div>
-													<div style={cardWasteAmount}> {categoryItem.price}원 </div>
+													<div style={cardWasteAmount}> {Number(categoryItem.price).toLocaleString()}원 </div>
 												</div>
 											</Button>
 										))}
@@ -239,7 +239,7 @@ function Card() {
 											<div style={cardWaste}>
 												<Img src={mapCategoryToImage(categoryItem.category)} alt={categoryItem.category} />
 												<div style={cardWasteCategory}> {categoryItem.category} </div>
-												<div style={cardWasteAmount}> {categoryItem.categoryPrice}원 </div>
+												<div style={cardWasteAmount}> {Number(categoryItem.categoryPrice).toLocaleString()}원 </div>
 											</div>
 											</Button>
 										)
