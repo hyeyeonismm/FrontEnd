@@ -39,7 +39,7 @@ function Login() {
 
 		try {
 			const response = await axios.post(
-				'http://10.3.2.19:30696/auth/login',
+				'/auth/login',
 				{
 					email: email,
 					password: password,
