@@ -24,7 +24,7 @@ function StockNews({ stockName, formattedDate, stockCode }) {
 					news_type: '2',
 				};
 
-				const response = await axios.post(`/news/${stockCode}`, requestData);
+				const response = await axiosInstance.post(`/news/${stockCode}`, requestData);
 				if (response.data) {
 					const newsItems = response.data.result.slice(0, 8).map((newsItem) => ({
 						newsTitle: newsItem.news_title,
