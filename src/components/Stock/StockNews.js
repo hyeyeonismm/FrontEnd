@@ -11,39 +11,44 @@ function StockNews({ stockName, formattedDate, stockCode }) {
 	const [selectedNews, setSelectedNews] = useState({});
 
 	const onClickNews = (news) => {
-		setLoading(true);
 		setSelectedNews(news);
 		setIsModalOpen(true);
 	};
-	useEffect(() => {
+
+	const fetchNews = async () => {
 		setLoading(true);
-		const fetchNews = async () => {
-			try {
-				const requestData = {
-					search_date: formattedDate,
-					news_type: '2',
-				};
+		try {
+			const requestData = {
+				search_date: formattedDate,
+				news_type: '2',
+			};
 
-				const response = await indiInstance.post(`/news/${stockCode}`, requestData);
-				if (response.data) {
-					const newsItems = response.data.result.slice(0, 8).map((newsItem) => ({
-						newsTitle: newsItem.news_title,
-						newsType: newsItem.news_type,
-						newsCode: newsItem.news_code,
-					}));
+			const response = await indiInstance.post(`/news/${stockCode}`, requestData);
+			if (response.data) {
+				const newsItems = response.data.result.slice(0, 8).map((newsItem) => ({
+					newsTitle: newsItem.news_title,
+					newsType: newsItem.news_type,
+					newsCode: newsItem.news_code,
+				}));
 
-					setLoading(false);
-					setNewsList(newsItems);
-				} else {
-					console.log(response);
-				}
-			} catch (error) {
+				setNewsList(newsItems);
+			} else {
 				setLoading(false);
-				console.log(error);
+				console.log(response);
 			}
-		};
-		fetchNews();
-	}, [stockName, formattedDate, stockCode]);
+		} catch (error) {
+			setLoading(false);
+			console.log(error);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	useEffect(() => {
+		if (!isModalOpen) {
+			fetchNews();
+		}
+	}, [isModalOpen, formattedDate, stockCode]);
 
 	return (
 		<>
