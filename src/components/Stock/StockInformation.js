@@ -4,8 +4,8 @@ import { Grid, Img, Button } from '../index.js';
 import logo from '../../assets/images/finance.png';
 import Chart from './StockChart.js';
 import News from './StockNews.js';
-import TopNav from '../TopNav.js';
-import Footer from '../Footer.js';
+import TopNav from '../TopNav/TopNav.js';
+import Footer from '../Footer/Footer.js';
 
 function StockInformation() {
 	const location = useLocation();

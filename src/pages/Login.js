@@ -5,7 +5,7 @@ import arrow from '../assets/images/arrow.svg';
 import logoColumn from '../assets/images/logoColumn.svg';
 import { TextField, Alert, AlertTitle } from '@mui/material';
 import { Grid, Button, Img } from '../components';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer/Footer';
 
 function Login() {
 	const navigate = useNavigate();

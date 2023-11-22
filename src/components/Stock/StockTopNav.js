@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index.js';
-import TopNav from '../TopNav.js';
+import TopNav from '../TopNav/TopNav.js';
 import mainCharacter from '../../assets/images/mainCharacter.png';
 
 function StockTopNav() {

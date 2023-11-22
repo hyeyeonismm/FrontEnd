@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Grid, Button, Img } from '../components';
-import { categoryImages } from '../components/constants';
+import { categoryImages } from '../components/Card/constants';
 import instance from '../api/axios';
-import TopNav from '../components/TopNav';
+import TopNav from '../components/TopNav/TopNav';
 import arrowBefore from '../assets/images/arrowBefore.svg';
 import arrowAfter from '../assets/images/arrowAfter.svg';
 import cardShinhanDD from '../assets/images/cardShinhanDD.png';
 import cardShinhanBom from '../assets/images/cardShinhanBom.png';
 import cardShinhanDO from '../assets/images/cardShinhanDO.png';
-import WasteBar from '../components/WasteBar';
-import MonthWaste from '../components/MonthWaste';
+import WasteBar from '../components/Card/WasteBar';
+import MonthWaste from '../components/Card/MonthWaste';
 import mainCharacter from '../assets/images/mainCharacter.png';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer/Footer';
 
 function Card() {
 	const navigate = useNavigate();
@@ -102,7 +102,7 @@ function Card() {
 
 	// 다음 달
 	const handleArrowAfterClick = () => {
-		const updatedMonth = Math.min(12, month + 1);
+		const updatedMonth = Math.min(11, month + 1);
 		setMonth(updatedMonth);
 		getWasteList(updatedMonth);
 		getDetailWasteList(updatedMonth, category);

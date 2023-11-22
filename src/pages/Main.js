@@ -1,4 +1,4 @@
-import OnboardingSlide from '../components/OnboardingSlide';
+import OnboardingSlide from '../components/Onboarding/OnboardingSlide';
 import { useNavigate, useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { Grid, Button } from '../components';

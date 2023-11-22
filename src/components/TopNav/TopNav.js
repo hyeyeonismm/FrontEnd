@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import home from '../assets/images/home.svg';
-import toggle from '../assets/images/toggle.svg';
+import home from '../../assets/images/home.svg';
+import toggle from '../../assets/images/toggle.svg';
 import { useNavigate } from 'react-router-dom';
 import { styled, Modal, Box, Dialog } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { Grid, Button, Img } from '../components';
-import arrow from '../assets/images/arrow.svg';
-import logout from '../assets/images/logout.svg';
-import instance from '../api/axios';
+import { Grid, Button, Img } from '..';
+import arrow from '../../assets/images/arrow.svg';
+import logout from '../../assets/images/logout.svg';
+import instance from '../../api/axios';
 
 function TopNav({ onBackButtonClick }) {
 	const navigate = useNavigate();

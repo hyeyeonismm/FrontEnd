@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { categoryImages, getCategoryColor } from '../components/constants';
+import { categoryImages, getCategoryColor } from '../Card/constants';
 
 const WasteBar = ({ data }) => {
   const [chartData, setChartData] = useState([]);
