@@ -148,6 +148,7 @@ const styles = {
 		},
 	},
 	showBtn: {
+		width: '130px',
 		height: '40px',
 		margin: '8px 0px 0px 20px',
 		color: '#fff',

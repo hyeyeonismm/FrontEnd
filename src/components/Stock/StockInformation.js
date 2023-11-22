@@ -52,19 +52,19 @@ function StockInformation() {
 		};
 		socket.addEventListener('message', (event) => {
 			if (event.data != null) {
-				let splitData = event.data.split(':');
-				if (splitData.length > 1) {
+				if (event.data.includes(':')) {
+					let splitData = event.data.split(':');
+
 					let numberPart = splitData[1].trim();
 					let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
 
 					console.log('Message from server:', event.data);
 					setStockData(`${formattedNum}원`);
 				} else {
-					console.log('Received data does not contain expected format:', event.data);
-					// Handle the case where the data does not have the expected format
+					setStockData(event.data);
+					console.log('Data does not contain a colon:', event.data);
 				}
 			} else {
-				console.log('장시간이 아닙니다.');
 				setStockData('장시간이 아닙니다.');
 			}
 		});
