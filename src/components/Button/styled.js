@@ -127,6 +127,18 @@ const styles = {
 		padding: '0px 10px',
 		color: '#000',
 	},
+	marketCapBtn: {
+		gap: 10,
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'flex-start',
+		margin: '10px',
+		width: '94%',
+		height: '64px',
+		padding: '0px 10px',
+		color: '#000',
+		marginLeft: '35px',
+	},
 	shinhanLinkBtn: {
 		padding: '10px 15px',
 		color: '#fff',

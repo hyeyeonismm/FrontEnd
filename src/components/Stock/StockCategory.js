@@ -181,8 +181,7 @@ function StockCategory() {
 
 										{stockCapData.map((stock, index) => (
 											<Grid key={index}>
-												<Button theme='categoryBtn' onClick={() => onClickStock(stock)}>
-													{/* <Img theme='category_icon' src={stock.icon} alt={stock.name} /> */}
+												<Button theme='marketCapBtn' onClick={() => onClickStock(stock)}>
 													<Grid theme='category_font'>{stock.stockName}</Grid>
 													<Grid theme='stock_percentage'>{parseFloat(stock.marketCap).toLocaleString()}원</Grid>
 												</Button>
