@@ -32,10 +32,21 @@ function StockCategory() {
 	// 카테고리 이름, 이미지 매핑
 	const mapCategoryToImage = (category) => categoryImages[category] || null;
 
-	const categoryData = Array.from({ length: 5 }, (_, index) => ({
-		name: JSON.parse(localStorage.getItem(`category${index}`)),
-		icon: mapCategoryToImage(JSON.parse(localStorage.getItem(`category${index}`))),
-	}));
+	const uniqueNames = new Set();
+
+	const categoryData = Array.from({ length: 5 }, (_, index) => {
+		const localStorageKey = `category${index}`;
+		const name = JSON.parse(localStorage.getItem(localStorageKey));
+		const icon = mapCategoryToImage(name);
+		if (!uniqueNames.has(name)) {
+			// Add the name to the set
+			uniqueNames.add(name);
+			return { name, icon };
+		} else {
+		}
+	});
+
+
 
 	// 카테고리별 종목(등락률) api
 	const stockEarningList = async (category) => {
@@ -80,7 +91,7 @@ function StockCategory() {
 			console.error('Error fetching data from API: ', error);
 		}
 	};
-
+	
 	return (
 		<>
 			<StockTopNav />
