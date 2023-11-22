@@ -7,7 +7,7 @@ import Card from './pages/Card';
 import Onboarding from './pages/Onboarding.js';
 import StockApp from './components/Stock/StockApp.js';
 import ROBOTO from './assets/font/Roboto-Medium.ttf';
-import Footer from './components/Footer.js';
+import Footer from './components/Footer/Footer.js';
 
 const GlobalStyle = createGlobalStyle`
 @font-face {

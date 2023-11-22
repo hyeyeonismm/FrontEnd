@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index';
 import StockTopNav from './StockTopNav';
 import instance from '../../api/axios';
-import { categoryImages } from '../constants';
-import Footer from '../Footer';
+import { categoryImages } from '../Card/constants';
+import Footer from '../Footer/Footer';
 
 function StockCategory() {
 	const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { styled, Modal } from '@mui/material';
-import { Img, Grid } from '../components';
+import { Img, Grid } from '..';
 import Close from '@mui/icons-material/CloseRounded';
-import check from '../assets/images/check.png';
+import check from '../../assets/images/check.png';
 
 function CardConsentModal({ onConsentChange }) {
 	const [open, setOpen] = useState(false);

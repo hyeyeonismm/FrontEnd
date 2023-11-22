@@ -1,13 +1,13 @@
-import category1 from '../assets/images/category1.svg';
-import category2 from '../assets/images/category2.svg';
-import category3 from '../assets/images/category3.svg';
-import category4 from '../assets/images/category4.svg';
-import category5 from '../assets/images/category5.svg';
-import category6 from '../assets/images/category6.svg';
-import category7 from '../assets/images/category7.svg';
-import category8 from '../assets/images/category8.svg';
-import category9 from '../assets/images/category9.svg';
-import category10 from '../assets/images/category10.svg';
+import category1 from '../../assets/images/category1.svg';
+import category2 from '../../assets/images/category2.svg';
+import category3 from '../../assets/images/category3.svg';
+import category4 from '../../assets/images/category4.svg';
+import category5 from '../../assets/images/category5.svg';
+import category6 from '../../assets/images/category6.svg';
+import category7 from '../../assets/images/category7.svg';
+import category8 from '../../assets/images/category8.svg';
+import category9 from '../../assets/images/category9.svg';
+import category10 from '../../assets/images/category10.svg';
 
 export const categoryImages = {
   '식비': category1,

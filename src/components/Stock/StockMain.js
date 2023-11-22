@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { Grid, Img, Button } from '../index.js';
 import Character from '../../assets/images/character.png';
 import StockTopNav from './StockTopNav.js';
-import Footer from '../Footer.js';
+import Footer from '../Footer/Footer.js';
 
 function StockMain() {
 	const navigate = useNavigate();
