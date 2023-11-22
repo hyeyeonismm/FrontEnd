@@ -33,17 +33,19 @@ function StockCategory() {
 	// 카테고리 이름, 이미지 매핑
 	const mapCategoryToImage = (category) => categoryImages[category] || null;
 
+
 	const uniqueNames = new Set();
 
 	const categoryData = Array.from({ length: 5 }, (_, index) => {
 		const localStorageKey = `category${index}`;
 		const name = JSON.parse(localStorage.getItem(localStorageKey));
 		const icon = mapCategoryToImage(name);
+	
 		if (!uniqueNames.has(name)) {
-			// Add the name to the set
 			uniqueNames.add(name);
 			return { name, icon };
 		} else {
+			return { name: null, icon: null }; 
 		}
 	});
 
