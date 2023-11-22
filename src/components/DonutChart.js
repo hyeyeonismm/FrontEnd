@@ -12,6 +12,7 @@ function DonutChart({ data }) {
 			enabled: false,
 		},
 		legend: {
+			show: false,
 			position: 'bottom',
 			horizontalAlign: 'center',
 		},
@@ -25,10 +26,10 @@ function DonutChart({ data }) {
 
 		responsive: [
 			{
-				breakpoint: 480,
+				breakpoint: 380,
 				options: {
 					chart: {
-						width: '300px',
+						width: '250px',
 					},
 				},
 			},

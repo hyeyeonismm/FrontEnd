@@ -33,19 +33,18 @@ function StockCategory() {
 	// 카테고리 이름, 이미지 매핑
 	const mapCategoryToImage = (category) => categoryImages[category] || null;
 
-
 	const uniqueNames = new Set();
 
 	const categoryData = Array.from({ length: 5 }, (_, index) => {
 		const localStorageKey = `category${index}`;
 		const name = JSON.parse(localStorage.getItem(localStorageKey));
 		const icon = mapCategoryToImage(name);
-	
+
 		if (!uniqueNames.has(name)) {
 			uniqueNames.add(name);
 			return { name, icon };
 		} else {
-			return { name: null, icon: null }; 
+			return { name: null, icon: null };
 		}
 	});
 
@@ -177,7 +176,19 @@ function StockCategory() {
 							)}
 							{selectedTab === '시가총액' && (
 								<>
-									<DonutChart data={stockCapData} />
+									<Grid theme='stock_list'>
+										<DonutChart data={stockCapData} />
+
+										{stockCapData.map((stock, index) => (
+											<Grid key={index}>
+												<Button theme='categoryBtn' onClick={() => onClickStock(stock)}>
+													{/* <Img theme='category_icon' src={stock.icon} alt={stock.name} /> */}
+													<Grid theme='category_font'>{stock.stockName}</Grid>
+													<Grid theme='stock_percentage'>{parseFloat(stock.marketCap).toLocaleString()}원</Grid>
+												</Button>
+											</Grid>
+										))}
+									</Grid>
 								</>
 							)}
 						</Grid>
