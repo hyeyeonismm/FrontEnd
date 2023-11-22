@@ -28,7 +28,7 @@ spec:
   spec:
    containers:
     - name: client
-      image: heebin00/client:v2.4.7 ### 버전 바꾸기
+      image: heebin00/client:v2.4.8 ### 버전 바꾸기
       ports:
        - containerPort: 80
    nodeSelector:
