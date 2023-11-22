@@ -17,12 +17,14 @@ function StockChart({ formattedDate, formattedPastDate, stockCode }) {
 				const response = await indiInstance.post(`/stock/ohlc/${stockCode}`, requestData);
 				if (response.data) {
 					console.log(response);
-					const transformedData = response.data.result.map((item) => {
-						return {
-							x: item.date,
-							y: [item.open, item.high, item.low, item.close].map(Number),
-						};
-					});
+					const transformedData = response.data.result
+						.map((item) => {
+							return {
+								x: item.date,
+								y: [item.open, item.high, item.low, item.close].map(Number),
+							};
+						})
+						.reverse();
 
 					setSeries([{ name: '주식 가격', data: transformedData }]);
 				} else {
