@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { styled, Modal } from '@mui/material';
+import { styled, Modal, Alert } from '@mui/material';
 import { Grid } from '../../components/index';
 import Close from '@mui/icons-material/CloseRounded';
 import indiInstance from '../../api/indi';
@@ -16,7 +16,7 @@ function StockNewsModal({ isOpen, onClose, news, formattedDate }) {
 						search_date: formattedDate,
 						news_type_code: news.newsType,
 					};
-
+					console.log(news.newsCode);
 					const response = await indiInstance.post(`/news/detail/${news.newsCode}`, requestData);
 					if (response.data) {
 						setModalData(response.data.message.result[0]);
@@ -30,7 +30,7 @@ function StockNewsModal({ isOpen, onClose, news, formattedDate }) {
 
 			fetchData();
 		}
-	}, [isOpen]);
+	}, [isOpen, news, formattedDate]);
 	return (
 		<>
 			<Modal open={isOpen} onClose={onClose}>
@@ -40,7 +40,7 @@ function StockNewsModal({ isOpen, onClose, news, formattedDate }) {
 						<Grid theme='modal_title'>{news.newsTitle}</Grid>
 					</Grid>
 					<Grid theme='modal_section'>
-						<div dangerouslySetInnerHTML={{ __html: modalData }} />
+						{modalData ? <div dangerouslySetInnerHTML={{ __html: modalData }} /> : <div>헤드라인 뉴스입니다.</div>}
 					</Grid>
 				</Grid>
 			</Modal>

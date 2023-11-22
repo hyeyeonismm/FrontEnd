@@ -12,6 +12,7 @@ function StockNews({ stockName, formattedDate, stockCode }) {
 
 	const onClickNews = (news) => {
 		setSelectedNews(news);
+
 		setIsModalOpen(true);
 	};
 
