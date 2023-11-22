@@ -102,7 +102,7 @@ function Card() {
 
 	// 다음 달
 	const handleArrowAfterClick = () => {
-		const updatedMonth = Math.min(12, month + 1);
+		const updatedMonth = Math.min(11, month + 1);
 		setMonth(updatedMonth);
 		getWasteList(updatedMonth);
 		getDetailWasteList(updatedMonth, category);
