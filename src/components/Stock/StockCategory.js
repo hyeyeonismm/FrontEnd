@@ -5,6 +5,7 @@ import StockTopNav from './StockTopNav';
 import instance from '../../api/axios';
 import { categoryImages } from '../constants';
 import Footer from '../Footer';
+import DonutChart from '../DonutChart.js';
 
 function StockCategory() {
 	const navigate = useNavigate();
@@ -165,17 +166,7 @@ function StockCategory() {
 							)}
 							{selectedTab === '시가총액' && (
 								<>
-									<Grid theme='stock_list'>
-										{stockCapData.map((stock, index) => (
-											<Grid key={index}>
-												<Button theme='categoryBtn' onClick={() => onClickStock(stock)}>
-													{/* <Img theme='category_icon' src={stock.icon} alt={stock.name} /> */}
-													<Grid theme='category_font'>{stock.stockName}</Grid>
-													<Grid theme='stock_percentage'>{stock.marketCap}원</Grid>
-												</Button>
-											</Grid>
-										))}
-									</Grid>
+									<DonutChart data={stockCapData} />
 								</>
 							)}
 						</Grid>

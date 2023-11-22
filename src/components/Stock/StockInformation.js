@@ -41,26 +41,31 @@ function StockInformation() {
 	};
 
 	useEffect(() => {
-		console.log('실행되고: ', stockCode);
 		const socket = new WebSocket('ws://103.218.158.71:8765');
 
-		socket.onopen = (event) => {
+		socket.addEventListener('open', () => {
 			console.log('WebSocket Connected');
 			socket.send(stockCode);
+		});
+		socket.onerror = function (event) {
+			console.error('WebSocket Error', event);
 		};
-
 		socket.addEventListener('message', (event) => {
-			if (event.data) {
-				let numberPart = event.data.split(':')[1].trim();
-				let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
-				const diff = stockPrice - formattedNum;
-				console.log('Message from server:', event.data);
-				setStockData(formattedNum);
-			} else {
-				console.log('장시간이 아닙니다.', stockCode);
-				setStockData('장시간이 아닙니다.');
+			if (event.data != null) {
+				let splitData = event.data.split(':');
+				if (splitData.length > 1) {
+					let numberPart = splitData[1].trim();
+					let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
 
-				socket.close();
+					console.log('Message from server:', event.data);
+					setStockData(`${formattedNum}원`);
+				} else {
+					console.log('Received data does not contain expected format:', event.data);
+					// Handle the case where the data does not have the expected format
+				}
+			} else {
+				console.log('장시간이 아닙니다.');
+				setStockData('장시간이 아닙니다.');
 			}
 		});
 
@@ -68,6 +73,30 @@ function StockInformation() {
 			socket.close();
 		};
 	}, []);
+
+	// useEffect(() => {
+	// 	const socket = new WebSocket('ws://103.218.158.71:8765');
+
+	// 	socket.addEventListener('open', () => {
+	// 		console.log('WebSocket Connected');
+	// 		socket.send(stockCode);
+	// 	});
+	// 	socket.onerror = function (event) {
+	// 		console.error('WebSocket Error', event);
+	// 	};
+
+	// 	socket.addEventListener('message', (event) => {
+	// 		// let numberPart = event.data.split(':')[1].trim();
+	// 		// let formattedNum = new Intl.NumberFormat('en-US').format(parseInt(numberPart));
+
+	// 		console.log('Message from server:', event.data);
+	// 		setStockData(event.data);
+	// 	});
+
+	// 	return () => {
+	// 		socket.close();
+	// 	};
+	// }, []);
 
 	return (
 		<>

@@ -14,6 +14,7 @@ function StockMain() {
 	return (
 		<>
 			<StockTopNav />
+
 			<Grid theme='stockMain_body'>
 				<Grid>소비자에서 주주가 되어봅시다.</Grid>
 				<Grid theme='stockMain_bigtxt'>
