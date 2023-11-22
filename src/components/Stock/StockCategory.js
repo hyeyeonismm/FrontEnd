@@ -183,7 +183,7 @@ function StockCategory() {
 											<Grid key={index}>
 												<Button theme='marketCapBtn' onClick={() => onClickStock(stock)}>
 													<Grid theme='category_font'>{stock.stockName}</Grid>
-													<Grid theme='stock_percentage'>{parseFloat(stock.marketCap).toLocaleString()}원</Grid>
+													<Grid theme='stockCap'>{parseFloat(stock.marketCap).toLocaleString()}원</Grid>
 												</Button>
 											</Grid>
 										))}

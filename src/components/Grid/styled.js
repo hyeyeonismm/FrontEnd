@@ -337,6 +337,9 @@ const styles = {
 		padding: '10px 50px',
 		borderBottom: '2px solid #ddd',
 	},
+	stockCap: {
+		color: 'black',
+	},
 	stock_list: {
 		height: '310px',
 		overflowY: 'scroll',
