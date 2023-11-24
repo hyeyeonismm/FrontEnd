@@ -53,11 +53,11 @@
       <td align="center"><a href="https://github.com/hee-bin"><img src="https://github.com/hee-bin.png" width="100px;" alt=""/></td>
       </tr>
       <tr>
-      <td align="center"><a href="https://github.com/kkkwp">김태우</td> 
-      <td align="center"><a href="https://github.com/LIG-JY">박상희</td>
-      <td align="center"><a href="https://github.com/younghyun-na">김하린</td>
+      <td align="center"><a href="https://github.com/kimhaech">김태우</td> 
+      <td align="center"><a href="https://github.com/C0012S">박상희</td>
+      <td align="center"><a href="https://github.com/harin1212">김하린</td>
       <td align="center"><a href="https://github.com/hyeyeonismm">김혜연</td>
-      <td align="center"><a href="https://github.com/hyeyeonismm">정희빈</td>
+      <td align="center"><a href="https://github.com/hee-bin">정희빈</td>
       </tr>
     </tr>
   </tbody>
